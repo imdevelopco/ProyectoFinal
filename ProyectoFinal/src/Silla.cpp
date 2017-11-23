@@ -6,7 +6,7 @@ Silla::Silla()
   this->tipo   = "normal";
 }
 
-Silla(string numero, string tipo){
+Silla::Silla(string numero, string tipo){
    this->numero = numero;
    this->tipo   = tipo;
 }

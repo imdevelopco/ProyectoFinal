@@ -1,6 +1,13 @@
 #ifndef COMPANIAAEREA_H
 #define COMPANIAAEREA_H
+#include <iostream>
+#include <vector>
+#include "Telefono.h"
+#include "Representante.h"
+#include "Cliente.h"
+#include "Tiquete.h"
 
+using namespace std;
 
 class CompaniaAerea
 {

@@ -1,6 +1,8 @@
 #ifndef TELEFONO_H
 #define TELEFONO_H
+#include <iostream>
 
+using namespace std;
 
 class Telefono
 {

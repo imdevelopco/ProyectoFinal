@@ -1,23 +1,18 @@
 #include "CompaniaAerea.h"
-#include <iostream>
-#include <vector>
-#include "Telefono.h"
-#include "Representante.h"
-
-using namespace std;
 
 CompaniaAerea::CompaniaAerea()
 {
   Telefono telfono;
   Representante representante;
-  this->nit            = 0000;
+  Cliente cliente;
+  this->nit            = "0";
   this->razonSocial    = "unamed";
   this->direccion      = "calle 0";
   this->paginaWeb      = "www.unamed.com";
-  this->agenda         = {telfono};
+  //this->agenda         = {telfono};
   this->representante  = representante;
   this->transaciones   = transaciones; // hay que hacer tiquetes
-  this->clientesGolden = clientesGolden;
+  //this->clientesGolden = {cliente};
 }
 
 CompaniaAerea::CompaniaAerea(string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Tiquete> transaciones, vector<Cliente> clientesGolden){
@@ -25,7 +20,7 @@ CompaniaAerea::CompaniaAerea(string nit, string razonSocial, string direccion, s
   this->razonSocial    = razonSocial;
   this->direccion      = direccion;
   this->paginaWeb      = paginaWeb;
-  this->agenda         = agenda;
+  this->agenda         = {agenda};
   this->representante  = representante;
   this->transaciones   = transaciones;
   this->clientesGolden = clientesGolden;

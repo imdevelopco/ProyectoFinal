@@ -2,6 +2,7 @@
 #define AEROPUERTO_H
 #include <iostream>
 #include <vector>
+#include "Aerolinea.h"
 
 using namespace std;
 

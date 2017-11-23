@@ -38,7 +38,6 @@ class Persona
 
     protected:
 
-      string
     private:
       string nombreCompleto, apellidoCompleto, direccion;
       string tipoDocumento; // Opciones [CC, CE, PT, TI, RC]
