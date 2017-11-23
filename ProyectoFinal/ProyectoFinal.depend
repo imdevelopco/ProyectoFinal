@@ -1,0 +1,76 @@
+# depslib dependency file v1.0
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\main.cpp
+	<iostream>
+
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\aerolinea.cpp
+	"Aerolinea.h"
+
+1511314565 c:\users\pc\github\proyectofinal\proyectofinal\include\aerolinea.h
+
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
+	"Aeropuerto.h"
+
+1511408781 c:\users\pc\github\proyectofinal\proyectofinal\include\aeropuerto.h
+	<iostream>
+	<vector>
+	"Aerolinea.h"
+
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
+	"AgenciaDeViaje.h"
+
+1511314565 c:\users\pc\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
+
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\avion.cpp
+	"Avion.h"
+
+1511314565 c:\users\pc\github\proyectofinal\proyectofinal\include\avion.h
+
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\cliente.cpp
+	"Cliente.h"
+
+1511314565 c:\users\pc\github\proyectofinal\proyectofinal\include\cliente.h
+
+1511410082 source:c:\users\pc\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
+	"CompaniaAerea.h"
+
+1511409595 c:\users\pc\github\proyectofinal\proyectofinal\include\companiaaerea.h
+	<iostream>
+	<vector>
+	"Telefono.h"
+	"Representante.h"
+	"Cliente.h"
+	"Tiquete.h"
+
+1511409136 c:\users\pc\github\proyectofinal\proyectofinal\include\telefono.h
+	<iostream>
+
+1511326604 c:\users\pc\github\proyectofinal\proyectofinal\include\representante.h
+	<iostream>
+	<ctime>
+	"Persona.h"
+
+1511409250 c:\users\pc\github\proyectofinal\proyectofinal\include\persona.h
+	<iostream>
+	<ctime>
+	"Telefono.h"
+
+1511314565 c:\users\pc\github\proyectofinal\proyectofinal\include\tiquete.h
+
+1511319954 source:c:\users\pc\github\proyectofinal\proyectofinal\src\persona.cpp
+	"Persona.h"
+
+1511326583 source:c:\users\pc\github\proyectofinal\proyectofinal\src\representante.cpp
+	"Representante.h"
+
+1511410183 source:c:\users\pc\github\proyectofinal\proyectofinal\src\silla.cpp
+	"Silla.h"
+
+1511324712 c:\users\pc\github\proyectofinal\proyectofinal\include\silla.h
+	<iostream>
+
+1511318554 source:c:\users\pc\github\proyectofinal\proyectofinal\src\telefono.cpp
+	"Telefono.h"
+
+1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\tiquete.cpp
+	"Tiquete.h"
+

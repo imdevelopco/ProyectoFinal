@@ -9,10 +9,10 @@ CompaniaAerea::CompaniaAerea()
   this->razonSocial    = "unamed";
   this->direccion      = "calle 0";
   this->paginaWeb      = "www.unamed.com";
-  //this->agenda         = {telfono};
+  this->agenda         = {telfono};
   this->representante  = representante;
   this->transaciones   = transaciones; // hay que hacer tiquetes
-  //this->clientesGolden = {cliente};
+  this->clientesGolden = {cliente};
 }
 
 CompaniaAerea::CompaniaAerea(string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Tiquete> transaciones, vector<Cliente> clientesGolden){
@@ -20,7 +20,7 @@ CompaniaAerea::CompaniaAerea(string nit, string razonSocial, string direccion, s
   this->razonSocial    = razonSocial;
   this->direccion      = direccion;
   this->paginaWeb      = paginaWeb;
-  this->agenda         = {agenda};
+  this->agenda         = agenda;
   this->representante  = representante;
   this->transaciones   = transaciones;
   this->clientesGolden = clientesGolden;
