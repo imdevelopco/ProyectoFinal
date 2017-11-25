@@ -5,11 +5,52 @@ Aerolinea::Aerolinea()
     //ctor
 }
 
-Aerolinea::Aerolinea(string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Tiquete> transaciones, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota, vector<Aeropuerto> aeropuertos):CompaniaAerea(nit, razonSocial, direccion, paginaWeb, agenda, representante, transaciones, clientesGolden){
+Aerolinea::Aerolinea(string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Tiquete> transaciones, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota):CompaniaAerea(nit, razonSocial, direccion, paginaWeb, agenda, representante, transaciones, clientesGolden){
 
 }
 
 Aerolinea::~Aerolinea()
 {
     //dtor
+}
+
+/* +───────────────────────────────────────────────────────────────────────+ */
+/*       /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$   /$$$$$$         */
+/*		 /$$__  $$| $$_____/|__  $$__/| $$_____/| $$__  $$ /$$__  $$         */
+/*		| $$  \__/| $$         | $$   | $$      | $$  \ $$| $$  \__/         */
+/*		|  $$$$$$ | $$$$$      | $$   | $$$$$   | $$$$$$$/|  $$$$$$          */
+/*		 \____  $$| $$__/      | $$   | $$__/   | $$__  $$ \____  $$         */
+/*		 /$$  \ $$| $$         | $$   | $$      | $$  \ $$ /$$  \ $$         */
+/*		|  $$$$$$/| $$$$$$$$   | $$   | $$$$$$$$| $$  | $$|  $$$$$$/         */
+/*		 \______/ |________/   |__/   |________/|__/  |__/ \______/          */
+/* +───────────────────────────────────────────────────────────────────────+ */
+/*Establece la matricula aerea de la aerolinea*/
+void Aerolinea::setMatricula(string matricula){
+  this->matriculaAerea = matricula;
+}
+
+/*Establece el total de aviones de la aerolinea*/
+void Aerolinea::setTotalPlains(int total){
+  this->totalAvionesFlota = total;
+}
+
+
+/* +───────────────────────────────────────────────────────────────────────+ */
+/*	      /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$   /$$$$$$ 	       */
+/*       /$$__  $$| $$_____/|__  $$__/| $$_____/| $$__  $$ /$$__  $$		     */
+/*      | $$  \__/| $$         | $$   | $$      | $$  \ $$| $$  \__/		     */
+/*      | $$ /$$$$| $$$$$      | $$   | $$$$$   | $$$$$$$/|  $$$$$$  		     */
+/*      | $$|_  $$| $$__/      | $$   | $$__/   | $$__  $$ \____  $$		     */
+/*      | $$  \ $$| $$         | $$   | $$      | $$  \ $$ /$$  \ $$		     */
+/*      |  $$$$$$/| $$$$$$$$   | $$   | $$$$$$$$| $$  | $$|  $$$$$$/         */
+/*       \______/ |________/   |__/   |________/|__/  |__/ \______/          */
+/* +───────────────────────────────────────────────────────────────────────+ */
+/*Retorna la matricula de la aerolinea*/
+string getMatricula(){
+  return this->matriculaAerea;
+}
+
+/*Retorna el total de aviones de la aerolinea*/
+int getTotal(){
+  return this->totalAvionesFlota;
 }

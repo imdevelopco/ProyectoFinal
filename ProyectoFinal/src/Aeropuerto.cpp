@@ -1,4 +1,5 @@
 #include "Aeropuerto.h"
+#include "Aerolinea.h"
 
 Aeropuerto::Aeropuerto()
 {
