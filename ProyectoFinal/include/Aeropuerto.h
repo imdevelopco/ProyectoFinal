@@ -1,8 +1,9 @@
 #ifndef AEROPUERTO_H
 #define AEROPUERTO_H
-#include "Aerolinea.h"
 #include <iostream>
 #include <vector>
+#include "Aerolinea.h"
+
 
 using namespace std;
 
@@ -15,6 +16,7 @@ class Aeropuerto
     protected:
 
     private:
+      int id; //id unico del aeropuerto
       string nombre;
       string abreviatura;
       int totalAvionesOperacion;

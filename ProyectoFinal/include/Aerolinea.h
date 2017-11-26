@@ -2,12 +2,7 @@
 #define AEROLINEA_H
 #include <iostream>
 #include <vector>
-#include "CompaniaAerea.h"
-#include "Representante.h"
-#include "Tiquete.h"
-#include "Telefono.h"
-#include "Cliente.h"
-
+#include <CompaniaAerea.h>
 
 using namespace std;
 
@@ -15,7 +10,7 @@ class Aerolinea : public CompaniaAerea
 {
     public:
         Aerolinea();
-        Aerolinea(string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Tiquete> transaciones, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota);
+        Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<int> transaciones, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos);
         virtual ~Aerolinea();
 
         /*---------------------------------------*/
@@ -34,7 +29,7 @@ class Aerolinea : public CompaniaAerea
     private:
       string matriculaAerea;
       int totalAvionesFlota;
-
+      vector<int> aeropuertos; //ids de los aeropuertos a los que puede viajar la aerolinea
 };
 
 #endif // AEROLINEA_H
