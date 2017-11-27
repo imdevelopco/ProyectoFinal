@@ -16,6 +16,11 @@ class CompaniaAerea
         CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<int> transaciones, vector<Cliente> clientesGolden);
         CompaniaAerea(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante);
         virtual ~CompaniaAerea();
+        /* Getters*/
+        string getNit();
+        string getRazonSocial();
+        string getDireccion();
+        string getPaginaWeb();
 
     protected:
 

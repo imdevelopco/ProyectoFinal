@@ -1,5 +1,7 @@
 #include "AgenciaDeViaje.h"
 
+using namespace std;
+
 AgenciaDeViaje::AgenciaDeViaje()
 {
     //ctor
@@ -21,4 +23,22 @@ AgenciaDeViaje::AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _d
 AgenciaDeViaje::~AgenciaDeViaje()
 {
     //dtor
+}
+    /* Getters*/
+
+string AgenciaDeViaje::getNit()
+{
+    return CompaniaAerea::getNit();
+}
+string AgenciaDeViaje::getRazonSocial()
+{
+    return CompaniaAerea::getRazonSocial();
+}
+string AgenciaDeViaje::getDireccion()
+{
+    return CompaniaAerea::getDireccion();
+}
+string AgenciaDeViaje::getPaginaWeb()
+{
+    return CompaniaAerea::getPaginaWeb();
 }

@@ -37,3 +37,20 @@ CompaniaAerea::~CompaniaAerea()
 {
     //dtor
 }
+/* Getters*/
+string CompaniaAerea::getNit()
+{
+  return nit;
+}
+string CompaniaAerea::getRazonSocial()
+{
+    return razonSocial;
+}
+string CompaniaAerea::getDireccion()
+{
+    return direccion;
+}
+string CompaniaAerea::getPaginaWeb()
+{
+    return paginaWeb;
+}
