@@ -12,6 +12,16 @@ class Aeropuerto
     public:
         Aeropuerto();
         virtual ~Aeropuerto();
+        /* Setters */
+        void setNombre(string nuevoNombre);
+        void setAbreviatura(string nuevoAbreviatura);
+        void setFlotaAviones(int nuevaCantidad);
+        void setVolumenMaximoPersonas(int nuevaCantidad);
+        /* Getters */
+        string getNombre ();
+        string getAbreviatura();
+        int getCantidadFlota ();
+        int getMaximoPersonas ();
 
     protected:
 
@@ -21,7 +31,7 @@ class Aeropuerto
       string abreviatura;
       int totalAvionesOperacion;
       vector<Aerolinea> aerolineas;
-      int volumenMaximoPasajeros;
+      int volumenMaximoPersonas;
       vector<Aeropuerto> aeropuertosDestino;
 };
 
