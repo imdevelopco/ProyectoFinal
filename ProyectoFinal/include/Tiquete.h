@@ -20,11 +20,12 @@ class Tiquete
         /*---------------------------------------*/
         /*                SETERS                 */
         /*---------------------------------------*/
+        void setId(int id);
         void setOrigen(Aeropuerto origen);
         void setDestinity(Aeropuerto des);
         void setTiquetNumber(int num);
         void setAerolinea(Aerolinea aero);
-        void setAirplain(Avion Airplain);
+        void setAirplain(Avion airplain);
         void setChair(Silla silla);
         void setStatus(string status);
         void setCliente(Cliente cliente);
@@ -32,6 +33,7 @@ class Tiquete
         /*---------------------------------------*/
         /*                GETERS                 */
         /*---------------------------------------*/
+        int getId(int id);
         Aeropuerto getOrigen();
         Aeropuerto getDestinity();
         int getTiquetNumber();
