@@ -28,6 +28,11 @@ CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string dire
   this->clientesGolden = clientesGolden;
 }
 
+
+//sobrecarga de Contructores
+CompaniaAerea::CompaniaAerea(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante){
+
+}
 CompaniaAerea::~CompaniaAerea()
 {
     //dtor
