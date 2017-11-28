@@ -10,13 +10,14 @@ class Persona
 {
     public:
         Persona();
-        Persona(string nombreCompleto, string apellidoCompleto, string direccion, string tipoDocumento, int numeroDocumento, Telefono numero, tm fechaNacimiento);
+        Persona(string primerNombre,string segundoNombre,string primerApellido,string segundoApellido, string direccion, string tipoDocumento, int numeroDocumento, Telefono numero, tm fechaNacimiento);
         virtual ~Persona();
+        void crearPersona();
 
         /*---------------------------------------*/
         /*                SETERS                 */
         /*---------------------------------------*/
-        void setName(string nombreCompleto);
+        void setName(string nombre);
         void setLastName(string apellido);
         void setAddress(string direccion);
         void setTypeDocument(string type);
@@ -37,7 +38,7 @@ class Persona
         tm getBirthday();
 
     protected:
-      string nombreCompleto, apellidoCompleto, direccion;
+      string primerNombre,segundoNombre, primerApellido,segundoApellido, direccion;
       string tipoDocumento; // Opciones [CC, CE, PT, TI, RC]
       int numeroDocumento;
       Telefono numero;

@@ -74,3 +74,110 @@
 1511314565 source:c:\users\pc\github\proyectofinal\proyectofinal\src\tiquete.cpp
 	"Tiquete.h"
 
+1511906175 source:c:\users\david\github\proyectofinal\proyectofinal\src\representante.cpp
+	"Representante.h"
+
+1511906157 c:\users\david\github\proyectofinal\proyectofinal\include\representante.h
+	<iostream>
+	<ctime>
+	"Persona.h"
+
+1511905416 c:\users\david\github\proyectofinal\proyectofinal\include\persona.h
+	<iostream>
+	<ctime>
+	"Telefono.h"
+
+1511628405 c:\users\david\github\proyectofinal\proyectofinal\include\telefono.h
+	<iostream>
+
+1511906247 source:c:\users\david\github\proyectofinal\proyectofinal\src\silla.cpp
+	"Silla.h"
+
+1511628405 c:\users\david\github\proyectofinal\proyectofinal\include\silla.h
+	<iostream>
+
+1511906275 source:c:\users\david\github\proyectofinal\proyectofinal\src\telefono.cpp
+	"Telefono.h"
+
+1511904129 source:c:\users\david\github\proyectofinal\proyectofinal\main.cpp
+	<iostream>
+	"Cliente.h"
+	"Persona.h"
+	"Aerolinea.h"
+	"Aeropuerto.h"
+	"AgenciaDeViaje.h"
+	"CompaniaAerea.h"
+	"Avion.h"
+	"Representante.h"
+	"Silla.h"
+	"Telefono.h"
+	"Tiquete.h"
+
+1511904768 c:\users\david\github\proyectofinal\proyectofinal\include\cliente.h
+	"Persona.h"
+	<iostream>
+
+1511881120 c:\users\david\github\proyectofinal\proyectofinal\include\aerolinea.h
+	<iostream>
+	<vector>
+	<CompaniaAerea.h>
+
+1511881121 c:\users\david\github\proyectofinal\proyectofinal\include\companiaaerea.h
+	<iostream>
+	<vector>
+	"Telefono.h"
+	"Representante.h"
+	"Cliente.h"
+
+1511885102 c:\users\david\github\proyectofinal\proyectofinal\include\aeropuerto.h
+	<iostream>
+	<vector>
+	"Aerolinea.h"
+
+1511822331 c:\users\david\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
+	<vector>
+	<iostream>
+	"Representante.h"
+	"Telefono.h"
+	"CompaniaAerea.h"
+	"Cliente.h"
+
+1511881121 c:\users\david\github\proyectofinal\proyectofinal\include\avion.h
+	<iostream>
+	<vector>
+	"Silla.h"
+	"Aeropuerto.h"
+
+1511787906 c:\users\david\github\proyectofinal\proyectofinal\include\tiquete.h
+	<iostream>
+	"Aeropuerto.h"
+	"Aerolinea.h"
+	"Avion.h"
+	"Silla.h"
+	"Cliente.h"
+
+1511881121 source:c:\users\david\github\proyectofinal\proyectofinal\src\aerolinea.cpp
+	"Aerolinea.h"
+
+1511885100 source:c:\users\david\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
+	"Aeropuerto.h"
+	"Aerolinea.h"
+
+1511822170 source:c:\users\david\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
+	"AgenciaDeViaje.h"
+
+1511881121 source:c:\users\david\github\proyectofinal\proyectofinal\src\avion.cpp
+	"Avion.h"
+
+1511905498 source:c:\users\david\github\proyectofinal\proyectofinal\src\cliente.cpp
+	"Cliente.h"
+
+1511881121 source:c:\users\david\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
+	"CompaniaAerea.h"
+
+1511905988 source:c:\users\david\github\proyectofinal\proyectofinal\src\persona.cpp
+	"Persona.h"
+
+1511787906 source:c:\users\david\github\proyectofinal\proyectofinal\src\tiquete.cpp
+	"Tiquete.h"
+

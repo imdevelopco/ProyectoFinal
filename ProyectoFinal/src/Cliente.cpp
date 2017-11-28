@@ -4,10 +4,12 @@ Cliente::Cliente()
 {
     //ctor
 }
-Cliente::Cliente(string _nombreCompleto, string _apellidoCompleto, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate):Persona(__apellidoCompleto,_direccion,_tipoDocumento,_numeroDocumento,number,BornDate)
+Cliente::Cliente(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate):Persona(_primerNombre,_segundoNombre,_primerApellido,_segundoApellido,_direccion, _tipoDocumento,_numeroDocumento,number,BornDate)
 {
-  this->nombreCompleto   = _nombreCompleto;
-  this->apellidoCompleto = _apellidoCompleto;
+  this->primerNombre     = _primerNombre;
+  this->segundoNombre    = _segundoNombre;
+  this->primerApellido   = _primerApellido;
+  this->segundoApellido  = _segundoApellido;
   this->direccion        = _direccion;
   this->tipoDocumento    = _tipoDocumento;
   this->numeroDocumento  = _numeroDocumento;
@@ -33,7 +35,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setName(string nombreCompleto)
 {
-  Persona::setName();
+  Persona::setName(nombreCompleto);
 }
 
 /*
@@ -44,7 +46,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setLastName(string apellido)
 {
-  Persona::setLastName();
+  Persona::setLastName(apellido);
 }
 
 /*
@@ -55,7 +57,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setAddress(string direccion)
 {
-  Persona::setAddress();
+  Persona::setAddress(direccion);
 }
 
 /*
@@ -66,7 +68,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setTypeDocument(string type)
 {
-  Persona::setTypeDocument();
+  Persona::setTypeDocument(type);
 }
 
 /*
@@ -77,7 +79,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setNumDocument(int num)
 {
-  Persona::setNumDocument();
+  Persona::setNumDocument(num);
 }
 /*
 Input: Un objeto tipo Telefono
@@ -87,7 +89,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setPhone(Telefono tel)
 {
-  Persona::setPhone();
+  Persona::setPhone(tel);
 }
 /*
 Input: estructura tm
@@ -97,7 +99,7 @@ Autor: Carlos Andres Cordoba Ramos
 */
 void Cliente::setBirthday(tm nacimiento)
 {
-  Persona::setBirthday();
+  Persona::setBirthday(nacimiento);
 }
 ////////////////////////////
 //  ┌─┐┌─┐┌┬┐┌┬┐┌─┐┬─┐┌─┐ //

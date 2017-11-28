@@ -9,7 +9,7 @@ class Representante : public Persona
 {
     public:
         Representante();
-        Representante(string nombreCompleto, string apellidoCompleto, string direccion, string tipoDocumento, int numeroDocumento, Telefono numero, tm fechaNacimiento);
+        Representante(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate);
         virtual ~Representante();
 
     protected:

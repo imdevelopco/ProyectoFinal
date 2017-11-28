@@ -1,5 +1,5 @@
 #include "Telefono.h"
-
+using namespace std;
 /*Constructor vcio, establece los atributos con vbalores predeterminados*/
 Telefono::Telefono()
 {

@@ -1,5 +1,7 @@
 #include "Silla.h"
 
+using namespace std;
+
 Silla::Silla()
 {
   this->numero = "";

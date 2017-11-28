@@ -9,11 +9,11 @@ class Cliente:public Persona
 {
     public:
         Cliente();
-        Cliente(string _nombreCompleto, string _apellidoCompleto, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate);
+        Cliente(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate);
         virtual ~Cliente();
 
         /* Setters*/
-        
+
         void setName(string nombreCompleto);
         void setLastName(string apellido);
         void setAddress(string direccion);
@@ -35,7 +35,7 @@ class Cliente:public Persona
     protected:
 
     private:
-      string nombreCompleto, apellidoCompleto, direccion;
+      string primerNombre,segundoNombre, primerApellido,segundoApellido, direccion;
       string tipoDocumento; // Opciones [CC, CE, PT, TI, RC]
       int numeroDocumento;
       Telefono numero;
