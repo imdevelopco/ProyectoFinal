@@ -5,7 +5,17 @@ Aeropuerto::Aeropuerto()
 {
     //ctor
 }
+Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas)
+{
+  this->id                    = _id;
+  this->nombre                = _nombre;
+  this->abreviatura           = _abreviatura;
+  this->totalAvionesOperacion = _totalAvionesOperacion;
+  this->volumenMaximoPersonas = _volumenMaximoPersonas;
+  vector <Aerolinea> aerolineas(0);
+  vector <Aeropuerto> aeropuertosDestino(0);
 
+}
 Aeropuerto::~Aeropuerto()
 {
     //dtor
@@ -52,7 +62,7 @@ string  Aeropuerto::getNombre (){
    Autor: Carlos Andres Cordoba Ramos */
 string  Aeropuerto::getAbreviatura (){
  return abreviatura;
-}  
+}
 /* Input: void
    output: nuemro entero
    funcion: devuelve la cantidad de aviones diponibles de determinado aeropuerto

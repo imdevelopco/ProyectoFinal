@@ -10,7 +10,9 @@ using namespace std;
 class Aeropuerto
 {
     public:
+        /* Constructores */
         Aeropuerto();
+        Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas);
         virtual ~Aeropuerto();
         /* Setters */
         void setNombre(string nuevoNombre);
