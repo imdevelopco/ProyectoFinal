@@ -37,13 +37,14 @@ class Persona
         tm getBirthday();
 
     protected:
-
-    private:
       string nombreCompleto, apellidoCompleto, direccion;
       string tipoDocumento; // Opciones [CC, CE, PT, TI, RC]
       int numeroDocumento;
       Telefono numero;
       tm fechaNacimiento;
+
+    private:
+
 };
 
 #endif // PERSONA_H
