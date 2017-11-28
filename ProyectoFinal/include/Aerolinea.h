@@ -10,7 +10,7 @@ class Aerolinea : public CompaniaAerea
 {
     public:
         Aerolinea();
-        Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<int> transaciones, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos);
+        Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos);
         virtual ~Aerolinea();
 
         /*---------------------------------------*/
