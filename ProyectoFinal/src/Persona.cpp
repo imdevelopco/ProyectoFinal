@@ -100,7 +100,7 @@ string Persona::getName(){ //retorna el nombre de la persona
   return this->nombreCompleto;
 }
 
-string Persona::getLastNAme(){ //retorna el apellido de la persona
+string Persona::getLastName(){ //retorna el apellido de la persona
   return this->apellidoCompleto;
 }
 

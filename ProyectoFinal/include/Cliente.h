@@ -1,13 +1,36 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
+#include  "Persona.h"
+#include <iostream>
 
+using namespace std;
 
-class Cliente
+class Cliente:public Persona
 {
     public:
         Cliente();
         Cliente(string _nombreCompleto, string _apellidoCompleto, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate);
         virtual ~Cliente();
+
+        /* Setters*/
+        
+        void setName(string nombreCompleto);
+        void setLastName(string apellido);
+        void setAddress(string direccion);
+        void setTypeDocument(string type);
+        void setNumDocument(int num);
+        void setPhone(Telefono tel);
+        void setBirthday(tm nacimiento);
+
+        /* Getters */
+
+        string getName();
+        string getLastName();
+        string getAddress();
+        string getTypeDocument();
+        int getNumDocument();
+        Telefono getPhone();
+        tm getBirthday();
 
     protected:
 

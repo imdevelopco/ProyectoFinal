@@ -29,7 +29,7 @@ class Persona
         /*                GETERS                 */
         /*---------------------------------------*/
         string getName();
-        string getLastNAme();
+        string getLastName();
         string getAddress();
         string getTypeDocument();
         int getNumDocument();
