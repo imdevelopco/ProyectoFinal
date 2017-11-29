@@ -30,25 +30,45 @@ Cliente::~Cliente()
 /*
 Input: cadena de texto
 Output: void
-Funcion: Cambia el nombre a determinado Cliente (Se hereda de la clase Persona)
+Funcion: Cambia el primer nombre a determinado Cliente (Se hereda de la clase Persona)
 Autor: Carlos Andres Cordoba Ramos
 */
-void Cliente::setName(string nombreCompleto)
+void Cliente::setFirstName(string nombreCompleto)
 {
-  Persona::setName(nombreCompleto);
+  Persona::setFirstName(nombreCompleto);
+}
+/*
+Input: cadena de texto
+Output: void
+Funcion: Cambia el segundo nombre a determinado Cliente (Se hereda de la clase Persona)
+Autor: Carlos Andres Cordoba Ramos
+*/
+void Cliente::setSecondName(string nombreCompleto)
+{
+  Persona::setSecondName(nombreCompleto);
 }
 
 /*
 Input: cadena de texto
 Output: void
-Funcion: Cambia el apellido a determinado Cliente (Se hereda de la clase Persona)
+Funcion: Cambia el primer apellido a determinado Cliente (Se hereda de la clase Persona)
 Autor: Carlos Andres Cordoba Ramos
 */
-void Cliente::setLastName(string apellido)
+void Cliente::setFirstLastName(string apellido)
 {
-  Persona::setLastName(apellido);
+  Persona::setFirstLastName(apellido);
 }
 
+/*
+Input: cadena de texto
+Output: void
+Funcion: Cambia el segundo apellido a determinado Cliente (Se hereda de la clase Persona)
+Autor: Carlos Andres Cordoba Ramos
+*/
+void Cliente::setSecondLastName(string apellido)
+{
+  Persona::setSecondLastName(apellido);
+}
 /*
 Input: cadena de texto
 Output: void

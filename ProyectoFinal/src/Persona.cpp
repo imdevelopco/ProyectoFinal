@@ -45,30 +45,33 @@ Persona::~Persona()
 /*		 \______/ |________/   |__/   |________/|__/  |__/ \______/          */
 /* +───────────────────────────────────────────────────────────────────────+ */
 
-/*establece el nombre de la persona, se le pasa un string que es el nombre de la
+/*establece el primer nombre de la persona, se le pasa un string que es el nombre de la
   persona, no retorna nada.
 */
-void Persona::setName(string nombre){
-  int decision;
-  do{
-    cout<<"Cual nombre desea cambiar"<<endl;
-    cout<<"primer nombre (Presione 1)"<<endl;
-    cout<<"segundo nombre (Presione 2)"<<endl;
-    cin>>decision;
-    if(decision == 1)
+void Persona::setFirstName(string nombre)
+{
     this->primerNombre=nombre;
-    else if (decision == 2)
-    this->segundoNombre=nombre;
-    else
-    cout<<"Opcion no valida"<<endl;
-  }while((decision != 1)||(decision != 2));
 }
-
-/*Establece  el apellido de la persona, recibe un string que es el  apellido, no
+/*establece el segundo nombre de la persona, se le pasa un string que es el nombre de la
+  persona, no retorna nada.
+*/
+void Persona::setSecondName(string nombre)
+{
+    this->segundoNombre=nombre;
+}
+/*Establece  el primer apellido de la persona, recibe un string que es el  apellido, no
  retorna nada (void)
 */
-void Persona::setLastName(string apellido){
-  this->primerApellido = apellido;
+void Persona::setFirstLastName(string apellido)
+{
+    this->primerApellido=apellido;
+}
+/*Establece  el  segundo apellido de la persona, recibe un string que es el  apellido, no
+ retorna nada (void)
+*/
+void Persona::setSecondLastName(string apellido)
+{
+    this->segundoApellido=apellido;
 }
 
 /*establece la direccion de la persona*/
@@ -153,14 +156,35 @@ Autor: Carlos Andres Cordoba Ramos
 
 void Persona::crearPersona()
 {
-//  char
-//  cout<<"Cual es el nombre?"<<endl;
-//  cin>>nombreCompleto;
-//  cout<< <<endl;
-//  cout<< <<endl;
-//  cout<< <<endl;
-//  cout<< <<endl;
-//  cout<< <<endl;
+  Telefono tel;
+
+
+  cout<<"Digite el nombre" <<endl;
+  cin>>primerNombre;
+  cout<<"Digite el apellido"<<endl;
+  cin>>primerApellido;
+  cout<<"Digite el direccion" <<endl;
+  cin>>direccion;
+  cout<<"Digite el tipo de documento" <<endl;
+  cin>>tipoDocumento;
+  cout<<"Digite el numero de documento" <<endl;
+  cin>>numeroDocumento;
+  //tel.llenarTelefono();
 
 
 }
+//void Persona::setName(string nombre){
+//  int decision;
+//  do{
+//    cout<<"Cual nombre desea cambiar"<<endl;
+//    cout<<"primer nombre (Presione 1)"<<endl;
+//    cout<<"segundo nombre (Presione 2)"<<endl;
+//    cin>>decision;
+//    if(decision == 1)
+//    this->primerNombre=nombre;
+//    else if (decision == 2)
+//    this->segundoNombre=nombre;
+//    else
+//    cout<<"Opcion no valida"<<endl;
+//  }while((decision != 1)||(decision != 2));
+//}

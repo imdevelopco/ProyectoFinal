@@ -17,8 +17,10 @@ class Persona
         /*---------------------------------------*/
         /*                SETERS                 */
         /*---------------------------------------*/
-        void setName(string nombre);
-        void setLastName(string apellido);
+        void setFirstName(string nombre);
+        void setSecondName(string nombre);
+        void setFirstLastName(string apellido);
+        void setSecondLastName(string apellido);
         void setAddress(string direccion);
         void setTypeDocument(string type);
         void setNumDocument(int num);

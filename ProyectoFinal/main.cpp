@@ -15,10 +15,5 @@ using namespace std;
 
 int main()
 {
-    string name;
-    Persona x;
-    cin>>name;
-    x.setName(name);
-    cout<<x.getName();
-    return 0;
+    Cliente viajero;
 }
