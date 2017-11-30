@@ -40,6 +40,7 @@
 		<Unit filename="include/Avion.h" />
 		<Unit filename="include/Cliente.h" />
 		<Unit filename="include/CompaniaAerea.h" />
+		<Unit filename="include/Control.h" />
 		<Unit filename="include/Persona.h" />
 		<Unit filename="include/Representante.h" />
 		<Unit filename="include/Silla.h" />
@@ -52,6 +53,7 @@
 		<Unit filename="src/Avion.cpp" />
 		<Unit filename="src/Cliente.cpp" />
 		<Unit filename="src/CompaniaAerea.cpp" />
+		<Unit filename="src/Control.cpp" />
 		<Unit filename="src/Persona.cpp" />
 		<Unit filename="src/Representante.cpp" />
 		<Unit filename="src/Silla.cpp" />
