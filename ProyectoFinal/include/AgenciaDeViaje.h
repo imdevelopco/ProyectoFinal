@@ -16,6 +16,7 @@ class AgenciaDeViaje:public CompaniaAerea
         AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante);
         virtual ~AgenciaDeViaje();
         /* Getters*/
+        int getId();
         string getNit();
         string getRazonSocial();
         string getDireccion();

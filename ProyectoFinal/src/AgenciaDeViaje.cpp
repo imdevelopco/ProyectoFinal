@@ -25,6 +25,10 @@ AgenciaDeViaje::~AgenciaDeViaje()
     //dtor
 }
     /* Getters*/
+//Retorna el id de la agencia
+int AgenciaDeViaje::getId(){
+  return id;
+}
 
 string AgenciaDeViaje::getNit()
 {
