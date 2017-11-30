@@ -10,10 +10,16 @@
 #include "Silla.h"
 #include "Telefono.h"
 #include "Tiquete.h"
+#include "Control.h"
 
 using namespace std;
 
 int main()
 {
+    Control control;
+    control.listRepresnts();
+    control.createRepesent();
+    control.listRepresnts();
+    
     Cliente viajero;
 }
