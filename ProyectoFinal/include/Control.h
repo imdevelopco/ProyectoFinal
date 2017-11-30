@@ -34,6 +34,7 @@ class Control
         Representante createRepesent(); //pide datos al usuario para crear un representante, por ultimo lo retorna
         Telefono createPhone(); //pide información al usuario para crear un numeo de telefono, lo retorna.
         void listRepresnts(); //lista los representantes
+        void listAgencias(); //lista las agencias
 
     protected:
 

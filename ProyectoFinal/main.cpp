@@ -17,9 +17,10 @@ using namespace std;
 int main()
 {
     Control control;
-    control.listRepresnts();
-    control.createRepesent();
-    control.listRepresnts();
-    
-    Cliente viajero;
+    cout << "Agencias al comienzo de la ejecucion" << endl;
+    control.listAgencias();
+    cout << "Crear una agencia" << endl;
+    control.crearAgencia(); //este metodo si esta guardando
+    cout << "Agencias depues de la creacon" << endl;
+    control.listAgencias(); //pero este metodo no esta mostrando la lista
 }
