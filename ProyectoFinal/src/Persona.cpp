@@ -7,8 +7,10 @@ Persona::Persona()
 	struct tm birthday = *localtime(&date);
   Telefono telefono;
 
-  //this->nombreCompleto   = "unamed person";
-  //this->apellidoCompleto = "lastname";
+  this->primerNombre     = "UnnamedPeerson";
+  this->segundoNombre    = " ";
+  this->primerApellido   = "no_lastName";
+  this->segundoApellido  = " ";
   this->direccion        = "no direction";
   this->tipoDocumento    = "CC";
   this->numeroDocumento  = 0000001;
