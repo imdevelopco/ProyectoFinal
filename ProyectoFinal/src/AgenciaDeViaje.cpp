@@ -32,17 +32,17 @@ int AgenciaDeViaje::getId(){
 
 string AgenciaDeViaje::getNit()
 {
-    return CompaniaAerea::getNit();
+    return this->nit;
 }
 string AgenciaDeViaje::getRazonSocial()
 {
-    return CompaniaAerea::getRazonSocial();
+    return this->razonSocial;
 }
 string AgenciaDeViaje::getDireccion()
 {
-    return CompaniaAerea::getDireccion();
+    return this->direccion;
 }
 string AgenciaDeViaje::getPaginaWeb()
 {
-    return CompaniaAerea::getPaginaWeb();
+    return this->paginaWeb;
 }

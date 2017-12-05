@@ -27,6 +27,15 @@ int Control::getLastAgencyId(){
   return mayor+1;
 }
 
+/*Retorna el ultimo id mas grande +1 de las aerolineas, sirve para crear el id unico*/
+int Control::getLastAerolineaId(){
+  int mayor = 0;
+  for(int i = 0; i < this->aerolineas.size(); ++i){
+    mayor = (this->aerolineas[i].getId() > mayor) ? this->aerolineas[i].getId() : mayor;
+  }
+  return mayor+1;
+}
+
 
 /*Pide información para crear un número de telefono, por ultimo lo retorna.
   createPhone() -> Telefono
@@ -195,16 +204,10 @@ void Control::listAgencias(){
   /*for(AgenciaDeViaje agencia : this->agencias){
     cout << agencia.getId()+") "+agencia.getRazonSocial() << endl;
   }*/
-cout << this->agencias.size() << endl;
+  cout << this->agencias.size() << endl;
   for(int i = 0; i < this->agencias.size(); ++i){
-    /*
-    ███████╗███████╗████████╗ ██████╗     ███╗   ██╗ ██████╗     ███████╗███████╗    ███████╗███████╗████████╗ █████╗     ██╗   ██╗██╗███████╗███╗   ██╗██████╗  ██████╗
-    ██╔════╝██╔════╝╚══██╔══╝██╔═══██╗    ████╗  ██║██╔═══██╗    ██╔════╝██╔════╝    ██╔════╝██╔════╝╚══██╔══╝██╔══██╗    ██║   ██║██║██╔════╝████╗  ██║██╔══██╗██╔═══██╗
-    █████╗  ███████╗   ██║   ██║   ██║    ██╔██╗ ██║██║   ██║    ███████╗█████╗      █████╗  ███████╗   ██║   ███████║    ██║   ██║██║█████╗  ██╔██╗ ██║██║  ██║██║   ██║
-    ██╔══╝  ╚════██║   ██║   ██║   ██║    ██║╚██╗██║██║   ██║    ╚════██║██╔══╝      ██╔══╝  ╚════██║   ██║   ██╔══██║    ╚██╗ ██╔╝██║██╔══╝  ██║╚██╗██║██║  ██║██║   ██║
-    ███████╗███████║   ██║   ╚██████╔╝    ██║ ╚████║╚██████╔╝    ███████║███████╗    ███████╗███████║   ██║   ██║  ██║     ╚████╔╝ ██║███████╗██║ ╚████║██████╔╝╚██████╔╝
-    ╚══════╝╚══════╝   ╚═╝    ╚═════╝     ╚═╝  ╚═══╝ ╚═════╝     ╚══════╝╚══════╝    ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝      ╚═══╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝  ╚═════╝
-*/
-    cout << this->agencias[i].getId()+") "+this->agencias[i].getRazonSocial() << endl;
+    cout << to_string( this->agencias[i].getId() )+") "+this->agencias[i].getRazonSocial() << endl;
   }
 }
+
+/*Pide información al usuario para crear una aerolinea*/
