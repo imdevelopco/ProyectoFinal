@@ -13,7 +13,7 @@ class CompaniaAerea
 {
     public:
         CompaniaAerea();
-        CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Cliente> clientesGolden);
+        CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante);
         CompaniaAerea(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante);
         virtual ~CompaniaAerea();
         /* Getters*/

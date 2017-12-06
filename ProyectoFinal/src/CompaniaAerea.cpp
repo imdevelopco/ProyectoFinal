@@ -16,7 +16,7 @@ CompaniaAerea::CompaniaAerea()
   this->clientesGolden.push_back(cliente);
 }
 
-CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Cliente> clientesGolden){
+CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante){
   this->id             = id;
   this->nit            = nit;
   this->razonSocial    = razonSocial;
@@ -24,7 +24,7 @@ CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string dire
   this->paginaWeb      = paginaWeb;
   this->agenda         = agenda;
   this->representante  = representante;
-  this->clientesGolden = clientesGolden;
+  //this->clientesGolden no se inisializa
   this->transaciones.push_back(0);
 }
 

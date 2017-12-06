@@ -5,7 +5,7 @@ AgenciaDeViaje::AgenciaDeViaje()
     //ctor
 }
 
-AgenciaDeViaje::AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,  vector<Telefono> agenda, Representante representante,  vector<Cliente> clientesGolden):CompaniaAerea(_id,_nit,_razonSocial,_direccion,_paginaWeb, agenda, representante, clientesGolden)
+AgenciaDeViaje::AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,  vector<Telefono> agenda, Representante representante):CompaniaAerea(_id,_nit,_razonSocial,_direccion,_paginaWeb, agenda, representante)
 {
   //SI ESTAS PROPIEDADES LAS TIENE LA CLASE PADRE, NO HAY NECESIDAD DE VOLVER A TENERLAS ACA.
   /*this-> id           =   _id;
