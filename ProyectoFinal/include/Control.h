@@ -36,6 +36,8 @@ class Control
         void listRepresnts(); //lista los representantes
         void listAgencias(); //lista las agencias
 
+        int getLastAerolineaId(); //retorna el ultimo id+1 de las aerolineas
+
     protected:
 
     private:

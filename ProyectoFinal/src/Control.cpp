@@ -192,7 +192,8 @@ void Control::crearAgencia(){
     } while(representante_id < 1 || representante_id > this->representantes.size()); //validar que eligió un representante de la lista
     representante = this->representantes[representante_id-1];
   }
-
+  //FALTA CREAR LA AGENDA Y LOS CLIENTES GOLDEN, QUE EN UN COMIENZO LOS CLIENTES GOLDEN DEBEN ESTAR VACIOS, POR LO TANTO NO DEBEN ESTAR ACA
+  //                      (id,                  nit,razonSocial,direccion,paginaWeb, agenda, representante, clientesGolden)
   AgenciaDeViaje agencia( getLastAgencyId() , nit, razon, direccion, pagina, representante);
   this->agencias.push_back(agencia);
 }
@@ -211,3 +212,44 @@ void Control::listAgencias(){
 }
 
 /*Pide información al usuario para crear una aerolinea*/
+void Control::crearAerolinea(){
+  string nit, razon, direccion, pagina, choose;
+  int representante_id;
+  Representante representante;
+  cout << "::::::::::Crear Aerolinea::::::::::" << endl;
+  cout << "Ingresa el NIT:" << endl;
+  cin >> nit;
+  cout << "Ingresa la razon social:" << endl;
+  cin >> razon;
+  cout << "Ingresa la direccion" << endl;
+  cin >> direccion;
+  cout << "Ingresa la pagina web" << endl;
+  cin >> pagina;
+
+  if(this->representantes.size() > 0){ //si hay representantes preguntamos al usuario si quiere crear uno o elegirlo
+    do {
+      cout << "Desea elegir o crear un representante (elegir,crear)" << endl;
+      cin >> choose;
+    } while(choose != "elegir" && choose != "crear");
+  }
+  else{ //si no hay representantes pasamos directamente a crearlo
+
+    choose = "crear";
+  }
+
+  if(choose == "crear"){ //crear un representante
+    representante = createRepesent();
+  }
+  else{ //elegir un representante
+    listRepresnts();
+    do {
+      cout << "Elige un representante" << endl;
+      cin >> representante_id;
+    } while(representante_id < 1 || representante_id > this->representantes.size()); //validar que eligió un representante de la lista
+    representante = this->representantes[representante_id-1];
+  }
+
+//Aerolinea(id, nit, razonSocial, direccion, paginaWeb, agenda, representante, clientesGolden, matriculaAerea, totalAvionesFlota, aeropuertos)
+  AgenciaDeViaje agencia( getLastAgencyId() , nit, razon, direccion, pagina, representante);
+  this->agencias.push_back(agencia);
+}

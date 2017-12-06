@@ -13,7 +13,7 @@ class AgenciaDeViaje:public CompaniaAerea
 {
     public:
         AgenciaDeViaje();
-        AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante);
+        AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb, vector<Telefono> agenda, Representante representante);
         virtual ~AgenciaDeViaje();
         /* Getters*/
         int getId();

@@ -25,6 +25,7 @@ CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string dire
   this->agenda         = agenda;
   this->representante  = representante;
   this->clientesGolden = clientesGolden;
+  this->transaciones.push_back(0);
 }
 
 
