@@ -37,7 +37,13 @@ CompaniaAerea::~CompaniaAerea()
 {
     //dtor
 }
+
+
 /* Getters*/
+int CompaniaAerea::getId(){
+  return id;
+}
+
 string CompaniaAerea::getNit()
 {
   return nit;

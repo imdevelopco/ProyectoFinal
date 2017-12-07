@@ -17,10 +17,10 @@ using namespace std;
 int main()
 {
     Control control;
-    cout << "Agencias al comienzo de la ejecucion" << endl;
-    control.listAgencias();
-    cout << "Crear una agencia" << endl;
-    control.crearAgencia(); //este metodo si esta guardando
-    cout << "Agencias depues de la creacon" << endl;
-    control.listAgencias(); //pero este metodo no esta mostrando la lista
+    cout << "Aerolineas al comienzo de la ejecucion" << endl;
+    control.listAerilineas();
+    cout << "Crear una aerolinea" << endl;
+    control.crearAerolinea(); 
+    cout << "Aerolineas depues de la creacon" << endl;
+    control.listAerilineas();
 }

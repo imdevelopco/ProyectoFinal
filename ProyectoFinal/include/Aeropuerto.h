@@ -20,6 +20,7 @@ class Aeropuerto
         void setFlotaAviones(int nuevaCantidad);
         void setVolumenMaximoPersonas(int nuevaCantidad);
         /* Getters */
+        int getId();
         string getNombre ();
         string getAbreviatura();
         int getCantidadFlota ();

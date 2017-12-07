@@ -17,6 +17,7 @@ class CompaniaAerea
         CompaniaAerea(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante);
         virtual ~CompaniaAerea();
         /* Getters*/
+        int getId();
         string getNit();
         string getRazonSocial();
         string getDireccion();

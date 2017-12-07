@@ -49,6 +49,16 @@ void  Aeropuerto::setFlotaAviones(int nuevaCantidad) {
 void  Aeropuerto::setVolumenMaximoPersonas(int nuevaCantidad) {
   volumenMaximoPersonas=nuevaCantidad;
 }
+
+//::::::::::::::::::::::::::::::Geters::::::::::::::::::
+/*Input: void
+  output: int
+  funcion: Retorna el id del aeropuerto
+  Autor: Camilo Arias*/
+int Aeropuerto::getId(){
+  return id;
+}
+
 /* Input: void
    output: cadena de texto
    funcion: devuelve el nombre de determinado aeropuerto

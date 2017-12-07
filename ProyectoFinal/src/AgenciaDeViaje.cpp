@@ -25,30 +25,6 @@ AgenciaDeViaje::~AgenciaDeViaje()
 }
     /* Getters*/
 //Retorna el id de la agencia
-int AgenciaDeViaje::getId(){
+/*int AgenciaDeViaje::getId(){
   return id;
-}
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-//HAY QUE VERIFICAR SI ESTOS GETERS FUNCIONAN CON EL THIS-> PORQUE ESTAS PROPIEDADES LAS TIENE LA CLASE PADRE
-//
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::
-string AgenciaDeViaje::getNit()
-{
-    return this->nit;
-}
-
-string AgenciaDeViaje::getRazonSocial()
-{
-    return this->razonSocial;
-}
-
-string AgenciaDeViaje::getDireccion()
-{
-    return this->direccion;
-}
-
-string AgenciaDeViaje::getPaginaWeb()
-{
-    return this->paginaWeb;
-}
+}*/

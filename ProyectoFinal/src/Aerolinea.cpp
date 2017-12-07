@@ -5,8 +5,10 @@ Aerolinea::Aerolinea()
     //ctor
 }
 
-Aerolinea::Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, vector<Cliente> clientesGolden, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos):CompaniaAerea(id, nit, razonSocial, direccion, paginaWeb, agenda, representante, clientesGolden){
-
+Aerolinea::Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos):CompaniaAerea(id, nit, razonSocial, direccion, paginaWeb, agenda, representante){
+  this->matriculaAerea     = matriculaAerea;
+  this->totalAvionesFlota  = totalAvionesFlota;
+  this->aeropuertos        = aeropuertos;
 }
 
 Aerolinea::~Aerolinea()
@@ -48,7 +50,6 @@ void Aerolinea::setTotalPlains(int total){
 /*       \______/ |________/   |__/   |________/|__/  |__/ \______/          */
 /* +───────────────────────────────────────────────────────────────────────+ */
 /*Retorna la matricula de la aerolinea*/
-
 string Aerolinea::getMatricula(){
   return this->matriculaAerea;
 }
