@@ -133,6 +133,8 @@ vector<Aeropuerto> Aeropuerto::getAeropuertosDestino(){
 
 /*Retorna true si una aerolinea ya se encuentra en el vactor  de aerolineas,  se
   le pasa el id de la aerolinea
+  verifyIfAerolineExist(id) -> bool      true si ya se encuentra
+  id                        == int       id de la aerolinea
 */
 bool Aeropuerto::verifyIfAerolineExist(int id){
   bool exist = false;

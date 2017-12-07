@@ -371,8 +371,6 @@ void Control::crearAerolinea(){
   this->aerolineas.push_back(aerolinea);
 }
 
-
-
 /*Verifica si el id que se pase pertenece a un aeropuerto, retorna true si es asi
   existAirport(int id) -> bool
   id                   == int      Id a verificar
@@ -387,6 +385,20 @@ bool Control::existAirport(int id){
   return exist;
 }
 
+/*Verifica si el id que se pase pertenezca a una aerolinea, retorna true si es asi
+  existAerolinea(id) -> bool     True si el id pertece a alguna aerolinea
+  id                 == int      Id a verificar
+*/
+bool Control::existAerolinea(int id){
+  bool exist = false;
+  for(int i = 0; i < this->aerolineas.size(); ++i){
+    if(this->aerolineas[i].getId() == id){
+      exist = true;
+    }
+  }
+  return exist;
+}
+
 /*Se le pasa un id de un aeropuerto y este metodo retorna dicho Aeropuerto*/
 Aeropuerto Control::getAirport(int id){
   for (int i = 0; i < this->aeropuertos.size(); i++) {
@@ -394,4 +406,41 @@ Aeropuerto Control::getAirport(int id){
       return this->aeropuertos[i];
     }
   }
+}
+
+/*Se le pasa el id de una aerolinea y este metodo lo retorna*/
+Aerolinea Control::getAeroline(int id){
+  for(int i = 0; i < this->aerolineas.size(); ++i){
+    if(id == this->aerolineas[i].getId() ){
+      return this->aerolineas[i];
+    }
+  }
+}
+
+/*Pide infoemación por consola al usuario para qeu establesca una aerolina en un
+  aeropuerto. (agregar aerolineas a un aeropuerto)
+*/
+void Control::addAeroliaToAirport(){
+  int airportChoose, airlaineChoose;
+  Aeropuerto airport;
+  Aerolinea airline;
+
+  cout << "::::::::::Agregar aerolinea a aeropuerto::::::::::" << endl;
+  cout << "Selecciona un aeropuerto" << endl;
+  listAirports();
+  do {
+    cout << "Ingresa el id del aeropuerto" << endl;
+    cin >> airportChoose;
+  } while(!existAirport(airportChoose)); //verificar que el aeropuerto exista
+
+  cout << "Selecciona la aerolinea que le deseas agregar" << endl;
+  listAerilineas();
+  do {
+    cout << "Ingresa el id de la aerolinea" <<endl;
+    cin >> airlaineChoose;
+  } while(!existAerolinea(airlaineChoose)); //verificar que ingrese un id de una aerolinea
+
+  airport = getAirport(airportChoose); //obtenemos el aeropuerto
+  airline = getAeroline(airlaineChoose); //obtenemos la aerolinea
+  airport.addAerolinea(airline); //agregamos la aerolinea a el aeropuerto
 }
