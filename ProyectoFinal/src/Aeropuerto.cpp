@@ -67,6 +67,14 @@ void Aeropuerto::setAeropuertosDestino(vector<Aeropuerto> aeropuertos){
   this->aeropuertosDestino = aeropuertos;
 }
 
+/*Agrega una aerolinea al vector Aerolineas
+  addAerolinea(aerolinea) -> void
+  aerolinea              == Aerolinea   Aerolinea a adicionar
+*/
+void Aeropuerto::addAerolinea(Aerolinea aerolinea){
+  this->aerolineas.push_back(aerolinea);
+}
+
 //::::::::::::::::::::::::::::::Geters::::::::::::::::::
 /*Input: void
   output: int
@@ -121,4 +129,17 @@ int  Aeropuerto::getMaximoPersonas (){
   Autor: Camilo Arias*/
 vector<Aeropuerto> Aeropuerto::getAeropuertosDestino(){
   return this->aeropuertosDestino;
+}
+
+/*Retorna true si una aerolinea ya se encuentra en el vactor  de aerolineas,  se
+  le pasa el id de la aerolinea
+*/
+bool Aeropuerto::verifyIfAerolineExist(int id){
+  bool exist = false;
+  for(int i = 0; i < this->aerolineas.size(); ++i){
+    if(this->aerolineas[i].getId() == id){
+      exist = true;
+    }
+  }
+  return exist;
 }

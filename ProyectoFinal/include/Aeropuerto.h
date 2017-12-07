@@ -21,6 +21,7 @@ class Aeropuerto
         void setAerolineas(vector<Aerolinea> aerolineas);
         void setVolumenMaximoPersonas(int nuevaCantidad);
         void setAeropuertosDestino(vector<Aeropuerto> aeropuertos);
+        void addAerolinea(Aerolinea aerolinea); //agreh¿ga una aerolinea al vector aerolineas
         /* Getters */
         int getId();
         string getNombre ();
@@ -29,6 +30,7 @@ class Aeropuerto
         vector<Aerolinea> getAerolineas();
         int getMaximoPersonas ();
         vector<Aeropuerto> getAeropuertosDestino();
+        bool verifyIfAerolineExist(int id); //retorna true si una aerolinea ya esta en el vactor de aerolineas
 
     protected:
 
