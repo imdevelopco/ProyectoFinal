@@ -41,6 +41,15 @@ void  Aeropuerto::setAbreviatura(string nuevoAbreviatura) {
 void  Aeropuerto::setFlotaAviones(int nuevaCantidad) {
   totalAvionesOperacion = nuevaCantidad;
 }
+
+/* Input: vector de aerolimneas
+   output: void
+   funcion: establece la lista de aerolineas que trabajan para el aeropuerto
+   Autor: Camilo Arias*/
+void Aeropuerto::setAerolineas(vector<Aerolinea> aerolineas){
+  this->aerolineas = aerolineas;
+}
+
 /* Input: numero entero
    output: void
    funcion: Cambia la capacidad maxima de personas
@@ -48,6 +57,14 @@ void  Aeropuerto::setFlotaAviones(int nuevaCantidad) {
    Autor: Carlos Andres Cordoba Ramos*/
 void  Aeropuerto::setVolumenMaximoPersonas(int nuevaCantidad) {
   volumenMaximoPersonas=nuevaCantidad;
+}
+
+/* Input: vector de aeropuertos
+   output: void
+   funcion: establece la lista de aeropuertos de destino
+   Autor: Camilo Arias*/
+void Aeropuerto::setAeropuertosDestino(vector<Aeropuerto> aeropuertos){
+  this->aeropuertosDestino = aeropuertos;
 }
 
 //::::::::::::::::::::::::::::::Geters::::::::::::::::::
@@ -80,6 +97,15 @@ string  Aeropuerto::getAbreviatura (){
 int  Aeropuerto::getCantidadFlota (){
  return totalAvionesOperacion;
 }
+
+/*Input: void
+  output: vector de aerolijneas
+  funcion: Retorna las aerolineas que trabajan para el aeropuerto
+  Autor: Camilo Arias*/
+vector<Aerolinea> Aeropuerto::getAerolineas(){
+  return this->aerolineas;
+}
+
 /* Input: void
    output: numero entero
    funcion: devuelve la cantidad maxima personas que pueden estar
@@ -87,4 +113,12 @@ int  Aeropuerto::getCantidadFlota (){
    Autor: Carlos Andres Cordoba Ramos */
 int  Aeropuerto::getMaximoPersonas (){
  return volumenMaximoPersonas;
+}
+
+/*Input: void
+  output: vector de aeropuertos
+  funcion: Retorna los aeropuertos de destino de este aeropueerto
+  Autor: Camilo Arias*/
+vector<Aeropuerto> Aeropuerto::getAeropuertosDestino(){
+  return this->aeropuertosDestino;
 }

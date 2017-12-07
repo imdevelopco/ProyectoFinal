@@ -17,14 +17,18 @@ class Aeropuerto
         /* Setters */
         void setNombre(string nuevoNombre);
         void setAbreviatura(string nuevoAbreviatura);
-        void setFlotaAviones(int nuevaCantidad);
+        void setFlotaAviones(int nuevaCantidad); // seter de totalAvionesOperacion
+        void setAerolineas(vector<Aerolinea> aerolineas);
         void setVolumenMaximoPersonas(int nuevaCantidad);
+        void setAeropuertosDestino(vector<Aeropuerto> aeropuertos);
         /* Getters */
         int getId();
         string getNombre ();
         string getAbreviatura();
         int getCantidadFlota ();
+        vector<Aerolinea> getAerolineas();
         int getMaximoPersonas ();
+        vector<Aeropuerto> getAeropuertosDestino();
 
     protected:
 
