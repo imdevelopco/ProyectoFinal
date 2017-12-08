@@ -5,15 +5,15 @@ Aeropuerto::Aeropuerto()
 {
     //ctor
 }
-Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas)
+Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<Aerolinea> aerolineas, vector<Aeropuerto> aeropuertosDestino)
 {
   this->id                    = _id;
   this->nombre                = _nombre;
   this->abreviatura           = _abreviatura;
   this->totalAvionesOperacion = _totalAvionesOperacion;
   this->volumenMaximoPersonas = _volumenMaximoPersonas;
-  vector <Aerolinea> aerolineas(0);
-  vector <Aeropuerto> aeropuertosDestino(0);
+  this->aerolineas            = aerolineas;
+  this->aeropuertosDestino    = aeropuertosDestino;
 
 }
 Aeropuerto::~Aeropuerto()
