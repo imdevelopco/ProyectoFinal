@@ -7,6 +7,13 @@ Control::Control()
     //ctor
 }
 
+Control::Control(vector<Aeropuerto> aeropuertos, vector<AgenciaDeViaje> agencias, vector<Aerolinea> aerolineas)
+{
+  this->aeropuertos = aeropuertos;
+  this->agencias    = agencias;
+  this->aerolineas  = aerolineas;
+}
+
 Control::~Control()
 {
     //dtor
@@ -456,10 +463,10 @@ bool Control::existAirport(int id){
 }
 
 /*verifica si el id perenece a una agencia, retorna true si es asi*/
-bool existAgencia(int id){
+bool Control::existAgencia(int id){
   bool exist = false;
-  for(int i = 0; i < this->agencias; i++){
-    if(id = this->agencias[i].getId() ){
+  for(int i = 0; i < this->agencias.size(); i++){
+    if(id == this->agencias[i].getId() ){
       exist = true;
     }
   }
@@ -548,7 +555,9 @@ void Control::setAvionesDeAerolinea(){
 /*Pide informacion al usuario para vender un tiquete*/
 void Control::venderTiket(){
   string compania;
-  int agencia_id, aerolinea_id;
+  int agencia_id, aerolinea_id, aeropuertoOrigen_id;
+  Aeropuerto origen;
+  vector<Aeropuerto> destinos, destinos2;
 
   cout << "Vender tiket" << endl;
   do {
@@ -561,7 +570,7 @@ void Control::venderTiket(){
     do {
       cout << "Ingresa el id de la agencia" << endl;
       cin >> agencia_id;
-    } while( °!existAgencia(agencia_id) );
+    } while( !existAgencia(agencia_id) );
   }
   else{ //si selecciono una aerolinea le mostramos la lista de aerolineas
     listAerilineas();
@@ -571,6 +580,25 @@ void Control::venderTiket(){
     } while( !existAerolinea(aerolinea_id) );
   }
 
-  
+  //listar destinos de origen
+  cout << "Elige el aeropuerto de origen" << endl;
+  listAirports();
+  do {
+    cout << "Ingresa el id del aeropuerto de origen" << endl;
+    cin >> aeropuertoOrigen_id;
+  } while(!existAirport(aeropuertoOrigen_id));
 
+  origen   = getAirport(aeropuertoOrigen_id); //obtenemos el aeropuerto de origen
+  destinos = origen.getAeropuertosDestino(); //obtenemos los aeropuertos de destino
+  for(int i = 0; i < destinos.size(); ++i){ //recorremos los aeropuertos de destino
+    cout << origen.getAbreviatura()+" -> "+destinos[i].getAbreviatura() << endl;
+
+    destinos2 = destinos[i].getAeropuertosDestino(); //tomamos los aeropuestos de destino del aeropuerto de destino
+    if(destinos2.size() > 0){ //si tiene aeropuertos como segundo destino
+      for(int j = 0; j < destinos2.size(); ++j){
+        cout << origen.getAbreviatura()+" -> "+destinos[i].getAbreviatura()+" -> "+destinos2[j].getAbreviatura()<< endl;
+      }
+    }
+
+  }
 }

@@ -19,6 +19,7 @@ class Control
 {
     public:
         Control();
+        Control(vector<Aeropuerto> aeropuertos, vector<AgenciaDeViaje> agencias, vector<Aerolinea> aerolineas);
         virtual ~Control();
 
         /*---------------------------------------*/
