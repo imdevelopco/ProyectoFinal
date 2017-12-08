@@ -455,6 +455,17 @@ bool Control::existAirport(int id){
   return exist;
 }
 
+/*verifica si el id perenece a una agencia, retorna true si es asi*/
+bool existAgencia(int id){
+  bool exist = false;
+  for(int i = 0; i < this->agencias; i++){
+    if(id = this->agencias[i].getId() ){
+      exist = true;
+    }
+  }
+  return exist;
+}
+
 /*Verifica si el id que se pase pertenezca a una aerolinea, retorna true si es asi
   existAerolinea(id) -> bool     True si el id pertece a alguna aerolinea
   id                 == int      Id a verificar
@@ -531,4 +542,35 @@ void Control::setAvionesDeAerolinea(){
   cin >> totalAviones;
   aerolinea = getAeroline(idAerolinea);
   aerolinea.setTotalPlains(totalAviones);
+}
+
+
+/*Pide informacion al usuario para vender un tiquete*/
+void Control::venderTiket(){
+  string compania;
+  int agencia_id, aerolinea_id;
+
+  cout << "Vender tiket" << endl;
+  do {
+    cout << "Agencia o aerolinea? (agencia, aerolinea)" << endl;
+    cin >> compania;
+  } while(compania != "agencia" && compania != "aerolinea");
+
+  if(compania == "agencia"){ // si selecciono una agencia, mostramos la lista de agencias
+    listAgencias();
+    do {
+      cout << "Ingresa el id de la agencia" << endl;
+      cin >> agencia_id;
+    } while( °!existAgencia(agencia_id) );
+  }
+  else{ //si selecciono una aerolinea le mostramos la lista de aerolineas
+    listAerilineas();
+    do {
+      cout << "Ingresa el id de la aerolinea" << endl;
+      cin >> aerolinea_id;
+    } while( !existAerolinea(aerolinea_id) );
+  }
+
+  
+
 }

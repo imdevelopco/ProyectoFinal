@@ -28,7 +28,8 @@ class Control
         Aeropuerto createAirport(); //pide informacion por consola para crear un aeropueto, por ultimo la retorna
         void crearAerolinea(); //pide información al usuario por consola para crear una aerolinea
         void addAeroliaToAirport(); //muestra y pide infoemación al usuario para agregar aerolineas a un aeropuerto
-        void setAvionesDeAerolinea(); 
+        void setAvionesDeAerolinea();
+        void venderTiket();
 
         /*---------------------------------------*/
         /*                GETERS                 */
@@ -44,6 +45,7 @@ class Control
         void listAirports(); //lista los aeropuertos.
         bool existAirport(int id); //verifica si el id qeu se pase pertenece a un aeropuerto
         bool existAerolinea(int id); //verifica que el id que se le pase pertenesca a una aerolina, si es asi retorna true
+        bool existAgencia(int id); //verifica si el id que se le pase pertenece a una agencia
         Aeropuerto getAirport(int id); //se le pasa un id de un aeropuierto y este metodo retorna dicho Aeropuerto
         Aerolinea getAeroline(int id); //se le pasa el id de una aerolinea y este metodo lo retorna;
 
