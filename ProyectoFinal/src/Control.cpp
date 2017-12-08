@@ -514,3 +514,21 @@ void Control::addAeroliaToAirport(){
   airline = getAeroline(airlaineChoose); //obtenemos la aerolinea
   airport.addAerolinea(airline); //agregamos la aerolinea a el aeropuerto
 }
+
+/*WEstablece el total de aviones de una aerolinea*/
+void Control::setAvionesDeAerolinea(){
+  int idAerolinea, totalAviones;
+  Aerolinea aerolinea;
+
+  cout << "Establecer aviones de una aerolinea" << endl;
+  listAerilineas();
+  do {
+    cout << "ingresa el id del aerolinea" << endl;
+    cin >> idAerolinea;
+  } while( !existAerolinea(idAerolinea) );
+
+  cout << "ingresa el total de aviones" << endl;
+  cin >> totalAviones;
+  aerolinea = getAeroline(idAerolinea);
+  aerolinea.setTotalPlains(totalAviones);
+}

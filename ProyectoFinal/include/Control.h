@@ -28,7 +28,7 @@ class Control
         Aeropuerto createAirport(); //pide informacion por consola para crear un aeropueto, por ultimo la retorna
         void crearAerolinea(); //pide información al usuario por consola para crear una aerolinea
         void addAeroliaToAirport(); //muestra y pide infoemación al usuario para agregar aerolineas a un aeropuerto
-
+        void setAvionesDeAerolinea(); 
 
         /*---------------------------------------*/
         /*                GETERS                 */
