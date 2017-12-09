@@ -23,3 +23,12 @@
 • Poder convertir un cliente normal en presencial.
 • Cambiar la razón social de una Aerolínea.
 • Asegurar la impresión del tiquete comprado por un cliente
+
+
+╔═╗╔═╗╔╗╔╔═╗╦╔╦╗╔═╗╦═╗╔═╗╔═╗╦╔═╗╔╗╔╔═╗╔═╗
+║  ║ ║║║║╚═╗║ ║║║╣ ╠╦╝╠═╣║  ║║ ║║║║║╣ ╚═╗
+╚═╝╚═╝╝╚╝╚═╝╩═╩╝╚═╝╩╚═╩ ╩╚═╝╩╚═╝╝╚╝╚═╝╚═╝
+• Las aerolineas no tenian un vector de aviones que representara su flota, la agregamos.
+• Un aeropuerto no define a que otros aeropuertos vuela, esto esta definido por las aerolineas y sus aviones.
+• Una agencia de viaje no puede vender tikets por su cuenta, puesto que no tiene aviones y no conoce la disponibilidad de estos, por lo tanto
+  una agencia vende tikets como intermediario.
