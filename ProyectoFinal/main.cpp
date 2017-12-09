@@ -28,6 +28,7 @@ int main()
   vector<Telefono> agenda;
   vector<int> aeropuertos;
   vector<Aeropuerto> todosAeropuertos;
+  vector<int> aerolineas_id;
   vector<Aerolinea> aerolineas;
   vector<Aeropuerto> aeropuertosDestino;
   vector<Aeropuerto> aeropuertosDestino1;
@@ -39,21 +40,21 @@ int main()
   Telefono telefono2("celular", 57, 856521);
   agenda.push_back(telefono);
   Representante representante("Fernanda", "Maria", "Tovar", "Caicedo", "Calle 34", "CC", 454521, telefono2, birthday);
-  Aeropuerto aeropuerto(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas, aeropuertosDestino);
+  Aeropuerto aeropuerto(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id, aeropuertosDestino);
 
 
 
   //  ╔═╗┌─┐┬─┐┌─┐┌─┐┬ ┬┌─┐┬─┐┌┬┐┌─┐┌─┐
   //  ╠═╣├┤ ├┬┘│ │├─┘│ │├┤ ├┬┘ │ │ │└─┐
   //  ╩ ╩└─┘┴└─└─┘┴  └─┘└─┘┴└─ ┴ └─┘└─┘
-  Aeropuerto aeropuerto1(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto2(2,"El dorado-Bogota", "BOG",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto3(3,"Medellin", "MED",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto4(4,"Barranquilla", "BARR",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto5(5,"Cartagena", "CAR",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto6(6,"new york", "NYC",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto7(7,"Miami", "MIA",50, 1500, aerolineas, aeropuertosDestino);
-  Aeropuerto aeropuerto8(8,"Londres", "LON",50, 1500, aerolineas, aeropuertosDestino);
+  Aeropuerto aeropuerto1(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto2(2,"El dorado-Bogota", "BOG",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto3(3,"Medellin", "MED",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto4(4,"Barranquilla", "BARR",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto5(5,"Cartagena", "CAR",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto6(6,"new york", "NYC",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto7(7,"Miami", "MIA",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto8(8,"Londres", "LON",50, 1500, aerolineas_id, aeropuertosDestino);
   aeropuertosDestino2.push_back(aeropuerto6);
   aeropuertosDestino2.push_back(aeropuerto7);
   aeropuertosDestino2.push_back(aeropuerto8);
@@ -80,10 +81,12 @@ int main()
   //  ╠═╣├┤ ├┬┘│ ││  ││││├┤ ├─┤└─┐
   //  ╩ ╩└─┘┴└─└─┘┴─┘┴┘└┘└─┘┴ ┴└─┘
   Aerolinea *aerolinea = new Aerolinea(1, "1212", "airf", "calle13", "www.airf.com", agenda, representante, "7852-m", 20,  aeropuertos);
+  aerolineas_id.push_back(1);
   aerolineas.push_back(*aerolinea);
   //   ╔═╗┌─┐┌─┐┌┐┌┌─┐┬┌─┐┌─┐
   //   ╠═╣│ ┬├┤ ││││  │├─┤└─┐
   //   ╩ ╩└─┘└─┘┘└┘└─┘┴┴ ┴└─┘
+
   AgenciaDeViaje *agencia = new AgenciaDeViaje(1,"8589","passVu","calle45","www.passVu.com", agenda, representante, aerolineas);
   agencias.push_back(*agencia);
 

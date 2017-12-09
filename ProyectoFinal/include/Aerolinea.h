@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <CompaniaAerea.h>
+#include "Avion.h"
 
 using namespace std;
 
@@ -18,18 +19,21 @@ class Aerolinea : public CompaniaAerea
         /*---------------------------------------*/
         void setMatricula(string matricula);
         void setTotalPlains(int total);
+        void setFlota(vector<Avion> flota);
 
         /*---------------------------------------*/
         /*                GETERS                 */
         /*---------------------------------------*/
         string getMatricula();
         int getTotal();
+        vector<Avion> getFlota();
     protected:
 
     private:
       string matriculaAerea;
       int totalAvionesFlota;
       vector<int> aeropuertos; //ids de los aeropuertos a los que puede viajar la aerolinea
+      vector<Avion> flota;
 };
 
 #endif // AEROLINEA_H

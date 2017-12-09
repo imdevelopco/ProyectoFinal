@@ -259,7 +259,7 @@ Aeropuerto Control::createAirport(){
   int totalAvionesOperacion, volumenMaximoPersonas, chooseAerolinea, chooseAirport;
   char continueAddAeropuertos, continueAddAerolinea;
   bool add, addAerolinea;
-  vector<Aerolinea> aerolineas;
+  vector<int> aerolineas;
   vector<Aeropuerto> aeropuertosDestino;
 
   cout << "::::::::::Crear Aeropuerto::::::::::" << endl;
@@ -317,7 +317,7 @@ Aeropuerto Control::createAirport(){
       if(aerolineas.size() > 0){
         addAerolinea = true;
         for (int i = 0; i < aerolineas.size(); i++) {
-          if(aerolineas[i].getId() == chooseAerolinea){
+          if(aerolineas[i] == chooseAerolinea){
             addAerolinea = false;
           }
         }
@@ -327,7 +327,7 @@ Aeropuerto Control::createAirport(){
       }
 
       if(addAerolinea){
-        aerolineas.push_back( getAeroline(chooseAerolinea) );
+        aerolineas.push_back(chooseAerolinea );
       }
 
       do {
@@ -530,7 +530,7 @@ void Control::addAeroliaToAirport(){
 
   airport = getAirport(airportChoose); //obtenemos el aeropuerto
   airline = getAeroline(airlaineChoose); //obtenemos la aerolinea
-  airport.addAerolinea(airline); //agregamos la aerolinea a el aeropuerto
+  airport.addAerolinea(airlaineChoose); //agregamos la aerolinea a el aeropuerto
 }
 
 /*WEstablece el total de aviones de una aerolinea*/

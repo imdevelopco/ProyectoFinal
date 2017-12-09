@@ -1,11 +1,10 @@
 #include "Aeropuerto.h"
-#include "Aerolinea.h"
 
 Aeropuerto::Aeropuerto()
 {
     //ctor
 }
-Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<Aerolinea> aerolineas, vector<Aeropuerto> aeropuertosDestino)
+Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<int> aerolineas, vector<Aeropuerto> aeropuertosDestino)
 {
   this->id                    = _id;
   this->nombre                = _nombre;
@@ -46,7 +45,7 @@ void  Aeropuerto::setFlotaAviones(int nuevaCantidad) {
    output: void
    funcion: establece la lista de aerolineas que trabajan para el aeropuerto
    Autor: Camilo Arias*/
-void Aeropuerto::setAerolineas(vector<Aerolinea> aerolineas){
+void Aeropuerto::setAerolineas(vector<int> aerolineas){
   this->aerolineas = aerolineas;
 }
 
@@ -71,7 +70,7 @@ void Aeropuerto::setAeropuertosDestino(vector<Aeropuerto> aeropuertos){
   addAerolinea(aerolinea) -> void
   aerolinea              == Aerolinea   Aerolinea a adicionar
 */
-void Aeropuerto::addAerolinea(Aerolinea aerolinea){
+void Aeropuerto::addAerolinea(int aerolinea){
   this->aerolineas.push_back(aerolinea);
 }
 
@@ -110,7 +109,7 @@ int  Aeropuerto::getCantidadFlota (){
   output: vector de aerolijneas
   funcion: Retorna las aerolineas que trabajan para el aeropuerto
   Autor: Camilo Arias*/
-vector<Aerolinea> Aeropuerto::getAerolineas(){
+vector<int> Aeropuerto::getAerolineas(){
   return this->aerolineas;
 }
 
@@ -139,7 +138,7 @@ vector<Aeropuerto> Aeropuerto::getAeropuertosDestino(){
 bool Aeropuerto::verifyIfAerolineExist(int id){
   bool exist = false;
   for(int i = 0; i < this->aerolineas.size(); ++i){
-    if(this->aerolineas[i].getId() == id){
+    if(this->aerolineas[i] == id){
       exist = true;
     }
   }
