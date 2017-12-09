@@ -4,7 +4,7 @@ Aeropuerto::Aeropuerto()
 {
     //ctor
 }
-Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<int> aerolineas, vector<Aeropuerto> aeropuertosDestino)
+Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<int> aerolineas)
 {
   this->id                    = _id;
   this->nombre                = _nombre;
@@ -12,8 +12,6 @@ Aeropuerto::Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvio
   this->totalAvionesOperacion = _totalAvionesOperacion;
   this->volumenMaximoPersonas = _volumenMaximoPersonas;
   this->aerolineas            = aerolineas;
-  this->aeropuertosDestino    = aeropuertosDestino;
-
 }
 Aeropuerto::~Aeropuerto()
 {
@@ -58,13 +56,6 @@ void  Aeropuerto::setVolumenMaximoPersonas(int nuevaCantidad) {
   volumenMaximoPersonas=nuevaCantidad;
 }
 
-/* Input: vector de aeropuertos
-   output: void
-   funcion: establece la lista de aeropuertos de destino
-   Autor: Camilo Arias*/
-void Aeropuerto::setAeropuertosDestino(vector<Aeropuerto> aeropuertos){
-  this->aeropuertosDestino = aeropuertos;
-}
 
 /*Agrega una aerolinea al vector Aerolineas
   addAerolinea(aerolinea) -> void
@@ -122,13 +113,6 @@ int  Aeropuerto::getMaximoPersonas (){
  return volumenMaximoPersonas;
 }
 
-/*Input: void
-  output: vector de aeropuertos
-  funcion: Retorna los aeropuertos de destino de este aeropueerto
-  Autor: Camilo Arias*/
-vector<Aeropuerto> Aeropuerto::getAeropuertosDestino(){
-  return this->aeropuertosDestino;
-}
 
 /*Retorna true si una aerolinea ya se encuentra en el vactor  de aerolineas,  se
   le pasa el id de la aerolinea

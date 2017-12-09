@@ -260,7 +260,6 @@ Aeropuerto Control::createAirport(){
   char continueAddAeropuertos, continueAddAerolinea;
   bool add, addAerolinea;
   vector<int> aerolineas;
-  vector<Aeropuerto> aeropuertosDestino;
 
   cout << "::::::::::Crear Aeropuerto::::::::::" << endl;
   cout << "Nombre del aeropuerto" << endl ;
@@ -271,39 +270,6 @@ Aeropuerto Control::createAirport(){
   cin >> totalAvionesOperacion;
   cout << "volumen maximo de personas" << endl;
   cin >> volumenMaximoPersonas;
-
-  if(this->aeropuertos.size() > 0){
-    cout << "Aeropuerto de destino " << endl;
-    do {
-        listAerilineas();
-        do {
-          cout << "Ingresa el id del aeropuerto de destino" << endl;
-          cin >> chooseAirport;
-        } while(!existAirport(chooseAirport)); //verificar que ingrese un aeropuerto existente
-
-        if(aeropuertosDestino.size() > 0){ // si ya hay aeropuertos de destino, pásamos a verificar que no agrege uno que ya esta
-          add = true;
-          for (int i = 0; i < aeropuertosDestino.size(); i++) {
-            if(aeropuertosDestino[i].getId() == chooseAirport){
-              add = false;
-            }
-          }
-        }
-        else{
-          add = true;
-        }
-
-        if(add){ // si add es true, agregamos el aeropuerto
-          aeropuertosDestino.push_back( getAirport(chooseAirport) );
-        }
-
-        do {
-          cout << "deseas agregar otro destino (s,n)" << endl;
-          cin >> continueAddAeropuertos;
-        } while(continueAddAeropuertos != 's' && continueAddAeropuertos != 'n');
-    } while(continueAddAeropuertos == 's');
-
-  }
 
   if(this->aerolineas.size() > 0){
     cout << "Aerolineas en el aeropuerto" << endl;
@@ -338,7 +304,7 @@ Aeropuerto Control::createAirport(){
     } while(continueAddAerolinea == 's');
   }
 
-  Aeropuerto aeropuerto(getLatsAirportId(),nombre, abreviatura, totalAvionesOperacion, volumenMaximoPersonas, aerolineas, aeropuertosDestino);
+  Aeropuerto aeropuerto(getLatsAirportId(),nombre, abreviatura, totalAvionesOperacion, volumenMaximoPersonas, aerolineas);
   this->aeropuertos.push_back(aeropuerto);
   return aeropuerto;
 }
@@ -589,6 +555,7 @@ void Control::venderTiket(){
   } while(!existAirport(aeropuertoOrigen_id));
 
   origen   = getAirport(aeropuertoOrigen_id); //obtenemos el aeropuerto de origen
+/*
   destinos = origen.getAeropuertosDestino(); //obtenemos los aeropuertos de destino
   for(int i = 0; i < destinos.size(); ++i){ //recorremos los aeropuertos de destino
     cout << origen.getAbreviatura()+" -> "+destinos[i].getAbreviatura() << endl;
@@ -601,4 +568,5 @@ void Control::venderTiket(){
     }
 
   }
+  */
 }

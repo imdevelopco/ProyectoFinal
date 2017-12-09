@@ -11,7 +11,7 @@ class Aeropuerto
     public:
         /* Constructores */
         Aeropuerto();
-        Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<int> aerolineas, vector<Aeropuerto> aeropuertosDestino);
+        Aeropuerto(int _id,string _nombre,string _abreviatura,int _totalAvionesOperacion, int _volumenMaximoPersonas, vector<int> aerolineas);
         virtual ~Aeropuerto();
         /* Setters */
         void setNombre(string nuevoNombre);
@@ -40,7 +40,6 @@ class Aeropuerto
       int totalAvionesOperacion;
       vector<int> aerolineas;
       int volumenMaximoPersonas;
-      vector<Aeropuerto> aeropuertosDestino;
 };
 
 #endif // AEROPUERTO_H

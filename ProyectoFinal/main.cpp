@@ -30,43 +30,27 @@ int main()
   vector<Aeropuerto> todosAeropuertos;
   vector<int> aerolineas_id;
   vector<Aerolinea> aerolineas;
-  vector<Aeropuerto> aeropuertosDestino;
-  vector<Aeropuerto> aeropuertosDestino1;
-  vector<Aeropuerto> aeropuertosDestino2;
-  vector<Aeropuerto> aeropuertosDestino3;
   vector<AgenciaDeViaje> agencias;
 
   Telefono telefono("celular", 57, 8828263);
   Telefono telefono2("celular", 57, 856521);
   agenda.push_back(telefono);
   Representante representante("Fernanda", "Maria", "Tovar", "Caicedo", "Calle 34", "CC", 454521, telefono2, birthday);
-  Aeropuerto aeropuerto(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id, aeropuertosDestino);
+  Aeropuerto aeropuerto(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id);
 
 
 
   //  ╔═╗┌─┐┬─┐┌─┐┌─┐┬ ┬┌─┐┬─┐┌┬┐┌─┐┌─┐
   //  ╠═╣├┤ ├┬┘│ │├─┘│ │├┤ ├┬┘ │ │ │└─┐
   //  ╩ ╩└─┘┴└─└─┘┴  └─┘└─┘┴└─ ┴ └─┘└─┘
-  Aeropuerto aeropuerto1(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto2(2,"El dorado-Bogota", "BOG",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto3(3,"Medellin", "MED",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto4(4,"Barranquilla", "BARR",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto5(5,"Cartagena", "CAR",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto6(6,"new york", "NYC",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto7(7,"Miami", "MIA",50, 1500, aerolineas_id, aeropuertosDestino);
-  Aeropuerto aeropuerto8(8,"Londres", "LON",50, 1500, aerolineas_id, aeropuertosDestino);
-  aeropuertosDestino2.push_back(aeropuerto6);
-  aeropuertosDestino2.push_back(aeropuerto7);
-  aeropuertosDestino2.push_back(aeropuerto8);
-  aeropuerto2.setAeropuertosDestino(aeropuertosDestino2); //poner los aeropuertos de destiono para bogota
-
-  aeropuertosDestino1.push_back(aeropuerto2);
-  aeropuertosDestino1.push_back(aeropuerto3);
-  aeropuertosDestino1.push_back(aeropuerto4);
-  aeropuertosDestino1.push_back(aeropuerto5);
-  aeropuerto1.setAeropuertosDestino(aeropuertosDestino1); //poner los aeropuertos de destino al aeropuerto de cali
-
-
+  Aeropuerto aeropuerto1(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto2(2,"El dorado-Bogota", "BOG",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto3(3,"Medellin", "MED",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto4(4,"Barranquilla", "BARR",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto5(5,"Cartagena", "CAR",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto6(6,"new york", "NYC",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto7(7,"Miami", "MIA",50, 1500, aerolineas_id);
+  Aeropuerto aeropuerto8(8,"Londres", "LON",50, 1500, aerolineas_id);
 
   todosAeropuertos.push_back(aeropuerto1);
   todosAeropuertos.push_back(aeropuerto2);
