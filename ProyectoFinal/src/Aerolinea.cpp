@@ -38,6 +38,11 @@ void Aerolinea::setTotalPlains(int total){
   this->totalAvionesFlota = total;
 }
 
+/*Establece la flota de aviones*/
+void Aerolinea::setFlota(vector<Avion> flota){
+  this->flota = flota;
+}
+
 
 /* +───────────────────────────────────────────────────────────────────────+ */
 /*	      /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$   /$$$$$$ 	       */
@@ -55,7 +60,11 @@ string Aerolinea::getMatricula(){
 }
 
 /*Retorna el total de aviones de la aerolinea*/
-
 int Aerolinea::getTotal(){
   return this->totalAvionesFlota;
+}
+
+/*Retorna la flota de aviones*/
+vector<Avion> Aerolinea::getFlota(){
+  return this->flota;
 }

@@ -84,7 +84,7 @@ int main()
   //   ╔═╗┌─┐┌─┐┌┐┌┌─┐┬┌─┐┌─┐
   //   ╠═╣│ ┬├┤ ││││  │├─┤└─┐
   //   ╩ ╩└─┘└─┘┘└┘└─┘┴┴ ┴└─┘
-  AgenciaDeViaje *agencia = new AgenciaDeViaje(1,"8589","passVu","calle45","www.passVu.com", agenda, representante);
+  AgenciaDeViaje *agencia = new AgenciaDeViaje(1,"8589","passVu","calle45","www.passVu.com", agenda, representante, aerolineas);
   agencias.push_back(*agencia);
 
     Control control(todosAeropuertos, agencias, aerolineas);

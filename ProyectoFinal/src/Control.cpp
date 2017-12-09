@@ -245,8 +245,8 @@ void Control::crearAgencia(){
     } while(representante_id < 1 || representante_id > this->representantes.size()); //validar que eligió un representante de la lista
     representante = this->representantes[representante_id-1];
   }
-  // (id,nit,razonSocial,direccion,paginaWeb agenda, representante)
-  AgenciaDeViaje agencia( getLastAgencyId() , nit, razon, direccion, pagina, telefono, representante);
+
+  AgenciaDeViaje agencia( getLastAgencyId() , nit, razon, direccion, pagina, telefono, representante, this->aerolineas);
   this->agencias.push_back(agencia);
 }
 
