@@ -30,7 +30,9 @@ class Control
         void crearAerolinea(); //pide información al usuario por consola para crear una aerolinea
         void addAeroliaToAirport(); //muestra y pide infoemación al usuario para agregar aerolineas a un aeropuerto
         void setAvionesDeAerolinea();
-        void venderTiket();
+        void venderTiket(); // SIN TERMINAR, SE NECESITAN OTROS METODOS
+        void setFlota(); //pide información al usuario para establecer la flota de aviones de una aerolinea
+
 
         /*---------------------------------------*/
         /*                GETERS                 */
@@ -38,6 +40,7 @@ class Control
         int getLastAgencyId(); //retorna el ultimo id+1 de las agencias, sirve para crear un id a una nueva agencia
         int getLastAerolineaId(); //retorna el ultimo id+1 de las aerolineas
         int getLatsAirportId(); //retorna el id más grande +1 de un aeropuerto
+        int getPositionAeroline(int id); //retorna la posicion de una aerolinea en el vector de aerolines, se le pasa el id de la aerolinea
         Representante createRepesent(); //pide datos al usuario para crear un representante, por ultimo lo retorna
         Telefono createPhone(); //pide información al usuario para crear un numeo de telefono, lo retorna.
         void listRepresnts(); //lista los representantes
@@ -49,6 +52,8 @@ class Control
         bool existAgencia(int id); //verifica si el id que se le pase pertenece a una agencia
         Aeropuerto getAirport(int id); //se le pasa un id de un aeropuierto y este metodo retorna dicho Aeropuerto
         Aerolinea getAeroline(int id); //se le pasa el id de una aerolinea y este metodo lo retorna;
+        vector<Silla> createSilla(string tipo); //retorna un vactor de sillas de el tipo que se le pase
+        Avion createPlain(); //crea un avion y lo retorna
 
 
 

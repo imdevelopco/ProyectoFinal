@@ -75,7 +75,7 @@ int main()
   agencias.push_back(*agencia);
 
     Control control(todosAeropuertos, agencias, aerolineas);
-    control.venderTiket();
+    control.setFlota();
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();
     cout << "Crear una aerolinea" << endl;

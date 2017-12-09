@@ -471,6 +471,14 @@ Aerolinea Control::getAeroline(int id){
   }
 }
 
+/*Se le da un id de una aerolinea y retorna la pocision de esat aeroline en el vector de arolineas*/
+int Control::getPositionAeroline(int id){
+  for(int i = 0; i < this->aerolineas.size(); ++i){
+    if (id == this->aerolineas[i].getId() ){
+      return i;
+    }
+  }
+}
 /*Pide infoemación por consola al usuario para qeu establesca una aerolina en un
   aeropuerto. (agregar aerolineas a un aeropuerto)
 */
@@ -569,4 +577,93 @@ void Control::venderTiket(){
 
   }
   */
+}
+
+/*Crea un grupo de sillas */
+vector<Silla> Control::createSilla(string tipo){
+  int cant;
+  vector<Silla> sillas;
+
+  cout << "Cuantas sillas de este tipo tiene el avion" << endl;
+  cin >> cant;
+
+  for(int i = 0; i < cant; ++i){
+    Silla silla(tipo+"-"+to_string(i), tipo);
+    sillas.push_back(silla);
+  }
+
+  return sillas;
+}
+
+/*crea un avion*/
+Avion Control::createPlain(){
+  vector<Silla> preferencial, normal, bajoCosto;
+  string matricula;
+  Aeropuerto origen, destino;
+  int airportOrigen_id, airportDestino_id, cantidadGasolina, tiempoMaximo;
+
+  cout << "Sillas preferenciales" << endl;
+  preferencial = createSilla("preferencial");
+
+  cout << "Sillas normales" << endl;
+  normal = createSilla("normal");
+
+  cout << "Sillas bajo costo" << endl;
+  bajoCosto = createSilla("bajoCosto");
+
+  cout << "Matricula" << endl;
+  cin >> matricula;
+
+  if(this->aeropuertos.size() > 0){
+    //seleccionar aeropuerto de origen
+    cout << "Aeropuerto de origen" << endl;
+    listAirports();
+    do {
+      cout << "Ingresa el id del aeropuerto" << endl;
+      cin >> airportOrigen_id;
+    } while(!existAirport(airportOrigen_id) );
+    origen = getAirport(airportOrigen_id);
+
+    //seleccionar aeropuerto de destino
+    cout << "Aeropuerto de destino" << endl;
+    listAirports();
+    do {
+      cout << "Ingresa el id del aeropuerto" << endl;
+      cin >> airportDestino_id;
+    } while(!existAirport(airportDestino_id) || airportOrigen_id == airportDestino_id); //validar que sea un aeropuerto valido y no sea el mismo de origen
+    destino = getAirport(airportDestino_id);
+  }
+
+  cout << "Cantidad de gasolina" << endl;
+  cin >> cantidadGasolina;
+
+  cout << "Tiempo maximo de vuelo" << endl;
+  cin >> tiempoMaximo;
+
+  Avion avion(preferencial, normal, bajoCosto, matricula, origen, destino, cantidadGasolina, tiempoMaximo);
+  return avion;
+}
+
+/* Crea una flota de aviones para una aerolinea*/
+void Control::setFlota(){
+  int aerolinea_id, totalPlains;
+  vector<Avion> flota;
+
+  cout << "Establecer flota de aviones de una aerolinea" << endl;
+  cout << "Selecciona la aerolinea" << endl;
+  listAerilineas();
+  do{
+    cout << "Ingresa el id de la aerolinea" << endl;
+    cin >> aerolinea_id;
+  }while ( !existAerolinea(aerolinea_id) );
+
+  cout << "Total de aviones en la flota" << endl;
+  cin >> totalPlains;
+
+  for (int i = 0; i < totalPlains; i++){
+    cout << ":::::: Avion "+to_string(i+1)+" de "+to_string(totalPlains) << endl;
+    flota.push_back( createPlain() );
+  }
+
+  this->aerolineas[getPositionAeroline(aerolinea_id)].setFlota(flota);
 }
