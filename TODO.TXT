@@ -13,7 +13,7 @@
   con un intermediario.
 • Permita verificar la cantidad de sillas totales disponibles, de sillas preferenciales
   disponibles y de bajo costo disponible, tanto para una Aerolínea como para todas
-  las que laboran en un Aeropuerto.
+  las que laboran en un Aeropuerto.✓
 • Controle la cantidad de aviones existentes.
 • Muestre el valor total generado por venta de tiquetes.
 • Pueda crear un viaje largo asegurando todos los tiquetes que requiera el cliente para

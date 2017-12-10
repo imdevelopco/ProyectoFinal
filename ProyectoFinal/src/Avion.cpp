@@ -4,19 +4,19 @@ Avion::Avion()
 {
   //Crear las sillas preferenciales
   for (int i = 0; i < 10; i++) {
-    Silla silla("p-"+i,"preferencial");
+    Silla silla("p-"+i,"preferencial",0);
     this->preferencial.push_back(silla);
   }
 
   //Crear las sillas normales
   for(int i = 0; i < 10; ++i){
-    Silla silla("n-"+i,"normal");
+    Silla silla("n-"+i,"normal",0);
     this->normal.push_back(silla);
   }
 
   //crear las sillas de bajo bajo costo
   for(int i = 0; i < 10; i++){
-    Silla silla("b-"+i,"bajo costo");
+    Silla silla("b-"+i,"bajo costo",0);
     this->bajoCosto.push_back(silla);
   }
 
@@ -214,4 +214,26 @@ int Avion::getCantidadGasolina(){//retorna  la  capacidad  total de gasolina del
 
 int Avion::getTiempoMaximo(){//retorna el tiempo maximo de vuelo de el aavion
   return this->tiempoMaximo;
+}
+// Entrada: Void
+// Salida: numero entero.
+// Funcion: Retorna la cantidad de sillas disponibles en general sin tener en
+// cuenta el tipo de silla.
+// Autor: Carlos Andres Cordoba.
+int Avion::getSillasDisponibles()
+{
+    int acum=0;
+        for(int i =0;i<preferencial.size();i++){
+        if( preferencial[i].getStatus() == 0)
+        acum++;
+        }
+        for(int i =0;i<normal.size();i++){
+        if( normal[i].getStatus() == 0)
+        acum++;
+        }
+        for(int i =0;i<bajoCosto.size();i++){
+        if( bajoCosto[i].getStatus() == 0)
+        acum++;
+        }
+    return acum;
 }

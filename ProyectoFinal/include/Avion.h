@@ -45,6 +45,8 @@ class Avion
         Aeropuerto getAeropuertoDestino();
         int getCantidadGasolina();
         int getTiempoMaximo();
+        // Reotrna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
+        int getSillasDisponibles();
 
     protected:
 
