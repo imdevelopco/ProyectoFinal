@@ -7,7 +7,7 @@
 • Permita vender tiquetes dentro de la Agencia o en la Aerolínea asegurando que no
   se puedan vender más de los disponibles y bajo las condiciones definidas. ---> camilo (como que hay que hacerlo de ultimo)
 • Permita armar la flota de aviones de una determinada Aerolínea. ✓
-• Permita conocer las rutas disponibles de una aerolínea.
+• Permita conocer las rutas disponibles de una aerolínea. ✓
 • Permita conocer la cantidad de clientes de una Agencia o una Aerolínea.
 • Posibilite la visualización de una ruta total de un cliente, que tiene un origen destino
   con un intermediario.
