@@ -68,3 +68,49 @@ int Aerolinea::getTotal(){
 vector<Avion> Aerolinea::getFlota(){
   return this->flota;
 }
+//Entrada: void
+//Salida: void
+//Funcion: Dependiendo de lo que quiera el usuario, este metodo sera capaz
+// de eliminar, agregar  aviones a determinada flota de y tambien cambiar el tamno de
+//la flota en general
+// Autor: Carlos Andres Cordoba Ramos
+void Aerolinea::administrarAviones()
+{
+    int decision;
+    do{
+            cout<<"Que deseas hacer?"<<endl;
+            cout<<"1.reducir el tamano de la flota"<<endl;
+            cout<<"2.eliminar un avion de la flota"<<endl;
+            cout<<"3.agregar un avion a la flota"<<endl;
+            cin>>decision;
+    }while((decision != 1)&&(decision != 2)&&(decision != 3));
+    switch(decision){
+
+    case 1:{
+    int reductor;
+    cout<<"cuantos aviones quiere que tenga la flota?"<<endl;
+    cin>>reductor;
+    flota.resize(reductor);
+    };
+    break;
+    case 2:{
+        string matricula;
+        cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
+        cin>>matricula;
+        for (int i=0;i<flota.size();i++)
+        {
+            if(matricula == flota[i].getMatricula())
+            {
+                flota.erase(flota.begin()+i);
+                cout<<"Se ha eliminado el avion de la flota"<<endl;
+            }
+        }
+    };
+    break;
+    case 3:{};
+    break;
+
+    }
+
+
+}
