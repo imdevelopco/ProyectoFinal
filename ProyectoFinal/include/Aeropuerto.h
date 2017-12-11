@@ -23,7 +23,7 @@ class Aeropuerto
         void addAerolinea(int aerolinea); //agreh¿ga una aerolinea al vector aerolineas
         /* Getters */
         int getId();
-        string getNombre ();
+        string getNombre();
         string getAbreviatura();
         int getCantidadFlota ();
         vector<int> getAerolineas();

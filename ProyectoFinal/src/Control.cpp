@@ -579,6 +579,31 @@ void Control::venderTiket(){
   */
 }
 
+/*retorna los aeropuertos de origen de una flota de aviones*/
+vector<string> Control::getCytiesOrigenFl(vector<Avion> flota){
+  vector<string> origen;
+  for(int i = 0; i < flota.size(); ++i){
+    Aeropuerto aeropuertoOrigen = flota[i].getAeropuertoOrigen();
+    if(origen.size() > 0){ //si ya hay elementos en origen, verifi
+      bool save = true;
+      for(int j = 0; j < origen.size(); j++){
+        if (origen[j] == aeropuertoOrigen.getNombre()) {
+          save = false;
+        }
+      }
+
+      if(save){
+        origen.push_back( aeropuertoOrigen.getNombre() );
+      }
+    }
+    else{
+      origen.push_back( aeropuertoOrigen.getNombre() );
+    }
+  }
+
+  return origen;
+}
+
 /*Crea un grupo de sillas */
 vector<Silla> Control::createSilla(string tipo){
   int cant;
@@ -588,7 +613,7 @@ vector<Silla> Control::createSilla(string tipo){
   cin >> cant;
 
   for(int i = 0; i < cant; ++i){
-    Silla silla(tipo+"-"+to_string(i), tipo);
+    Silla silla(tipo+"-"+to_string(i), tipo,0);
     sillas.push_back(silla);
   }
 
@@ -666,4 +691,46 @@ void Control::setFlota(){
   }
 
   this->aerolineas[getPositionAeroline(aerolinea_id)].setFlota(flota);
+}
+
+/*Lista las rutas de una aerolinea*/
+void Control::listaDeVuelosDisponibles(){
+  int aerolinea_id, city_id;
+  Aerolinea aerolinea;
+  vector<Avion> flota;
+  vector<string> cyties;
+
+  cout << "Vuelos disponibles " << endl;
+  cout << "Aerolineas" << endl;
+  listAerilineas();
+  do {
+    cout << "ingresa el id de la aerolinea" << endl;
+    cin >> aerolinea_id;
+  } while( !existAerolinea(aerolinea_id) );
+
+  aerolinea = getAeroline(aerolinea_id);
+  flota     = aerolinea.getFlota();
+
+  cyties = getCytiesOrigenFl(flota);
+
+  if (flota.size() > 0) {
+    cout << "Elige la ciudad de origen" << endl;
+    for(int i = 0; i < cyties.size(); ++i){
+      cout << to_string(i+1)+") "+cyties[i] << endl;
+    }
+    do {
+      cout << "Ingresa el id se la ciudad" << endl;
+      cin >> city_id;
+    } while(city_id < 0 || city_id > cyties.size() );
+
+
+    for(int i = 0; i < flota.size(); ++i){
+      Aeropuerto origen  = flota[i].getAeropuertoOrigen();
+      if( flota[i].getSillasDisponibles() > 0 && origen.getNombre() == cyties[city_id-1]){ //si hay sillas disponibles, se muestra el vuelo
+        Aeropuerto destino = flota[i].getAeropuertoDestino();
+        cout << origen.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
+      }
+    }
+  }
+
 }

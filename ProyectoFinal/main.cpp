@@ -74,6 +74,7 @@ int main()
   AgenciaDeViaje *agencia = new AgenciaDeViaje(1,"8589","passVu","calle45","www.passVu.com", agenda, representante, aerolineas);
   agencias.push_back(*agencia);
 
+
   //Sillas
    vector<Silla> preferencial(0);
    vector<Silla> normal(0);
@@ -97,8 +98,10 @@ int main()
   Avion JayJayElAvioncito (preferencial,normal,bajoCosto,"ABC-123",aeropuerto1,aeropuerto2,30000,2);
   cout<<"Puesto Disponibls: "<<JayJayElAvioncito.getSillasDisponibles()<<endl;
 
-//    Control control(todosAeropuertos, agencias, aerolineas);
-//    control.setFlota();
+  Control control(todosAeropuertos, agencias, aerolineas);
+  control.listaDeVuelosDisponibles();
+  control.setFlota();
+  control.listaDeVuelosDisponibles();
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();
     cout << "Crear una aerolinea" << endl;

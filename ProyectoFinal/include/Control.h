@@ -54,6 +54,8 @@ class Control
         Aerolinea getAeroline(int id); //se le pasa el id de una aerolinea y este metodo lo retorna;
         vector<Silla> createSilla(string tipo); //retorna un vactor de sillas de el tipo que se le pase
         Avion createPlain(); //crea un avion y lo retorna
+        void listaDeVuelosDisponibles(); //muestra la lista de vuelos disponibles
+        vector<string> getCytiesOrigenFl(vector<Avion> flota); 
 
 
 
