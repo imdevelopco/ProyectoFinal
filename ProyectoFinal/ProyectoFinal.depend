@@ -181,3 +181,130 @@
 1511787906 source:c:\users\david\github\proyectofinal\proyectofinal\src\tiquete.cpp
 	"Tiquete.h"
 
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
+	"Aeropuerto.h"
+
+1512961993 c:\users\robot\github\proyectofinal\proyectofinal\include\aeropuerto.h
+	<iostream>
+	<vector>
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
+	"AgenciaDeViaje.h"
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
+	<vector>
+	<iostream>
+	"Representante.h"
+	"Telefono.h"
+	"CompaniaAerea.h"
+	"Cliente.h"
+	"Aerolinea.h"
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\representante.h
+	<iostream>
+	<ctime>
+	"Persona.h"
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\persona.h
+	<iostream>
+	<ctime>
+	"Telefono.h"
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\telefono.h
+	<iostream>
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\companiaaerea.h
+	<iostream>
+	<vector>
+	"Telefono.h"
+	"Representante.h"
+	"Cliente.h"
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\cliente.h
+	"Persona.h"
+	<iostream>
+
+1512970814 c:\users\robot\github\proyectofinal\proyectofinal\include\aerolinea.h
+	<iostream>
+	<vector>
+	<CompaniaAerea.h>
+	"Avion.h"
+
+1513026117 c:\users\robot\github\proyectofinal\proyectofinal\include\avion.h
+	<iostream>
+	<vector>
+	"Silla.h"
+	"Aeropuerto.h"
+
+1512961994 c:\users\robot\github\proyectofinal\proyectofinal\include\silla.h
+	<iostream>
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\cliente.cpp
+	"Cliente.h"
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
+	"CompaniaAerea.h"
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\persona.cpp
+	"Persona.h"
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\representante.cpp
+	"Representante.h"
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\telefono.cpp
+	"Telefono.h"
+
+1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\tiquete.cpp
+	"Tiquete.h"
+
+1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\tiquete.h
+	<iostream>
+	"Aeropuerto.h"
+	"Aerolinea.h"
+	"Avion.h"
+	"Silla.h"
+	"Cliente.h"
+
+1512970938 source:c:\users\robot\github\proyectofinal\proyectofinal\main.cpp
+	<iostream>
+	"Cliente.h"
+	"Persona.h"
+	"Aerolinea.h"
+	"Aeropuerto.h"
+	"AgenciaDeViaje.h"
+	"CompaniaAerea.h"
+	"Avion.h"
+	"Representante.h"
+	"Silla.h"
+	"Telefono.h"
+	"Tiquete.h"
+	"Control.h"
+
+1512961994 c:\users\robot\github\proyectofinal\proyectofinal\include\control.h
+	<iostream>
+	<string>
+	<vector>
+	"Aerolinea.h"
+	"Aeropuerto.h"
+	"AgenciaDeViaje.h"
+	"Avion.h"
+	"Cliente.h"
+	"Representante.h"
+	"Silla.h"
+	"Telefono.h"
+	"Tiquete.h"
+
+1513032439 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aerolinea.cpp
+	"Aerolinea.h"
+
+1513032283 source:c:\users\robot\github\proyectofinal\proyectofinal\src\avion.cpp
+	"Avion.h"
+
+1512961994 source:c:\users\robot\github\proyectofinal\proyectofinal\src\control.cpp
+	"Control.h"
+	<iostream>
+	<string>
+
+1512942834 source:c:\users\robot\github\proyectofinal\proyectofinal\src\silla.cpp
+	"Silla.h"
+

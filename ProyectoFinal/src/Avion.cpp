@@ -9,13 +9,13 @@ Avion::Avion()
   }
 
   //Crear las sillas normales
-  for(int i = 0; i < 10; ++i){
+  for(int i = 0; i < 30; ++i){
     Silla silla("n-"+i,"normal",0);
     this->normal.push_back(silla);
   }
 
   //crear las sillas de bajo bajo costo
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 30; i++){
     Silla silla("b-"+i,"bajo costo",0);
     this->bajoCosto.push_back(silla);
   }
@@ -155,6 +155,18 @@ void Avion::setCantidadGasolina(int cant){
 */
 void Avion::setTiempoMaximo(int tiempo){
   this->tiempoMaximo = tiempo;
+}
+
+//Settea los valores por defecto de una instancia de la Clase avion
+void Avion::llenarDatos()
+{
+    string placaAvion;
+    int cantidadTanque;
+    cout<<"Digite la matricula del avion"<<endl;
+    cin>>placaAvion;
+    setMatricula(placaAvion);
+    cout<<"Digite la capacidad del tanque de gasolina del avion"<<endl;
+    cin>>cantidadTanque;
 }
 
 
