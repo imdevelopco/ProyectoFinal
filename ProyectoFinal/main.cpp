@@ -97,6 +97,7 @@ int main()
  // Avion
   Avion JayJayElAvioncito (preferencial,normal,bajoCosto,"ABC-123",aeropuerto1,aeropuerto2,30000,2);
   cout<<"Puesto Disponibls: "<<JayJayElAvioncito.getSillasDisponibles()<<endl;
+   JayJayElAvioncito.getSillasDisponiblesPorCategoria();
 
   Control control(todosAeropuertos, agencias, aerolineas);
   control.listaDeVuelosDisponibles();

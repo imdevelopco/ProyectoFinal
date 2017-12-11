@@ -47,6 +47,8 @@ class Avion
         int getTiempoMaximo();
         // Reotrna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
         int getSillasDisponibles();
+        // Reotrna la cantidad de sillas disponibles por categoria
+        string getSillasDisponiblesPorCategoria();
 
     protected:
 
