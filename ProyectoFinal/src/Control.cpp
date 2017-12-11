@@ -729,6 +729,13 @@ void Control::listaDeVuelosDisponibles(){
       if( flota[i].getSillasDisponibles() > 0 && origen.getNombre() == cyties[city_id-1]){ //si hay sillas disponibles, se muestra el vuelo
         Aeropuerto destino = flota[i].getAeropuertoDestino();
         cout << origen.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
+        for(int j = 0; j < flota.size(); ++j){
+          Aeropuerto origen2  = flota[j].getAeropuertoOrigen();
+          Aeropuerto destino2 = flota[j].getAeropuertoDestino();
+          if( flota[j].getSillasDisponibles() > 0 && (origen2.getNombre() == destino.getNombre() && destino2.getNombre() != origen.getNombre() ) ){
+            cout << origen.getAbreviatura()+" -> "+destino.getAbreviatura()+" -> "+destino2.getAbreviatura() << endl;
+          }
+        }
       }
     }
   }

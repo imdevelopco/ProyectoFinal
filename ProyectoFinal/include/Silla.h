@@ -23,7 +23,7 @@ class Silla
         /*---------------------------------------*/
         string getNumber();
         string getType();
-        getStatus();
+        int getStatus();
     protected:
 
     private:
