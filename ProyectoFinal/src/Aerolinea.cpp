@@ -77,6 +77,7 @@ vector<Avion> Aerolinea::getFlota(){
 void Aerolinea::administrarAviones()
 {
     int decision;
+    Avion
     do{
             cout<<"Que deseas hacer?"<<endl;
             cout<<"1.reducir el tamano de la flota"<<endl;
@@ -94,18 +95,25 @@ void Aerolinea::administrarAviones()
     };
     break;
     case 2:{
-        string matricula;
-        cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
-        cin>>matricula;
-        for (int i=0;i<flota.size();i++)
-        {
-            if(matricula == flota[i].getMatricula())
+            string matricula;
+            bool noEsta = false;
+            cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
+            cin>>matricula;
+            for (int i=0;i<flota.size();i++)
             {
-                flota.erase(flota.begin()+i);
-                cout<<"Se ha eliminado el avion de la flota"<<endl;
+                if(matricula == flota[i].getMatricula())
+                {
+                    flota.erase(flota.begin()+i);
+                    cout<<"Se ha eliminado el avion de la flota"<<endl;
+                }else{
+                  noEsta=true;
+                }
             }
-        }
-    };
+            if(noEsta == true)
+            {
+                cout<<"No se ha encontrado el avion en la flota"<<endl;
+            }
+        };
     break;
     case 3:{};
     break;
