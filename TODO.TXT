@@ -1,4 +1,4 @@
-• Permita crear una clase de Control que tenga Agencias y Aerolíneas. ✓
+﻿• Permita crear una clase de Control que tenga Agencias y Aerolíneas. ✓
 • Permita crear Agencias ✓
 • Permita crear Aerolíneas ✓
 • Permita crear Aeropuertos ✓
@@ -14,14 +14,14 @@
 • Permita verificar la cantidad de sillas totales disponibles, de sillas preferenciales
   disponibles y de bajo costo disponible, tanto para una Aerolínea como para todas
   las que laboran en un Aeropuerto.✓
-• Controle la cantidad de aviones existentes.
+• Controle la cantidad de aviones existentes. ✓
 • Muestre el valor total generado por venta de tiquetes.
 • Pueda crear un viaje largo asegurando todos los tiquetes que requiera el cliente para
   ir de un destino a un origen.
 • Quitar aviones de la flota, asegurando que no haya tiquetes vendidos para las sillas
   de determinada aerolínea.
 • Poder convertir un cliente normal en presencial.
-• Cambiar la razón social de una Aerolínea.
+• Cambiar la razón social de una Aerolínea.✓
 • Asegurar la impresión del tiquete comprado por un cliente
 
 

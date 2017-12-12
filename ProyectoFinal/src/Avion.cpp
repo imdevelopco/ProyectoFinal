@@ -9,13 +9,13 @@ Avion::Avion()
   }
 
   //Crear las sillas normales
-  for(int i = 0; i < 10; ++i){
+  for(int i = 0; i < 30; ++i){
     Silla silla("n-"+i,"normal",0);
     this->normal.push_back(silla);
   }
 
   //crear las sillas de bajo bajo costo
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 30; i++){
     Silla silla("b-"+i,"bajo costo",0);
     this->bajoCosto.push_back(silla);
   }
@@ -157,6 +157,18 @@ void Avion::setTiempoMaximo(int tiempo){
   this->tiempoMaximo = tiempo;
 }
 
+//Settea los valores por defecto de una instancia de la Clase avion
+void Avion::llenarDatos()
+{
+    string placaAvion;
+    int cantidadTanque;
+    cout<<"Digite la matricula del avion"<<endl;
+    cin>>placaAvion;
+    setMatricula(placaAvion);
+    cout<<"Digite la capacidad del tanque de gasolina del avion"<<endl;
+    cin>>cantidadTanque;
+}
+
 
 /* +───────────────────────────────────────────────────────────────────────+ */
 /*	      /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$   /$$$$$$ 	       */
@@ -236,4 +248,29 @@ int Avion::getSillasDisponibles()
         acum++;
         }
     return acum;
+}
+// Entrada: void
+// Salida: cadena de texto.
+// Funcion: Retorna la cantidad de sillas disponibles en por el tipo de silla.
+// Autor: Carlos Andres Cordoba.
+string Avion::getSillasDisponiblesPorCategoria()
+{
+    int costosa = 0,normalita = 0, barata = 0;
+     for(int i =0;i<preferencial.size();i++){
+        if( preferencial[i].getStatus() == 0)
+        costosa++;
+        }
+        for(int i =0;i<normal.size();i++){
+        if( normal[i].getStatus() == 0)
+        normalita++;
+        }
+        for(int i =0;i<bajoCosto.size();i++){
+        if( bajoCosto[i].getStatus() == 0)
+        barata++;
+        }
+        cout<<"La diponibilidad es la siguiente:"<<endl;
+        cout<<"Sillas Preferenciales: "<<costosa<<endl;
+        cout<<"Sillas Normales: "<<normalita<<endl;
+        cout<<"Sillas de bajo costo: "<<barata<<endl;
+
 }

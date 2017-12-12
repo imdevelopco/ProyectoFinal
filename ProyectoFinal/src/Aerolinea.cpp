@@ -1,4 +1,5 @@
 #include "Aerolinea.h"
+#include<vector>
 
 Aerolinea::Aerolinea()
 {
@@ -67,4 +68,62 @@ int Aerolinea::getTotal(){
 /*Retorna la flota de aviones*/
 vector<Avion> Aerolinea::getFlota(){
   return this->flota;
+}
+//Entrada: void
+//Salida: void
+//Funcion: Dependiendo de lo que quiera el usuario, este metodo sera capaz
+// de eliminar, agregar  aviones a determinada flota de y tambien cambiar el tamno de
+//la flota en general
+// Autor: Carlos Andres Cordoba Ramos
+void Aerolinea::administrarAviones()
+{
+    int decision;
+    Avion newAvion;
+    do{
+            cout<<"Que deseas hacer?"<<endl;
+            cout<<"1.reducir el tamano de la flota"<<endl;
+            cout<<"2.eliminar un avion de la flota"<<endl;
+            cout<<"3.agregar un avion a la flota"<<endl;
+            cin>>decision;
+    }while((decision != 1)&&(decision != 2)&&(decision != 3));
+    switch(decision){
+
+    case 1:{
+            int reductor;
+            cout<<"cuantos aviones quiere que tenga la flota?"<<endl;
+            cin>>reductor;
+            flota.resize(reductor);
+    };
+    break;
+    case 2:{
+            string matricula;
+            bool noEsta = false;
+            cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
+            cin>>matricula;
+            for (int i=0;i<flota.size();i++){
+                if(matricula == flota[i].getMatricula()){
+                        if(flota[i].getSillasDisponibles() > 0){
+                            cout<<"No se puede eliminar el avion por que tiene tiquetes vendidos"<<endl;
+                        }else if (flota[i].getSillasDisponibles() > 0){
+                    flota.erase(flota.begin()+i);
+                    cout<<"Se ha eliminado el avion de la flota"<<endl;
+                    }
+                }else{
+                    noEsta=true;
+                }
+            }
+            if(noEsta == true){
+                cout<<"No se ha encontrado el avion en la flota"<<endl;
+            }
+        };
+    break;
+    case 3:{
+            newAvion.llenarDatos();
+            flota.push_back(newAvion);
+            cout<<"Se ha insertado el avion en la flota con exito!"<<endl;
+    };
+    break;
+    }
+
+
 }

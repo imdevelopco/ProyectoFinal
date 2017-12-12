@@ -29,6 +29,8 @@ class Avion
         void setAeropuertoDestino(Aeropuerto destino);
         void setCantidadGasolina(int cant);
         void setTiempoMaximo(int tiempo);
+        //Settea los valores por defecto de una instancia de la Clase avion
+        void llenarDatos();
 
         /*---------------------------------------*/
         /*                GETERS                 */
@@ -45,8 +47,11 @@ class Avion
         Aeropuerto getAeropuertoDestino();
         int getCantidadGasolina();
         int getTiempoMaximo();
-        // Reotrna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
+        // Retorna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
         int getSillasDisponibles();
+        // Retorna la cantidad de sillas disponibles por categoria
+        string getSillasDisponiblesPorCategoria();
+
 
     protected:
 
