@@ -273,3 +273,74 @@ void Avion::getSillasDisponiblesPorCategoria()
         cout<<"Sillas Normales: "<<normalita<<endl;
         cout<<"Sillas de bajo costo: "<<barata<<endl;
 }
+
+/*Retorna  la  cantidad  de  sillas  disponibles  de el tipo que se  le pase por
+  parametro.
+  getTotalBy(tipoSilla) -> int     Total de sillas disponibles de ese tipo
+  tipoSilla             == string  Tipo de sillas ["preferencial","normal","bajo costo"]
+*/
+int Avion::getTotalBy(string tipoSilla){
+  int totalSillas = 0;
+  if(tipoSilla == "preferencial"){
+    for(int i = 0; i < this->preferencial.size(); ++i){
+      if(this->preferencial[i].getStatus() == 0){
+        totalSillas++;
+      }
+    }
+  }
+  else if(tipoSilla == "normal"){
+    for(int i = 0; i < this->normal.size(); ++i){
+      if(this->normal[i].getStatus() == 0){
+        totalSillas++;
+      }
+    }
+  }
+  else if(tipoSilla == "bajoCosto"){
+    for(int i = 0; i < this->bajoCosto.size(); ++i){
+      if(this->bajoCosto[i].getStatus() == 0){
+        totalSillas++;
+      }
+    }
+  }
+  return totalSillas;
+}
+
+/*establece una silla del avion como ocupada, se le debe pasar el tipo de silla
+  a ocupar.
+  ocuparSilla(tipo) -> string   Numero de la silla ocupada
+  tipo              == string   Tipo de silla opciones "preferencial", "normal", "bajoCosto"]
+*/
+string Avion::ocuparSilla(string tipo){
+  int i = 0;
+  string sillaNum;
+  bool continueLoop = true;
+  if(tipo == "preferencial"){
+    do {
+      if(this->preferencial[i].getStatus() == 0){ //si la silla esta libre
+         this->preferencial[i].setStatus(1); //se establece la silla como ocupada
+         sillaNum = this->preferencial[i].getNumber();
+         continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
+      }
+    } while(continueLoop);
+  }
+  else if(tipo == "normal"){
+    do {
+      if(this->normal[i].getStatus() == 0){
+         this->normal[i].setStatus(1); //se establece la silla como ocupada
+         sillaNum = this->normal[i].getNumber();
+         continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
+      }
+    } while(continueLoop);
+  }
+  else if(tipo == "bajoCosto"){
+    do {
+      if(this->bajoCosto[i].getStatus() == 0){
+         this->bajoCosto[i].setStatus(1); //se establece la silla como ocupada
+         sillaNum = this->bajoCosto[i].getNumber();
+         continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
+      }
+    } while(continueLoop);
+  }
+
+  return sillaNum;
+}

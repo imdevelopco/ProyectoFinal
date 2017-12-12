@@ -31,6 +31,8 @@ class Avion
         void setTiempoMaximo(int tiempo);
         //Settea los valores por defecto de una instancia de la Clase avion
         void llenarDatos();
+        //establece un silla como vendida (ocupada)
+        string ocuparSilla(string tipo);
 
         /*---------------------------------------*/
         /*                GETERS                 */
@@ -51,6 +53,8 @@ class Avion
         int getSillasDisponibles();
         // Retorna la cantidad de sillas disponibles por categoria
         void getSillasDisponiblesPorCategoria();
+        //retorna el total de sillas disponiblrs de un tipo en particular
+        int getTotalBy(string tipoSilla);
 
 
     protected:

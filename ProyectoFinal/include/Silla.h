@@ -17,7 +17,6 @@ class Silla
         void setNumber(string num);
         void setType(string tipo);
         void setStatus(int estado);
-
         /*---------------------------------------*/
         /*                GETERS                 */
         /*---------------------------------------*/

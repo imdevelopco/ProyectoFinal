@@ -107,10 +107,11 @@ int main()
   aerolinea->setFlota(flotas);
   aerolinea->administrarAviones(); */
 
+
   Control control(todosAeropuertos, agencias, aerolineas);
-  control.listaDeVuelosDisponibles();
   control.setFlota();
-  control.listaDeVuelosDisponibles();
+
+
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();
     cout << "Crear una aerolinea" << endl;

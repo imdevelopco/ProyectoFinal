@@ -29,3 +29,8 @@ AgenciaDeViaje::~AgenciaDeViaje()
 /*int AgenciaDeViaje::getId(){
   return id;
 }*/
+
+
+vector<Aerolinea> AgenciaDeViaje::getAerolineas(){
+  return this->aerolineas;
+}

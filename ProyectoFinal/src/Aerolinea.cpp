@@ -152,3 +152,77 @@ vector<string> Aerolinea::getCytiesOrigenFl(){
 
   return origen;
 }
+
+/*Muestra en pantalla los vuelos disponibles, verifica si el vuelo tiene sillas
+  disponibles, si es asi lo muestra
+  showVuelosDisponibles(cyti) -> void    Salia en pantalla
+  cyti                        == string nombre del aeropuerto
+*/
+void Aerolinea::showVuelosDisponibles(string cyti){
+
+  for(int i = 0; i < this->flota.size(); ++i){
+    Aeropuerto origen  = this->flota[i].getAeropuertoOrigen();
+    if( this->flota[i].getSillasDisponibles() > 0 && origen.getNombre() == cyti){ //si hay sillas disponibles, se muestra el vuelo
+      Aeropuerto destino = this->flota[i].getAeropuertoDestino();
+      cout << to_string(i+1)+")   "+origen.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
+      for(int j = 0; j < this->flota.size(); ++j){
+        Aeropuerto origen2  = this->flota[j].getAeropuertoOrigen();
+        Aeropuerto destino2 = this->flota[j].getAeropuertoDestino();
+        if( this->flota[j].getSillasDisponibles() > 0 && (origen2.getNombre() == destino.getNombre() && destino2.getNombre() != origen.getNombre() ) ){
+          cout << to_string(i+1)+"."+to_string(j+1)+") "+origen.getAbreviatura()+" -> "+destino.getAbreviatura()+" -> "+destino2.getAbreviatura() << endl;
+        }
+      }
+    }
+  }
+
+}
+
+/*se le pasa la posicion del avion en el vector de la flota y verifica si  tiene
+  sillas disponibles, si es asi retorna true.
+  verifyDisponiilidad(pos) -> bool     True si hay sillas disponibles, de cualquier Tipo
+  pos                      == int
+*/
+bool Aerolinea::verifyDisponiilidad(int pos){
+  if( this->flota[pos].getSillasDisponibles() > 0 ){ //si el vuelo tiene alguna silla disponible
+    return true;
+  }
+  return false;
+}
+
+/*muestra en pantalla el tikete vendido*/
+void Aerolinea::imprimirTicket(int id_avion, string num_silla){
+
+  Aeropuerto origen  = this->flota[id_avion].getAeropuertoOrigen();
+  Aeropuerto destino = this->flota[id_avion].getAeropuertoDestino();
+
+  cout << "\n" << endl;
+  cout << "+------------------------------------+" << endl;
+  cout << "|"+getRazonSocial()<< endl;
+  cout << "| Origen  : "+ origen.getNombre() << endl;
+  cout << "| Destino : "+ destino.getNombre() << endl;
+  cout << "| Silla   : "+ num_silla << endl;
+  cout << "+------------------------------------+\n" << endl;
+}
+
+/*Vende ticketes de avion
+  sellTicket(tipoSilla, id_avion) -> void
+  tipoSilla                       == string    tipo de silla a comprar opciones ["preferencial", "normal", "bajoCosto"]
+  id_avion                        == int       posicion del avion en la flota
+*/
+void Aerolinea::sellTicket(string tipoSilla, int id_avion){
+
+  string sillaNum = this->flota[id_avion].ocuparSilla(tipoSilla); //ocupamos la silla del avion
+  imprimirTicket(id_avion, sillaNum); //mostramos el ticket
+  /*
+  #include <cstring>
+  char cad[] ="- Esta, una cadena de prueba.";
+    char * pch;
+    cout<<"Partiendo la cadena \""<<cad<<"\" en tokens:\n\n";
+    pch = strtok( cad, " ,.-" );
+    while( pch != NULL )
+    {
+        cout<< pch <<endl;
+        pch = strtok( NULL, " ,.-" );
+    }
+  */
+}

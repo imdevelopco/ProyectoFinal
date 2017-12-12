@@ -47,15 +47,18 @@ class Control
         void listAgencias(); //lista las agencias
         void listAerilineas(); //lista las aerolineas
         void listAirports(); //lista los aeropuertos.
+        void listThisAerolineas(vector<Aerolinea> aerolineas); //lista las aerolineas que se le pasen por parametro
         bool existAirport(int id); //verifica si el id qeu se pase pertenece a un aeropuerto
         bool existAerolinea(int id); //verifica que el id que se le pase pertenesca a una aerolina, si es asi retorna true
         bool existAgencia(int id); //verifica si el id que se le pase pertenece a una agencia
+        bool existAerolineaInThis(vector<Aerolinea> aerolineas, int id); //verifica si el id que se le pase por parametro este en el vector de aerolines que tambien se le pasa por parametro
         Aeropuerto getAirport(int id); //se le pasa un id de un aeropuierto y este metodo retorna dicho Aeropuerto
         Aerolinea getAeroline(int id); //se le pasa el id de una aerolinea y este metodo lo retorna;
+        AgenciaDeViaje getAgencia(int id); //se le pasa un id de una agencia y retorna esa agencia
         vector<Silla> createSilla(string tipo); //retorna un vactor de sillas de el tipo que se le pase
         Avion createPlain(); //crea un avion y lo retorna
-        void listaDeVuelosDisponibles(); //muestra la lista de vuelos disponibles
-        vector<string> getCytiesOrigenFl(vector<Avion> flota); 
+        void listaDeVuelosDisponibles(int aerolinea_id); //muestra la lista de vuelos disponibles
+        vector<string> getCytiesOrigenFl(vector<Avion> flota);
 
 
 

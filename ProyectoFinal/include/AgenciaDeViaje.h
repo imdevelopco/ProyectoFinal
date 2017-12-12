@@ -17,6 +17,7 @@ class AgenciaDeViaje:public CompaniaAerea
         AgenciaDeViaje(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb, vector<Telefono> agenda, Representante representante, vector<Aerolinea> aerolineas);
         virtual ~AgenciaDeViaje();
         /* Getters*/
+        vector<Aerolinea> getAerolineas();
 
     protected:
 

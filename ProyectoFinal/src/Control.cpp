@@ -188,7 +188,6 @@ void Control::listAgencias(){
 
 /*Lista en pantalla las aerolineas*/
 void Control::listAerilineas(){
-  cout << this->aerolineas.size() << endl;
   for (int i = 0; i < this->aerolineas.size(); i++) {
     cout << to_string( this->aerolineas[i].getId() )+" ) "+this->aerolineas[i].getRazonSocial() << endl;
   }
@@ -198,6 +197,13 @@ void Control::listAerilineas(){
 void Control::listAirports(){
   for (int i = 0; i < this->aeropuertos.size(); ++i) {
     cout << to_string( this->aeropuertos[i].getId() )+" )"+ this->aeropuertos[i].getNombre() << endl;
+  }
+}
+
+/*Lista las aerolineas que se le pasen por parametro*/
+void Control::listThisAerolineas(vector<Aerolinea> aerolineas){
+  for(int i = 0; i < aerolineas.size(); ++i){
+    cout << to_string(aerolineas[i].getId())+") "+aerolineas[i].getRazonSocial() << endl;
   }
 }
 
@@ -453,6 +459,22 @@ bool Control::existAerolinea(int id){
   return exist;
 }
 
+/*Verifica que el id que se pase por parametro sea de una agencia,  qeu  tambien
+  se le pasa por parametro.
+  existAerolineaInThis(aerolineas, id)  -> bool   True si existe
+  aerolineas                            == vector<Aerolinea>
+  id                                    == int
+*/
+bool Control::existAerolineaInThis(vector<Aerolinea> aerolineas, int id){
+    bool exist = false;
+    for(int i = 0; i < aerolineas.size(); ++i){
+      if(aerolineas[i].getId() == id){
+        exist = true;
+      }
+    }
+    return exist;
+}
+
 /*Se le pasa un id de un aeropuerto y este metodo retorna dicho Aeropuerto*/
 Aeropuerto Control::getAirport(int id){
   for (int i = 0; i < this->aeropuertos.size(); i++) {
@@ -467,6 +489,15 @@ Aerolinea Control::getAeroline(int id){
   for(int i = 0; i < this->aerolineas.size(); ++i){
     if(id == this->aerolineas[i].getId() ){
       return this->aerolineas[i];
+    }
+  }
+}
+
+/*se le pasa el id de una agencia de viaje y la retorna*/
+AgenciaDeViaje Control::getAgencia(int id){
+  for(int i = 0; i < this->agencias.size(); ++i){
+    if(id == this->agencias[i].getId() ){
+      return this->agencias[i];
     }
   }
 }
@@ -533,50 +564,69 @@ void Control::venderTiket(){
   Aeropuerto origen;
   vector<Aeropuerto> destinos, destinos2;
 
-  cout << "Vender tiket" << endl;
+  cout << "\n :::::::::Vender ticket:::::::" << endl;
   do {
     cout << "Agencia o aerolinea? (agencia, aerolinea)" << endl;
     cin >> compania;
   } while(compania != "agencia" && compania != "aerolinea");
 
   if(compania == "agencia"){ // si selecciono una agencia, mostramos la lista de agencias
-    listAgencias();
-    do {
-      cout << "Ingresa el id de la agencia" << endl;
-      cin >> agencia_id;
-    } while( !existAgencia(agencia_id) );
+        //┌─┐┌─┐┌─┐┌┐┌┌─┐┬┌─┐
+        //├─┤│ ┬├┤ ││││  │├─┤
+        //┴ ┴└─┘└─┘┘└┘└─┘┴┴ ┴
+        listAgencias();
+        do {
+          cout << "Ingresa el id de la agencia" << endl;
+          cin >> agencia_id;
+        } while( !existAgencia(agencia_id) );
+
+        //mostramos las aerolineas de la agencia
+        vector<Aerolinea> aerolineasDeagencia = getAgencia(agencia_id).getAerolineas();
+        listThisAerolineas(aerolineasDeagencia);
+        do {
+            cout << "Ingresa el id de una aerolinea de la agencia" << endl;
+            cin >> aerolinea_id;
+        } while( !existAerolineaInThis(aerolineasDeagencia, aerolinea_id) ); //verificamos que el id que ingreso es de un
   }
   else{ //si selecciono una aerolinea le mostramos la lista de aerolineas
-    listAerilineas();
-    do {
-      cout << "Ingresa el id de la aerolinea" << endl;
-      cin >> aerolinea_id;
-    } while( !existAerolinea(aerolinea_id) );
+        //┌─┐┌─┐┬─┐┌─┐┬  ┬┌┐┌┌─┐┌─┐
+        //├─┤├┤ ├┬┘│ ││  ││││├┤ ├─┤
+        //┴ ┴└─┘┴└─└─┘┴─┘┴┘└┘└─┘┴ ┴
+        cout << "Aerolineas" << endl;
+        listAerilineas();
+        do {
+          cout << "ingresa el id de la aerolinea" << endl;
+          cin >> aerolinea_id;
+        } while( !existAerolinea(aerolinea_id) );
   }
 
-  //listar destinos de origen
-  cout << "Elige el aeropuerto de origen" << endl;
-  listAirports();
-  do {
-    cout << "Ingresa el id del aeropuerto de origen" << endl;
-    cin >> aeropuertoOrigen_id;
-  } while(!existAirport(aeropuertoOrigen_id));
+  listaDeVuelosDisponibles(aerolinea_id); //este metodo pide la ciudad de origen, y muestra los vuelos de la agencia selecionada y de la ciudad selecionada
+  cout << "ingresar el numero del vuelo, si tiene escalas recuerta poner el puto)" << endl;
 
-  origen   = getAirport(aeropuertoOrigen_id); //obtenemos el aeropuerto de origen
-/*
-  destinos = origen.getAeropuertosDestino(); //obtenemos los aeropuertos de destino
-  for(int i = 0; i < destinos.size(); ++i){ //recorremos los aeropuertos de destino
-    cout << origen.getAbreviatura()+" -> "+destinos[i].getAbreviatura() << endl;
 
-    destinos2 = destinos[i].getAeropuertosDestino(); //tomamos los aeropuestos de destino del aeropuerto de destino
-    if(destinos2.size() > 0){ //si tiene aeropuertos como segundo destino
-      for(int j = 0; j < destinos2.size(); ++j){
-        cout << origen.getAbreviatura()+" -> "+destinos[i].getAbreviatura()+" -> "+destinos2[j].getAbreviatura()<< endl;
-      }
-    }
 
-  }
-  */
+
+  cout << "\n :::::::::Vender ticket:::::::" << endl;
+
+
+  //verificar si ingreso un vuelo normal o con escalass
+  // verificar si esta disponible los vuelos selecionados con este metodo
+  //Aerolinea.verifyDisponiilidad(int pos) -> a pos se le debe restar uno pos-1;
+  cout << "Sillas disponibles" << endl;
+  // Avion.getSillasDisponiblesPorCategoria(); -> mostrar las sillas disponibles
+  cout << "que tipo de sillas desea" << endl;
+  cout << "Cuantas sillas desea comprar" << endl;
+  //verificar si hay sillas de el tipo que selecciono y la cantidad que seleccionó
+  // Avion.getTotalBy(string tipoSilla) -> si hay mas o igual, se puede vender
+  //un for (cantidad de sillas){
+  //       for(vuelos "escalas"){
+  //         Aerolinea.sellTicket(string tipoSilla, int id_avion)
+  //       }
+  //}
+
+  // if(agencia) guardar transacion en agencia
+  // else guardar trancasion en arolinea
+  cout << "Imprimir ticketes" << endl;
 }
 
 
@@ -670,20 +720,17 @@ void Control::setFlota(){
   this->aerolineas[getPositionAeroline(aerolinea_id)].setFlota(flota);
 }
 
-/*Lista las rutas de una aerolinea*/
-void Control::listaDeVuelosDisponibles(){
-  int aerolinea_id, city_id;
+/*Lista las rutas de una aerolinea
+ primero  pide  la  aerolinea  de la que se quiere conocer los vuelos y luego la
+ ciudad de origen
+*/
+void Control::listaDeVuelosDisponibles(int aerolinea_id){
+  int city_id;
   Aerolinea aerolinea;
   vector<Avion> flota;
   vector<string> cyties;
 
   cout << "Vuelos disponibles " << endl;
-  cout << "Aerolineas" << endl;
-  listAerilineas();
-  do {
-    cout << "ingresa el id de la aerolinea" << endl;
-    cin >> aerolinea_id;
-  } while( !existAerolinea(aerolinea_id) );
 
   aerolinea = getAeroline(aerolinea_id);
   flota     = aerolinea.getFlota();
@@ -700,21 +747,7 @@ void Control::listaDeVuelosDisponibles(){
       cin >> city_id;
     } while(city_id < 0 || city_id > cyties.size() );
 
-
-    for(int i = 0; i < flota.size(); ++i){
-      Aeropuerto origen  = flota[i].getAeropuertoOrigen();
-      if( flota[i].getSillasDisponibles() > 0 && origen.getNombre() == cyties[city_id-1]){ //si hay sillas disponibles, se muestra el vuelo
-        Aeropuerto destino = flota[i].getAeropuertoDestino();
-        cout << origen.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
-        for(int j = 0; j < flota.size(); ++j){
-          Aeropuerto origen2  = flota[j].getAeropuertoOrigen();
-          Aeropuerto destino2 = flota[j].getAeropuertoDestino();
-          if( flota[j].getSillasDisponibles() > 0 && (origen2.getNombre() == destino.getNombre() && destino2.getNombre() != origen.getNombre() ) ){
-            cout << origen.getAbreviatura()+" -> "+destino.getAbreviatura()+" -> "+destino2.getAbreviatura() << endl;
-          }
-        }
-      }
-    }
+    aerolinea.showVuelosDisponibles(cyties[city_id-1]);
   }
 
 }
