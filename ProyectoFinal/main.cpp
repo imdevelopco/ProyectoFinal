@@ -76,7 +76,7 @@ int main()
 
 
   //Sillas
-
+/*
    vector<Silla> preferencial(0);
    vector<Silla> normal(0);
    vector<Silla> bajoCosto(0);
@@ -106,7 +106,7 @@ int main()
 
   aerolinea->setFlota(flotas);
   aerolinea->administrarAviones();
-
+*/
 
   Control control(todosAeropuertos, agencias, aerolineas);
   control.setFlota();
