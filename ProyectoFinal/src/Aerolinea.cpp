@@ -127,3 +127,28 @@ void Aerolinea::administrarAviones()
 
 
 }
+
+/*retorna los aeropuertos de origen de una flota de aviones*/
+vector<string> Aerolinea::getCytiesOrigenFl(){
+  vector<string> origen;
+  for(int i = 0; i < this->flota.size(); ++i){
+    Aeropuerto aeropuertoOrigen = this->flota[i].getAeropuertoOrigen();
+    if(origen.size() > 0){ //si ya hay elementos en origen, verifi
+      bool save = true;
+      for(int j = 0; j < origen.size(); j++){
+        if (origen[j] == aeropuertoOrigen.getNombre()) {
+          save = false;
+        }
+      }
+
+      if(save){
+        origen.push_back( aeropuertoOrigen.getNombre() );
+      }
+    }
+    else{
+      origen.push_back( aeropuertoOrigen.getNombre() );
+    }
+  }
+
+  return origen;
+}

@@ -579,30 +579,7 @@ void Control::venderTiket(){
   */
 }
 
-/*retorna los aeropuertos de origen de una flota de aviones*/
-vector<string> Control::getCytiesOrigenFl(vector<Avion> flota){
-  vector<string> origen;
-  for(int i = 0; i < flota.size(); ++i){
-    Aeropuerto aeropuertoOrigen = flota[i].getAeropuertoOrigen();
-    if(origen.size() > 0){ //si ya hay elementos en origen, verifi
-      bool save = true;
-      for(int j = 0; j < origen.size(); j++){
-        if (origen[j] == aeropuertoOrigen.getNombre()) {
-          save = false;
-        }
-      }
 
-      if(save){
-        origen.push_back( aeropuertoOrigen.getNombre() );
-      }
-    }
-    else{
-      origen.push_back( aeropuertoOrigen.getNombre() );
-    }
-  }
-
-  return origen;
-}
 
 /*Crea un grupo de sillas */
 vector<Silla> Control::createSilla(string tipo){
@@ -711,7 +688,7 @@ void Control::listaDeVuelosDisponibles(){
   aerolinea = getAeroline(aerolinea_id);
   flota     = aerolinea.getFlota();
 
-  cyties = getCytiesOrigenFl(flota);
+  cyties = aerolinea.getCytiesOrigenFl();
 
   if (flota.size() > 0) {
     cout << "Elige la ciudad de origen" << endl;

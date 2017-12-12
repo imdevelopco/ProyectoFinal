@@ -28,6 +28,7 @@ class Aerolinea : public CompaniaAerea
         int getTotal();
         vector<Avion> getFlota();
         void administrarAviones();
+        vector<string> getCytiesOrigenFl();
     protected:
 
     private:

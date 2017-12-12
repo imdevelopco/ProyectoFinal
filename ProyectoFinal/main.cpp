@@ -76,6 +76,7 @@ int main()
 
 
   //Sillas
+  /*
    vector<Silla> preferencial(0);
    vector<Silla> normal(0);
    vector<Silla> bajoCosto(0);
@@ -98,13 +99,13 @@ int main()
   Avion JayJayElAvioncito (preferencial,normal,bajoCosto,"ABC-123",aeropuerto1,aeropuerto2,30000,2);
   cout<<"Puesto Disponibls: "<<JayJayElAvioncito.getSillasDisponibles()<<endl;
   JayJayElAvioncito.getSillasDisponiblesPorCategoria();
-// Se crea flota para agregarla al puntero aerolinea
-  vector <Avion> flotas(0);
+  // Se crea flota para agregarla al puntero aerolinea
+  vector<Avion> flotas;
   // se inserta el avion creado en el vector nuevo
   flotas.push_back(JayJayElAvioncito);
-  
+
   aerolinea->setFlota(flotas);
-  aerolinea->administrarAviones();
+  aerolinea->administrarAviones(); */
 
   Control control(todosAeropuertos, agencias, aerolineas);
   control.listaDeVuelosDisponibles();
