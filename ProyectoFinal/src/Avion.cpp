@@ -253,7 +253,7 @@ int Avion::getSillasDisponibles()
 // Salida: cadena de texto.
 // Funcion: Retorna la cantidad de sillas disponibles en por el tipo de silla.
 // Autor: Carlos Andres Cordoba.
-string Avion::getSillasDisponiblesPorCategoria()
+void Avion::getSillasDisponiblesPorCategoria()
 {
     int costosa = 0,normalita = 0, barata = 0;
      for(int i =0;i<preferencial.size();i++){
@@ -272,5 +272,4 @@ string Avion::getSillasDisponiblesPorCategoria()
         cout<<"Sillas Preferenciales: "<<costosa<<endl;
         cout<<"Sillas Normales: "<<normalita<<endl;
         cout<<"Sillas de bajo costo: "<<barata<<endl;
-
 }

@@ -50,7 +50,7 @@ class Avion
         // Retorna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
         int getSillasDisponibles();
         // Retorna la cantidad de sillas disponibles por categoria
-        string getSillasDisponiblesPorCategoria();
+        void getSillasDisponiblesPorCategoria();
 
 
     protected:
