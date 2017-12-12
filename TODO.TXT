@@ -17,9 +17,9 @@
 • Controle la cantidad de aviones existentes. ✓
 • Muestre el valor total generado por venta de tiquetes.
 • Pueda crear un viaje largo asegurando todos los tiquetes que requiera el cliente para
-  ir de un destino a un origen.
+  ir de un destino a un origen.  
 • Quitar aviones de la flota, asegurando que no haya tiquetes vendidos para las sillas
-  de determinada aerolínea.
+  de determinada aerolínea.✓
 • Poder convertir un cliente normal en presencial.
 • Cambiar la razón social de una Aerolínea.✓
 • Asegurar la impresión del tiquete comprado por un cliente
