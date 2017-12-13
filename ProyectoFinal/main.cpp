@@ -110,13 +110,20 @@ int main()
 */
 
  Control control(todosAeropuertos, agencias, aerolineas);
+
+ //┌─┐┬  ┬┌─┐┌┐┌┌┬┐┌─┐┌─┐
+ //│  │  │├┤ │││ │ ├┤ └─┐
+ //└─┘┴─┘┴└─┘┘└┘ ┴ └─┘└─┘
+
+ control.crearCliente();
+
 //  control.setFlota();
 //
 //  control.venderTiket();
 //
 //  control.venderTiket();
  //control.venderTiket();
- control.crearCliente();
+
 Telefono carlos;
 
 carlos.llenarTelefono();

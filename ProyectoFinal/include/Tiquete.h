@@ -13,7 +13,7 @@ class Tiquete
 {
     public:
         Tiquete();
-        Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,string silla,string estado,Cliente cliente);
+        Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,string silla,string estado,Cliente cliente, int precio);
         virtual ~Tiquete();
 
         /*---------------------------------------*/
@@ -53,8 +53,9 @@ class Tiquete
       Aerolinea aerolines;
       Avion avion;
       string silla;
-      string estado; // "No check" || Check in" 
+      string estado; // "No check" || Check in"
       Cliente cliente;
+      int precio;
 };
 
 #endif // TIQUETE_H

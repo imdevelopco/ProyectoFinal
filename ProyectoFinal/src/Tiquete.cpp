@@ -14,12 +14,13 @@ Tiquete::Tiquete()
     this->numeroTiquerte = 0;
     this->aerolines = aerolines;
     this->avion = avion;
-    this->silla = silla;
+    this->silla = "normal";
     this->estado = "No check";
     this->cliente = cliente;
+    this->precio   = 300000;
 }
 
-Tiquete::Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,string silla,string estado,Cliente cliente){
+Tiquete::Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,string silla,string estado,Cliente cliente, int precio){
    this->id             = id;
    this->origen         = origen;
    this->destino        = destino;
@@ -29,6 +30,7 @@ Tiquete::Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte
    this->silla          = silla;
    this->estado         = estado;
    this->cliente        = cliente;
+   this->precio         = precio;
 }
 
 Tiquete::~Tiquete()
