@@ -847,8 +847,7 @@ void Control::crearClientes()
     cin>>cantCli;
     for (int i =0;i<cantCli;i++){
 
-        Cliente *client = new Cliente("primerNombre"+to_string(i+1),"segundoNombre"+to_string(i+1),"primerApellido"+to_string(i+1),"segundoApellido"+to_string(i+1),"direccion"+to_string(i+1),"CC",10000+i,phone,thisDate);
+        Cliente *client = new Cliente("primerNombre"+to_string(i+1),"segundoNombre"+to_string(i+1),"primerApellido"+to_string(i+1),"segundoApellido"+to_string(i+1),"direccion"+to_string(i+1),"CC",10000+i,phone,thisDate, false);
         clientes.push_back(*client);
     }
 }
-

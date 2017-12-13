@@ -10,7 +10,7 @@ class Cliente:public Persona
 {
     public:
         Cliente();
-        Cliente(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate);
+        Cliente(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate, bool golden);
         virtual ~Cliente();
 
         /* Setters*/
@@ -25,6 +25,7 @@ class Cliente:public Persona
         void setPhone(Telefono tel);
         void setBirthday(tm nacimiento);
         void addTiquete(int id);
+        void setGolden(bool gold);
 
         /* Getters */
 
@@ -35,6 +36,7 @@ class Cliente:public Persona
         int getNumDocument();
         Telefono getPhone();
         tm getBirthday();
+        bool getGolden();
 
 
 
@@ -47,6 +49,7 @@ class Cliente:public Persona
       Telefono numero;
       tm fechaNacimiento;
       vector<int> tiquetes;
+      bool golden;
 
 };
 

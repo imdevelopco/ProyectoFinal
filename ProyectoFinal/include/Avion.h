@@ -31,7 +31,7 @@ class Avion
         void setTiempoMaximo(int tiempo);
         void setPrecioSillNormal(int precio);
         //Settea los valores por defecto de una instancia de la Clase avion
-       // void llenarDatos();
+        void llenarDatos();
         //establece un silla como vendida (ocupada)
         string ocuparSilla(string tipo);
 

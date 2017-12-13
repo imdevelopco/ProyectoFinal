@@ -4,7 +4,7 @@ Cliente::Cliente()
 {
     //ctor
 }
-Cliente::Cliente(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate):Persona(_primerNombre,_segundoNombre,_primerApellido,_segundoApellido,_direccion, _tipoDocumento,_numeroDocumento,number,BornDate)
+Cliente::Cliente(string _primerNombre, string _segundoNombre, string _primerApellido, string _segundoApellido, string _direccion, string _tipoDocumento, int _numeroDocumento, Telefono number, tm BornDate, bool golden):Persona(_primerNombre,_segundoNombre,_primerApellido,_segundoApellido,_direccion, _tipoDocumento,_numeroDocumento,number,BornDate)
 {
   this->primerNombre     = _primerNombre;
   this->segundoNombre    = _segundoNombre;
@@ -15,7 +15,7 @@ Cliente::Cliente(string _primerNombre, string _segundoNombre, string _primerApel
   this->numeroDocumento  = _numeroDocumento;
   this->numero           = number;
   this->fechaNacimiento  = BornDate;
-
+  this->golden           = golden;
 }
 Cliente::~Cliente()
 {
@@ -126,6 +126,11 @@ void Cliente::setBirthday(tm nacimiento)
 void Cliente::addTiquete(int id){
   this->tiquetes.push_back(id);
 }
+
+/*Establecer si es golden */
+void Cliente::setGolden(bool gold){
+  this->golden = gold;
+}
 ////////////////////////////
 //  ┌─┐┌─┐┌┬┐┌┬┐┌─┐┬─┐┌─┐ //
 //  │ ┬├┤  │  │ ├┤ ├┬┘└─┐ //
@@ -202,4 +207,9 @@ Autor: Carlos Andres Cordoba Ramos
 tm Cliente::getBirthday()
 {
   return Persona::getBirthday();
+}
+
+/**/
+bool Cliente::getGolden(){
+  return this->golden;
 }

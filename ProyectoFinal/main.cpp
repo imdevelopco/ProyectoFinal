@@ -115,7 +115,7 @@ int main()
  //│  │  │├┤ │││ │ ├┤ └─┐
  //└─┘┴─┘┴└─┘┘└┘ ┴ └─┘└─┘
 
-  control.crearCliente();
+  control.crearClientes();
 
   control.setFlota();
 

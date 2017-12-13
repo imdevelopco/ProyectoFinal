@@ -13,7 +13,6 @@ CompaniaAerea::CompaniaAerea()
   this->agenda.push_back(telfono);
   this->representante  = representante;
   this->transaciones.push_back(0);
-  this->clientesGolden.push_back(cliente);
 }
 
 CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante){

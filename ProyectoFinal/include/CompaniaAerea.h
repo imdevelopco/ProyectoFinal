@@ -39,7 +39,6 @@ class CompaniaAerea
       vector<Telefono> agenda;
       Representante representante;
       vector<int> transaciones; //guarda los ids de los tiquetes, de esta forma conocemos las transaciones
-      vector<Cliente> clientesGolden;
       vector<Cliente> clientesTotal;
 };
 #endif // COMPANIAAEREA_H
