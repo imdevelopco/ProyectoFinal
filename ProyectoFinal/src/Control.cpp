@@ -57,6 +57,18 @@ int Control::getLatsAirportId(){
   for(int i = 0; i < this->aeropuertos.size(); ++i){
     mayor = (this->aeropuertos[i].getId() > mayor) ? this->aeropuertos[i].getId() : mayor;
   }
+  return mayor+1;
+}
+
+/*Retorna un  numero  para ser  usado como  id unico de tiquete, toma numero más
+ grande de los tiquetes y le suma uno
+*/
+int Control::getLastTiketId(){
+  int mayor = 0;
+  for(int i = 0; i < this->tiquetes.size(); ++i){
+    mayor = (this->tiquetes[i].getId() > mayor) ? this->tiquetes[i].getId() : mayor;
+  }
+  return mayor+1;
 }
 
 /*Pide información para crear un número de telefono, por ultimo lo retorna.
@@ -510,6 +522,16 @@ int Control::getPositionAeroline(int id){
     }
   }
 }
+
+/*Se le pasa un id de una agencia y retorna la posicion en la que se encuentra en el array de agencias*/
+int Control::getPositionAgency(int id){
+  for(int i = 0; i < this->agencias.size(); ++i){
+    if (id == this->agencias[i].getId() ){
+      return i;
+    }
+  }
+}
+
 /*Pide infoemación por consola al usuario para qeu establesca una aerolina en un
   aeropuerto. (agregar aerolineas a un aeropuerto)
 */
@@ -661,7 +683,19 @@ void Control::venderTiket(){
 
     if( flota[vuelos[i]-1].getTotalBy(tipoSilla) >= cantSillas){ //se puede vender las sillas
       for (int j = 0; j < cantSillas; j++) {
-        this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1);
+        string silla = this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1); //vender el tiquete (ocupar la silla en el avion) retorna el numero de la silla ocupada
+        int ticket_id = getLastTiketId();
+       /*
+        Tiquete tiquet(ticket_id, flota[vuelos[i]-1].setAeropuertoOrigen(), flota[vuelos[i]-1].setAeropuertoDestino(), ticket_id, this->aerolineas[getPositionAeroline(aerolinea_id)], flota[vuelos[i]-1], silla,string "No check",Cliente cliente);
+
+        if(compania == "agencia"){
+          this->agencias[getPositionAgency(agencia_id)].addTransacion(ticket_id);
+        }
+        else{
+          this->aerolineas[getPositionAeroline(aerolinea_id)].addTransacion(ticket_id);
+        }
+        cliente.addTiquete(ticket_id);
+        */
       }
     }
     else{ //no hay esa cantidad de sillas

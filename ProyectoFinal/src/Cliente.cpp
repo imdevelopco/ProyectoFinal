@@ -121,6 +121,11 @@ void Cliente::setBirthday(tm nacimiento)
 {
   Persona::setBirthday(nacimiento);
 }
+
+/*Agrega un id de un tiquuete comprado por el cliente*/
+void Cliente::addTiquete(int id){
+  this->tiquetes.push_back(id);
+}
 ////////////////////////////
 //  ┌─┐┌─┐┌┬┐┌┬┐┌─┐┬─┐┌─┐ //
 //  │ ┬├┤  │  │ ├┤ ├┬┘└─┐ //

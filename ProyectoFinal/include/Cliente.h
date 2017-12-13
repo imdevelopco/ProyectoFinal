@@ -2,6 +2,7 @@
 #define CLIENTE_H
 #include  "Persona.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ class Cliente:public Persona
         void setNumDocument(int num);
         void setPhone(Telefono tel);
         void setBirthday(tm nacimiento);
+        void addTiquete(int id);
 
         /* Getters */
 
@@ -42,6 +44,8 @@ class Cliente:public Persona
       int numeroDocumento;
       Telefono numero;
       tm fechaNacimiento;
+      vector<int> tiquetes;
+
 };
 
 #endif // CLIENTE_H

@@ -6,7 +6,6 @@ Tiquete::Tiquete()
     Aeropuerto aeropuestoDestino;
     Aerolinea aerolines;
     Avion avion;
-    Silla silla;
     Cliente cliente;
 
     this->id = 0;
@@ -20,15 +19,16 @@ Tiquete::Tiquete()
     this->cliente = cliente;
 }
 
-Tiquete::Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,Silla silla,string estado,Cliente cliente){
-   this->origen = origen;
-   this->destino = destino;
+Tiquete::Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,string silla,string estado,Cliente cliente){
+   this->id             = id;
+   this->origen         = origen;
+   this->destino        = destino;
    this->numeroTiquerte = numeroTiquerte;
-   this->aerolines = aerolines;
-   this->avion = avion;
-   this->silla = silla;
-   this->estado = estado;
-   this->cliente = cliente;
+   this->aerolines      = aerolines;
+   this->avion          = avion;
+   this->silla          = silla;
+   this->estado         = estado;
+   this->cliente        = cliente;
 }
 
 Tiquete::~Tiquete()
@@ -77,7 +77,7 @@ void Tiquete::setAirplain(Avion airplain){
 }
 
 /*Establece la silla del tiquete*/
-void Tiquete::setChair(Silla silla){
+void Tiquete::setChair(string silla){
   this->silla = silla;
 }
 
@@ -103,8 +103,8 @@ void Tiquete::setCliente(Cliente cliente){
 /*       \______/ |________/   |__/   |________/|__/  |__/ \______/          */
 /* +───────────────────────────────────────────────────────────────────────+ */
 /*Retorna el id del tiquete*/
-int getId(int id){
-  return id;
+int Tiquete::getId(){
+  return this->id;
 }
 
 /*Retorna el aeropuesto de origen*/
@@ -133,7 +133,7 @@ Avion Tiquete::getAirplain(){
 }
 
 /*Retorna la silla*/
-Silla Tiquete::getChair(){
+string Tiquete::getChair(){
   return this->silla;
 }
 

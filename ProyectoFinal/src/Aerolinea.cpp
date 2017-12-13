@@ -205,13 +205,14 @@ void Aerolinea::imprimirTicket(int id_avion, string num_silla){
 }
 
 /*Vende ticketes de avion
-  sellTicket(tipoSilla, id_avion) -> void
+  sellTicket(tipoSilla, id_avion) -> string    numero de silla
   tipoSilla                       == string    tipo de silla a comprar opciones ["preferencial", "normal", "bajoCosto"]
   id_avion                        == int       posicion del avion en la flota
 */
-void Aerolinea::sellTicket(string tipoSilla, int id_avion){
+string Aerolinea::sellTicket(string tipoSilla, int id_avion){
   string sillaNum = this->flota[id_avion].ocuparSilla(tipoSilla); //ocupamos la silla del avion
   imprimirTicket(id_avion, sillaNum); //mostramos el ticket
+  return sillaNum;
 }
 
 /*retorna el nombre del aeropuerto de oigen de un avion de la flota*/

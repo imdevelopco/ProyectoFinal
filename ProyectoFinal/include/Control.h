@@ -41,7 +41,9 @@ class Control
         int getLastAgencyId(); //retorna el ultimo id+1 de las agencias, sirve para crear un id a una nueva agencia
         int getLastAerolineaId(); //retorna el ultimo id+1 de las aerolineas
         int getLatsAirportId(); //retorna el id más grande +1 de un aeropuerto
+        int getLastTiketId(); //retorna un numero para ser usado como id de un tiquete
         int getPositionAeroline(int id); //retorna la posicion de una aerolinea en el vector de aerolines, se le pasa el id de la aerolinea
+        int getPositionAgency(int id); //retorna la pocision en la que se encuenta una agencia en el vector de agencias
         Representante createRepesent(); //pide datos al usuario para crear un representante, por ultimo lo retorna
         Telefono createPhone(); //pide información al usuario para crear un numeo de telefono, lo retorna.
         void listRepresnts(); //lista los representantes
@@ -62,8 +64,6 @@ class Control
         vector<string> getCytiesOrigenFl(vector<Avion> flota);
 
 
-
-
     protected:
 
     private:
@@ -71,6 +71,7 @@ class Control
       vector<Aerolinea> aerolineas;
       vector<Representante> representantes;
       vector<Aeropuerto> aeropuertos;
+      vector<Tiquete> tiquetes;
 };
 
 #endif // CONTROL_H

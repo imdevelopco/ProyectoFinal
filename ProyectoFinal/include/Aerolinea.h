@@ -20,7 +20,7 @@ class Aerolinea : public CompaniaAerea
         void setMatricula(string matricula);
         void setTotalPlains(int total);
         void setFlota(vector<Avion> flota);
-        void sellTicket(string tipoSilla, int id_avion);
+        string sellTicket(string tipoSilla, int id_avion);
 
         /*---------------------------------------*/
         /*                GETERS                 */

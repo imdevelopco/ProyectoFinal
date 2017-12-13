@@ -38,6 +38,10 @@ CompaniaAerea::~CompaniaAerea()
     //dtor
 }
 
+/* Setters*/
+void CompaniaAerea::addTransacion(int id){
+  this->transaciones.push_back(id);
+}
 
 /* Getters*/
 int CompaniaAerea::getId(){

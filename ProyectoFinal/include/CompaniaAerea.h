@@ -16,6 +16,10 @@ class CompaniaAerea
         CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante);
         CompaniaAerea(int _id,string _nit,string _razonSocial,string _direccion,string _paginaWeb,Representante representante);
         virtual ~CompaniaAerea();
+
+        /* Setters */
+        void addTransacion(int id); //agrega un id de tiquete a las transaciones
+
         /* Getters*/
         int getId();
         string getNit();

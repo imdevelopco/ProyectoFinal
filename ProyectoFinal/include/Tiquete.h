@@ -4,7 +4,6 @@
 #include "Aeropuerto.h"
 #include "Aerolinea.h"
 #include "Avion.h"
-#include "Silla.h"
 #include "Cliente.h"
 
 
@@ -14,7 +13,7 @@ class Tiquete
 {
     public:
         Tiquete();
-        Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,Silla silla,string estado,Cliente cliente);
+        Tiquete(int id, Aeropuerto origen,Aeropuerto destino,int numeroTiquerte,Aerolinea aerolines,Avion avion,string silla,string estado,Cliente cliente);
         virtual ~Tiquete();
 
         /*---------------------------------------*/
@@ -26,20 +25,20 @@ class Tiquete
         void setTiquetNumber(int num);
         void setAerolinea(Aerolinea aero);
         void setAirplain(Avion airplain);
-        void setChair(Silla silla);
+        void setChair(string silla);
         void setStatus(string status);
         void setCliente(Cliente cliente);
 
         /*---------------------------------------*/
         /*                GETERS                 */
         /*---------------------------------------*/
-        int getId(int id);
+        int getId();
         Aeropuerto getOrigen();
         Aeropuerto getDestinity();
         int getTiquetNumber();
         Aerolinea getAerolinea();
         Avion getAirplain();
-        Silla getChair();
+        string getChair();
         string getStatus();
         Cliente getCliente();
 
@@ -53,8 +52,8 @@ class Tiquete
       int numeroTiquerte;
       Aerolinea aerolines;
       Avion avion;
-      Silla silla;
-      string estado;
+      string silla;
+      string estado; // "No check" || Check in" 
       Cliente cliente;
 };
 
