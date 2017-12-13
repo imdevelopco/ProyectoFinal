@@ -168,12 +168,17 @@ void Avion::setPrecioSillNormal(int precio){
 void Avion::llenarDatos()
 {
     string placaAvion;
-    int cantidadTanque;
+    int cantidadTanque,idOrigen,idDestino,precioNormal;
     cout<<"Digite la matricula del avion"<<endl;
     cin>>placaAvion;
     setMatricula(placaAvion);
     cout<<"Digite la capacidad del tanque de gasolina del avion"<<endl;
     cin>>cantidadTanque;
+    cout<<"Digite el precio las sillas caategoria normal"<<endl;
+    cin>>precioSillaNormal;
+    cout<<"Digite el id del aeropuerto de origen"<<endl;
+    cin>>idOrigen;
+
 }
 
 

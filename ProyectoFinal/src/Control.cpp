@@ -837,7 +837,7 @@ void Control::listaDeVuelosDisponibles(int aerolinea_id){
 }
 
 /**/
-void Control::crearCliente()
+void Control::crearClientes()
 {
     int cantCli;
     time_t date = time(0);
@@ -851,3 +851,4 @@ void Control::crearCliente()
         clientes.push_back(*client);
     }
 }
+
