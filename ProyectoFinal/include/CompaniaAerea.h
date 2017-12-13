@@ -19,6 +19,7 @@ class CompaniaAerea
 
         /* Setters */
         void addTransacion(int id); //agrega un id de tiquete a las transaciones
+        void addClient(Cliente client);
 
         /* Getters*/
         int getId();

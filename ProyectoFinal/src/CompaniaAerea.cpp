@@ -42,6 +42,10 @@ void CompaniaAerea::addTransacion(int id){
   this->transaciones.push_back(id);
 }
 
+void CompaniaAerea::addClient(Cliente client){
+  this->clientesTotal.push_back(client);
+}
+
 /* Getters*/
 int CompaniaAerea::getId(){
   return id;
@@ -51,14 +55,17 @@ string CompaniaAerea::getNit()
 {
   return nit;
 }
+
 string CompaniaAerea::getRazonSocial()
 {
     return razonSocial;
 }
+
 string CompaniaAerea::getDireccion()
 {
     return direccion;
 }
+
 string CompaniaAerea::getPaginaWeb()
 {
     return paginaWeb;

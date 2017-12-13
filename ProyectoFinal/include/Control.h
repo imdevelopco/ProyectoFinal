@@ -75,8 +75,6 @@ class Control
       vector<Representante> representantes;
       vector<Aeropuerto> aeropuertos;
       vector<Tiquete> tiquetes;
-      vector<Cliente> clientes;
-
 };
 
 #endif // CONTROL_H
