@@ -212,6 +212,8 @@ void Control::listAirports(){
   }
 }
 
+/*lista en pantalla los clientes*/
+
 /*Lista las aerolineas que se le pasen por parametro*/
 void Control::listThisAerolineas(vector<Aerolinea> aerolineas){
   for(int i = 0; i < aerolineas.size(); ++i){
@@ -686,7 +688,8 @@ void Control::venderTiket(){
         string silla = this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1); //vender el tiquete (ocupar la silla en el avion) retorna el numero de la silla ocupada
         int ticket_id = getLastTiketId();
        /*
-        Tiquete tiquet(ticket_id, flota[vuelos[i]-1].setAeropuertoOrigen(), flota[vuelos[i]-1].setAeropuertoDestino(), ticket_id, this->aerolineas[getPositionAeroline(aerolinea_id)], flota[vuelos[i]-1], silla,string "No check",Cliente cliente);
+       //obtener el precio de la silla normal del avion, y dependiendo que tipo de silla elijio poner el aumento del 15 o eldecremento del 15
+        Tiquete tiquet(ticket_id, flota[vuelos[i]-1].setAeropuertoOrigen(), flota[vuelos[i]-1].setAeropuertoDestino(), ticket_id, this->aerolineas[getPositionAeroline(aerolinea_id)], flota[vuelos[i]-1], silla,string "No check",Cliente cliente, int precio);
 
         if(compania == "agencia"){
           this->agencias[getPositionAgency(agencia_id)].addTransacion(ticket_id);

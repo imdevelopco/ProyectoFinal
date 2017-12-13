@@ -325,7 +325,8 @@ string Avion::ocuparSilla(string tipo){
     do {
       if(this->preferencial[i].getStatus() == 0){ //si la silla esta libre
          this->preferencial[i].setStatus(1); //se establece la silla como ocupada
-         sillaNum = this->preferencial[i].getNumber();
+         sillaNum = this->preferencial[i].getNumber(); //obtener el numero de la silla
+         this->disponiblePreferencial--; //se disminuye la cantidad de preferenciales disponible
          continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
       }
       i++;
@@ -336,6 +337,7 @@ string Avion::ocuparSilla(string tipo){
       if(this->normal[i].getStatus() == 0){
          this->normal[i].setStatus(1); //se establece la silla como ocupada
          sillaNum = this->normal[i].getNumber();
+         this->disponibleNormal--;
          continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
       }
       i++;
@@ -346,6 +348,7 @@ string Avion::ocuparSilla(string tipo){
       if(this->bajoCosto[i].getStatus() == 0){
          this->bajoCosto[i].setStatus(1); //se establece la silla como ocupada
          sillaNum = this->bajoCosto[i].getNumber();
+         this->disponibleBajoCosto--;
          continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
       }
       i++;
