@@ -795,3 +795,17 @@ void Control::listaDeVuelosDisponibles(int aerolinea_id){
   }
 
 }
+void Control::crearCliente()
+{
+    int cantCli;
+    time_t date = time(0);
+    Telefono phone;
+	struct tm thisDate = *localtime(&date);
+    cout<<"Cuantos clientes desea crear?"<<endl;
+    cin>>cantCli;
+    for (int i =0;i<cantCli;i++){
+
+        Cliente *client = new Cliente("primerNombre"+to_string(i+1),"segundoNombre"+to_string(i+1),"primerApellido"+to_string(i+1),"segundoApellido"+to_string(i+1),"direccion"+to_string(i+1),"CC",10000+i,phone,thisDate);
+        clientes.push_back(*client);
+           }
+}

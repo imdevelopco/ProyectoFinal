@@ -159,34 +159,36 @@ Autor: Carlos Andres Cordoba Ramos
 void Persona::crearPersona()
 {
   Telefono tel;
+  int day,mon,year;
+  char nm,lm;
 
 
-  cout<<"Digite el nombre" <<endl;
+  cout<<"Digite el primer nombre" <<endl;
   cin>>primerNombre;
+  cout<<"tiene segundo nombre?(Si=s,NO=n)"<<endl;
+  do{
+        cin>>nm;
+        if (nm == 's')
+        cout<<"Digite el segundo nombre" <<endl;
+        cin>>segundoNombre;
+    }while ((nm != 's')&&(nm != 'n'));
   cout<<"Digite el apellido"<<endl;
   cin>>primerApellido;
+  cout<<"tiene segundo apellido?(Si=s,NO=n)"<<endl;
+  do{
+        cin>>lm;
+        if (lm == 's')
+        cout<<"Digite el segundo apellido"<<endl;
+        cin>>segundoApellido;
+    }while ((lm != 's')&&(lm != 'n'));
   cout<<"Digite el direccion" <<endl;
   cin>>direccion;
   cout<<"Digite el tipo de documento" <<endl;
   cin>>tipoDocumento;
   cout<<"Digite el numero de documento" <<endl;
   cin>>numeroDocumento;
-  //tel.llenarTelefono();
-
+  tel.llenarTelefono();
+  /* aqui deberia estar lo de la fecha de nacimiento*/
 
 }
-//void Persona::setName(string nombre){
-//  int decision;
-//  do{
-//    cout<<"Cual nombre desea cambiar"<<endl;
-//    cout<<"primer nombre (Presione 1)"<<endl;
-//    cout<<"segundo nombre (Presione 2)"<<endl;
-//    cin>>decision;
-//    if(decision == 1)
-//    this->primerNombre=nombre;
-//    else if (decision == 2)
-//    this->segundoNombre=nombre;
-//    else
-//    cout<<"Opcion no valida"<<endl;
-//  }while((decision != 1)||(decision != 2));
-//}
+

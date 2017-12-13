@@ -34,6 +34,8 @@ class Cliente:public Persona
         Telefono getPhone();
         tm getBirthday();
 
+
+
     protected:
 
     private:

@@ -61,6 +61,8 @@ class Control
         void listaDeVuelosDisponibles(int aerolinea_id); //muestra la lista de vuelos disponibles
         vector<string> getCytiesOrigenFl(vector<Avion> flota);
 
+        void crearCliente();
+
 
 
 
@@ -71,6 +73,7 @@ class Control
       vector<Aerolinea> aerolineas;
       vector<Representante> representantes;
       vector<Aeropuerto> aeropuertos;
+      vector<Cliente> clientes;
 };
 
 #endif // CONTROL_H

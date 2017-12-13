@@ -87,19 +87,19 @@
 	<ctime>
 	"Telefono.h"
 
-1512406790 c:\users\david\github\proyectofinal\proyectofinal\include\telefono.h
+1513175525 c:\users\david\github\proyectofinal\proyectofinal\include\telefono.h
 	<iostream>
 
 1512996689 source:c:\users\david\github\proyectofinal\proyectofinal\src\silla.cpp
 	"Silla.h"
 
-1512996689 c:\users\david\github\proyectofinal\proyectofinal\include\silla.h
+1513112652 c:\users\david\github\proyectofinal\proyectofinal\include\silla.h
 	<iostream>
 
-1512406790 source:c:\users\david\github\proyectofinal\proyectofinal\src\telefono.cpp
+1513177156 source:c:\users\david\github\proyectofinal\proyectofinal\src\telefono.cpp
 	"Telefono.h"
 
-1513085928 source:c:\users\david\github\proyectofinal\proyectofinal\main.cpp
+1513180058 source:c:\users\david\github\proyectofinal\proyectofinal\main.cpp
 	<iostream>
 	"Cliente.h"
 	"Persona.h"
@@ -113,18 +113,19 @@
 	"Telefono.h"
 	"Tiquete.h"
 	"Control.h"
+	"Persona.h"
 
-1512406790 c:\users\david\github\proyectofinal\proyectofinal\include\cliente.h
+1513179038 c:\users\david\github\proyectofinal\proyectofinal\include\cliente.h
 	"Persona.h"
 	<iostream>
 
-1513085928 c:\users\david\github\proyectofinal\proyectofinal\include\aerolinea.h
+1513172927 c:\users\david\github\proyectofinal\proyectofinal\include\aerolinea.h
 	<iostream>
 	<vector>
 	<CompaniaAerea.h>
 	"Avion.h"
 
-1513084296 c:\users\david\github\proyectofinal\proyectofinal\include\companiaaerea.h
+1513092964 c:\users\david\github\proyectofinal\proyectofinal\include\companiaaerea.h
 	<iostream>
 	<vector>
 	"Telefono.h"
@@ -135,7 +136,7 @@
 	<iostream>
 	<vector>
 
-1512996689 c:\users\david\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
+1513112652 c:\users\david\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
 	<vector>
 	<iostream>
 	"Representante.h"
@@ -144,13 +145,13 @@
 	"Cliente.h"
 	"Aerolinea.h"
 
-1513086872 c:\users\david\github\proyectofinal\proyectofinal\include\avion.h
+1513112652 c:\users\david\github\proyectofinal\proyectofinal\include\avion.h
 	<iostream>
 	<vector>
 	"Silla.h"
 	"Aeropuerto.h"
 
-1512406790 c:\users\david\github\proyectofinal\proyectofinal\include\tiquete.h
+1513092933 c:\users\david\github\proyectofinal\proyectofinal\include\tiquete.h
 	<iostream>
 	"Aeropuerto.h"
 	"Aerolinea.h"
@@ -158,29 +159,29 @@
 	"Silla.h"
 	"Cliente.h"
 
-1513085928 source:c:\users\david\github\proyectofinal\proyectofinal\src\aerolinea.cpp
+1513172927 source:c:\users\david\github\proyectofinal\proyectofinal\src\aerolinea.cpp
 	"Aerolinea.h"
 	<vector>
 
 1512996689 source:c:\users\david\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
 	"Aeropuerto.h"
 
-1512996689 source:c:\users\david\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
+1513112652 source:c:\users\david\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
 	"AgenciaDeViaje.h"
 
-1513086063 source:c:\users\david\github\proyectofinal\proyectofinal\src\avion.cpp
+1513172927 source:c:\users\david\github\proyectofinal\proyectofinal\src\avion.cpp
 	"Avion.h"
 
 1512406790 source:c:\users\david\github\proyectofinal\proyectofinal\src\cliente.cpp
 	"Cliente.h"
 
-1512996689 source:c:\users\david\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
+1513092952 source:c:\users\david\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
 	"CompaniaAerea.h"
 
-1512406790 source:c:\users\david\github\proyectofinal\proyectofinal\src\persona.cpp
+1513178970 source:c:\users\david\github\proyectofinal\proyectofinal\src\persona.cpp
 	"Persona.h"
 
-1512406790 source:c:\users\david\github\proyectofinal\proyectofinal\src\tiquete.cpp
+1513092958 source:c:\users\david\github\proyectofinal\proyectofinal\src\tiquete.cpp
 	"Tiquete.h"
 
 1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
@@ -310,9 +311,10 @@
 1512942834 source:c:\users\robot\github\proyectofinal\proyectofinal\src\silla.cpp
 	"Silla.h"
 
-1512996689 c:\users\david\github\proyectofinal\proyectofinal\include\control.h
+1513179168 c:\users\david\github\proyectofinal\proyectofinal\include\control.h
 	<iostream>
 	<string>
+	<cstring>
 	<vector>
 	"Aerolinea.h"
 	"Aeropuerto.h"
@@ -324,7 +326,7 @@
 	"Telefono.h"
 	"Tiquete.h"
 
-1513085928 source:c:\users\david\github\proyectofinal\proyectofinal\src\control.cpp
+1513180020 source:c:\users\david\github\proyectofinal\proyectofinal\src\control.cpp
 	"Control.h"
 	<iostream>
 	<string>
