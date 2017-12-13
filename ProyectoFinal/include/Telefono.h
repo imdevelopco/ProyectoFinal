@@ -25,6 +25,10 @@ class Telefono
         string getType();
         int getIndicativo();
         int getNumber();
+
+        /* Crear Telefonos por pantalla*/
+
+        void llenarTelefono();
     protected:
 
     private:

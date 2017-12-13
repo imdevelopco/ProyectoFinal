@@ -47,7 +47,27 @@ void Telefono::setIndicativo(int indicativo){
 //establece el numeo de telefono del número telefonico, no retorna nada
 void Telefono::setNumber(int num){
   this->numero = num;
+
 }
+void Telefono::llenarTelefono()
+  {
+      string typeT;
+      int indi,number;
+      do{
+            cout<<"Digite el tipo de telefono. (movil, celular, trabajo)"<<endl;
+            cin>>typeT;
+      }while((typeT != "celular")&&(typeT != "movil")&&(typeT != "trabajo"));
+      setType(typeT);
+      do{
+            cout<<"Digite el numero de indicativo del telefono(entero menor a 1000)"<<endl;
+            cin>>indi;
+      }while(indi>1000);
+      setIndicativo(indi);
+
+        cout<<"Digite el numero telefonico"<<endl;
+        cin>>numero;
+  }
+
 
 /* +───────────────────────────────────────────────────────────────────────+ */
 /*	      /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$   /$$$$$$ 	     */

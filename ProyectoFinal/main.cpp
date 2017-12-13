@@ -11,6 +11,7 @@
 #include "Telefono.h"
 #include "Tiquete.h"
 #include "Control.h"
+#include "Persona.h"
 
 using namespace std;
 
@@ -108,12 +109,19 @@ int main()
   aerolinea->administrarAviones();
 */
 
-  Control control(todosAeropuertos, agencias, aerolineas);
-  control.setFlota();
+ Control control(todosAeropuertos, agencias, aerolineas);
+//  control.setFlota();
+//
+//  control.venderTiket();
+//
+//  control.venderTiket();
+ //control.venderTiket();
+ control.crearCliente();
+Telefono carlos;
 
-  control.venderTiket();
-
-  control.venderTiket();
+carlos.llenarTelefono();
+Persona clos;
+clos.crearPersona();
 
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();
