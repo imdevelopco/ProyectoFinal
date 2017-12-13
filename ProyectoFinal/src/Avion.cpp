@@ -27,11 +27,12 @@ Avion::Avion()
   this->disponibleBajoCosto     = this->bajoCosto.size();
   this->cantidadGasolina        = 1000;
   this->tiempoMaximo            = 50;
+  this->precioSillaNormal       = 300000;
 
   /*Se debe establecer el aeropuerto de origen y de destino por medio de los setters*/
 }
 
-Avion::Avion(vector<Silla> preferencial, vector<Silla> normal, vector<Silla> bajoCosto, string matricula, Aeropuerto origen, Aeropuerto destino, int cantidadGasolina, int tiempoMaximo){
+Avion::Avion(vector<Silla> preferencial, vector<Silla> normal, vector<Silla> bajoCosto, string matricula, Aeropuerto origen, Aeropuerto destino, int cantidadGasolina, int tiempoMaximo, int precioSillaNormal){
   this->preferencial            = preferencial;
   this->normal                  = normal;
   this->bajoCosto               = bajoCosto;
@@ -44,6 +45,7 @@ Avion::Avion(vector<Silla> preferencial, vector<Silla> normal, vector<Silla> baj
   this->destino                 = destino;
   this->cantidadGasolina        = cantidadGasolina;
   this->tiempoMaximo            = tiempoMaximo;
+  this->precioSillaNormal       = precioSillaNormal;
 }
 
 Avion::~Avion()
@@ -155,6 +157,11 @@ void Avion::setCantidadGasolina(int cant){
 */
 void Avion::setTiempoMaximo(int tiempo){
   this->tiempoMaximo = tiempo;
+}
+
+/*establece el valor de la silla normal*/
+void Avion::setPrecioSillNormal(int precio){
+  this->precioSillaNormal = precio;
 }
 
 //Settea los valores por defecto de una instancia de la Clase avion
@@ -345,4 +352,8 @@ string Avion::ocuparSilla(string tipo){
     } while(continueLoop);
   }
   return sillaNum;
+}
+
+int Avion::getPrecioNormal(){
+  return this->precioSillaNormal;
 }

@@ -11,7 +11,7 @@ class Avion
 {
     public:
         Avion();
-        Avion(vector<Silla> preferencial, vector<Silla> normal, vector<Silla> bajoCosto, string matricula, Aeropuerto origen, Aeropuerto destino, int cantidadGasolina, int tiempoMaximo);
+        Avion(vector<Silla> preferencial, vector<Silla> normal, vector<Silla> bajoCosto, string matricula, Aeropuerto origen, Aeropuerto destino, int cantidadGasolina, int tiempoMaximo, int precioSillaNormal);
         virtual ~Avion();
 
         /*---------------------------------------*/
@@ -29,6 +29,7 @@ class Avion
         void setAeropuertoDestino(Aeropuerto destino);
         void setCantidadGasolina(int cant);
         void setTiempoMaximo(int tiempo);
+        void setPrecioSillNormal(int precio);
         //Settea los valores por defecto de una instancia de la Clase avion
         void llenarDatos();
         //establece un silla como vendida (ocupada)
@@ -49,6 +50,7 @@ class Avion
         Aeropuerto getAeropuertoDestino();
         int getCantidadGasolina();
         int getTiempoMaximo();
+        int getPrecioNormal();
         // Retorna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
         int getSillasDisponibles();
         // Retorna la cantidad de sillas disponibles por categoria
@@ -72,6 +74,7 @@ class Avion
       Aeropuerto destino;
       int cantidadGasolina;
       int tiempoMaximo;
+      int precioSillaNormal;
 };
 
 #endif // AVION_H

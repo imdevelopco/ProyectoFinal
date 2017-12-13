@@ -115,20 +115,15 @@ int main()
  //│  │  │├┤ │││ │ ├┤ └─┐
  //└─┘┴─┘┴└─┘┘└┘ ┴ └─┘└─┘
 
- control.crearCliente();
+  control.crearCliente();
 
-//  control.setFlota();
-//
-//  control.venderTiket();
-//
-//  control.venderTiket();
- //control.venderTiket();
+  control.setFlota();
 
-Telefono carlos;
+  control.venderTiket();
 
-carlos.llenarTelefono();
-Persona clos;
-clos.crearPersona();
+  control.venderTiket();
+  control.venderTiket();
+
 
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();

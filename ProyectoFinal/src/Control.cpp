@@ -730,7 +730,7 @@ Avion Control::createPlain(){
   vector<Silla> preferencial, normal, bajoCosto;
   string matricula;
   Aeropuerto origen, destino;
-  int airportOrigen_id, airportDestino_id, cantidadGasolina, tiempoMaximo;
+  int airportOrigen_id, airportDestino_id, cantidadGasolina, tiempoMaximo, precioSillaNormal;
 
   cout << "Sillas preferenciales" << endl;
   preferencial = createSilla("preferencial");
@@ -770,7 +770,10 @@ Avion Control::createPlain(){
   cout << "Tiempo maximo de vuelo" << endl;
   cin >> tiempoMaximo;
 
-  Avion avion(preferencial, normal, bajoCosto, matricula, origen, destino, cantidadGasolina, tiempoMaximo);
+  cout << "Precio silla normal" << endl;
+  cin >> precioSillaNormal;
+
+  Avion avion(preferencial, normal, bajoCosto, matricula, origen, destino, cantidadGasolina, tiempoMaximo, precioSillaNormal);
   return avion;
 }
 
