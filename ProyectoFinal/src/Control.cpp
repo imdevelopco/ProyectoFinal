@@ -580,15 +580,24 @@ void Control::setAvionesDeAerolinea(){
   aerolinea.setTotalPlains(totalAviones);
 }
 
+/*retorna el precio de una silla preferencial*/
+int Control::getVariacionPrecio(int base, string tipo){
+  int percent = (15 * base) / 100;
+  if(tipo == "preferencial"){
+    return (base + percent);
+  }
+  return (base - percent);
+}
 
 /*Pide informacion al usuario para vender un tiquete*/
 void Control::venderTiket(){
   string compania, haveEscalas;
-  int agencia_id, aerolinea_id, aeropuertoOrigen_id;
+  int agencia_id, aerolinea_id, aeropuertoOrigen_id, client_id;
   Aeropuerto origen;
   vector<Aeropuerto> destinos, destinos2;
   vector<int> vuelos;
   vector<string> tickets;
+  Cliente client;
 
   cout << "\n :::::::::Vender ticket:::::::" << endl;
   do {
@@ -627,84 +636,136 @@ void Control::venderTiket(){
         } while( !existAerolinea(aerolinea_id) );
   }
 
-  listaDeVuelosDisponibles(aerolinea_id); //este metodo pide la ciudad de origen, y muestra los vuelos de la agencia selecionada y de la ciudad selecionada
-  do {
-    cout << "el vuelo tiene escalas? (si,no)" << endl;
-    cin >> haveEscalas;
-  } while(haveEscalas != "si" && haveEscalas != "no");
+  //Seleccionar cliente
+  cout << "Selecionar Cliente" << endl;
+  if(compania == "agencia"){
+    this->agencias[getPositionAgency(agencia_id)].listClients();
+    do {
+      cout << "Ingresa la posicion del cliente" << endl;
+      cin >> client_id;
+    } while(client_id < 1 || client_id > this->agencias[getPositionAgency(agencia_id)].getClients().size() );
+    vector<Cliente> clientes = this->agencias[getPositionAgency(agencia_id)].getClients();
+    client = clientes[client_id-1];
+  }
+  else{
+    this->aerolineas[getPositionAeroline(aerolinea_id)].listClients();
+    do {
+      cout << "Ingresa la posicion del cliente" << endl;
+      cin >> client_id;
+    } while( client_id < 1 || client_id > this->aerolineas[getPositionAeroline(aerolinea_id)].getClients().size() );
+    vector<Cliente> clientes = this->aerolineas[getPositionAeroline(aerolinea_id)].getClients();
+    client = clientes[client_id-1];
+  }
 
-  if(haveEscalas == "si"){
-    string vuelo;
-    char * split;
-    cout << "ingresa el numero del vuelo, recuerda poner el punto (numero_vuelo.numero_segundo_vuelo ej 1.3)" << endl;
-    cin >> vuelo;
-    int pos = vuelo.find(".");
-    string vuelo1 = vuelo.substr(0,pos);
-    string vuelo2 = vuelo.substr(pos+1);
-    int fly1 = stoi( vuelo1 );
-    int fly2 = stoi( vuelo2 );
 
-    if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly1-1) && this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly2-1)  ){ //verificar que el vuelo tenga sillas disponibles
-      if( this->aerolineas[getPositionAeroline(aerolinea_id)].getDestinoPlain(fly1-1) == this->aerolineas[getPositionAeroline(aerolinea_id)].getOrigenPlain(fly2-1) ){
-        vuelos.push_back(fly1);
-        vuelos.push_back(fly2);
+  //este metodo pide la ciudad de origen, y muestra los vuelos de la agencia selecionada y de la ciudad selecionada, tambien retorna el total de vuielos disponibles
+  int vuelosDisponibles = listaDeVuelosDisponibles(aerolinea_id, client);
+  if( vuelosDisponibles > 0 ){ // si hay vuelos disponibles
+      do {
+        cout << "el vuelo tiene escalas? (si,no)" << endl;
+        cin >> haveEscalas;
+      } while(haveEscalas != "si" && haveEscalas != "no");
+
+      if(haveEscalas == "si"){
+        string vuelo;
+        char * split;
+        cout << "ingresa el numero del vuelo, recuerda poner el punto (numero_vuelo.numero_segundo_vuelo ej 1.3)" << endl;
+        cin >> vuelo;
+        int pos = vuelo.find(".");
+        string vuelo1 = vuelo.substr(0,pos);
+        string vuelo2 = vuelo.substr(pos+1);
+        int fly1 = stoi( vuelo1 );
+        int fly2 = stoi( vuelo2 );
+
+        if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly1-1) && this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly2-1)  ){ //verificar que el vuelo tenga sillas disponibles
+          if( this->aerolineas[getPositionAeroline(aerolinea_id)].getDestinoPlain(fly1-1) == this->aerolineas[getPositionAeroline(aerolinea_id)].getOrigenPlain(fly2-1) ){
+            vuelos.push_back(fly1);
+            vuelos.push_back(fly2);
+          }
+        }
       }
-    }
-  }
-  else{ //si no tiene escalas
-    int vuelo;
-    cout << "ingresar el número del vuelo" << endl;
-    cin >> vuelo;
+      else{ //si no tiene escalas
+        int vuelo;
+        cout << "ingresar el número del vuelo" << endl;
+        cin >> vuelo;
 
-    if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(vuelo-1) ){ //verificar que el vuelo tenga sillas disponibles
-      vuelos.push_back(vuelo);
-    }
-    else{
-      cout << "Este vuelo no tiene sillas disponibles (aca nunca va a entrar porque siempre se muestran los vuelos disponibles)" << endl;
-    }
-  }
-
-
-  for (int i = 0; i < vuelos.size(); i++) {
-    string tipoSilla;
-    int cantSillas;
-
-    cout << "\nSillas disponibles" << endl;
-    vector<Avion> flota = this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota();
-    flota[vuelos[i]-1].getSillasDisponiblesPorCategoria(); //-> mostrar las sillas disponibles
-
-    do {
-      cout << "que tipo de sillas desea (preferencial,normal,bajoCosto)" << endl;
-      cin >> tipoSilla;
-    } while(tipoSilla != "preferencial" &&  tipoSilla != "normal" &&  tipoSilla != "bajoCosto");
-
-    do {
-      cout << "Cuantas sillas desea comprar" << endl;
-      cin >> cantSillas;
-    } while(cantSillas < 1);
-
-    if( flota[vuelos[i]-1].getTotalBy(tipoSilla) >= cantSillas){ //se puede vender las sillas
-      for (int j = 0; j < cantSillas; j++) {
-        string silla = this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1); //vender el tiquete (ocupar la silla en el avion) retorna el numero de la silla ocupada
-        int ticket_id = getLastTiketId();
-       /*
-       //obtener el precio de la silla normal del avion, y dependiendo que tipo de silla elijio poner el aumento del 15 o eldecremento del 15
-        Tiquete tiquet(ticket_id, flota[vuelos[i]-1].setAeropuertoOrigen(), flota[vuelos[i]-1].setAeropuertoDestino(), ticket_id, this->aerolineas[getPositionAeroline(aerolinea_id)], flota[vuelos[i]-1], silla,string "No check",Cliente cliente, int precio);
-
-        if(compania == "agencia"){
-          this->agencias[getPositionAgency(agencia_id)].addTransacion(ticket_id);
+        if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(vuelo-1) ){ //verificar que el vuelo tenga sillas disponibles
+          vuelos.push_back(vuelo);
         }
         else{
-          this->aerolineas[getPositionAeroline(aerolinea_id)].addTransacion(ticket_id);
+          cout << "Este vuelo no tiene sillas disponibles (aca nunca va a entrar porque siempre se muestran los vuelos disponibles)" << endl;
         }
-        cliente.addTiquete(ticket_id);
-        */
       }
-    }
-    else{ //no hay esa cantidad de sillas
-      cout << "No hay esa cantidad de sillas disponibles" << endl;
-    }
+
+      for (int i = 0; i < vuelos.size(); i++) {
+        string tipoSilla;
+        int cantSillas;
+
+        cout << "\nSillas disponibles" << endl;
+        vector<Avion> flota = this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota();
+        //flota[vuelos[i]-1].getSillasDisponiblesPorCategoria(); //-> mostrar las sillas disponibles, todas no diferencia tipo de cliente
+        flota[vuelos[i]-1].getSillasDisponiblesPorCategoria( client.getGolden() );
+
+        if( !client.getGolden() ){ //si el cliente no es golden
+          do {
+            cout << "que tipo de sillas desea (normal,bajoCosto)" << endl;
+            cin >> tipoSilla;
+          } while( tipoSilla != "normal" &&  tipoSilla != "bajoCosto");
+        }
+        else{//si el cliente es golden se le dean sillas preferenciales
+          tipoSilla = "preferencial";
+        }
+
+
+
+        do {
+          cout << "Cuantas sillas desea comprar" << endl;
+          cin >> cantSillas;
+        } while(cantSillas < 1);
+
+        if( flota[vuelos[i]-1].getTotalBy(tipoSilla) >= cantSillas){ //se puede vender las sillas
+          for (int j = 0; j < cantSillas; j++) {
+            string silla = this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1); //vender el tiquete (ocupar la silla en el avion) retorna el numero de la silla ocupada
+            int ticket_id = getLastTiketId();
+            int precio;
+           //obtener el precio de la silla normal del avion, y dependiendo que tipo de silla elijio poner el aumento del 15 o eldecremento del 15
+
+            if(tipoSilla == "normal"){
+               precio = flota[vuelos[i]-1].getPrecioNormal();
+            }
+            else if( tipoSilla == "preferencial" ){
+               precio = getVariacionPrecio( flota[vuelos[i]-1].getPrecioNormal(), "preferencial" );
+            }
+            else if( tipoSilla == "bajoCosto" ){
+               precio = getVariacionPrecio( flota[vuelos[i]-1].getPrecioNormal(), "bajoCosto" );
+            }
+
+            Tiquete tiquet(ticket_id, flota[vuelos[i]-1].getAeropuertoOrigen(), flota[vuelos[i]-1].getAeropuertoDestino(), ticket_id, this->aerolineas[getPositionAeroline(aerolinea_id)], flota[vuelos[i]-1], silla, "No check", client, precio);
+
+            //guardar la transacion
+            if(compania == "agencia"){
+              this->agencias[getPositionAgency(agencia_id)].addTransacion(ticket_id);
+              //darle el tiquete al cliente
+              this->agencias[getPositionAgency(agencia_id)].tiketToClient(ticket_id, client_id-1);
+            }
+            else{
+              this->aerolineas[getPositionAeroline(aerolinea_id)].addTransacion(ticket_id);
+              //darle el tiquete al cliente
+              this->aerolineas[getPositionAeroline(aerolinea_id)].tiketToClient(ticket_id, client_id-1);
+            }
+
+
+          }
+        }
+        else{ //no hay esa cantidad de sillas
+          cout << "No hay esa cantidad de sillas disponibles" << endl;
+        }
+      }
   }
+  else{
+    cout << "No hay vuelos disponibles";
+  }
+
 
   //cout << "Imprimir ticketes" << endl;
 
@@ -808,8 +869,9 @@ void Control::setFlota(){
  primero  pide  la  aerolinea  de la que se quiere conocer los vuelos y luego la
  ciudad de origen
 */
-void Control::listaDeVuelosDisponibles(int aerolinea_id){
+int Control::listaDeVuelosDisponibles(int aerolinea_id, Cliente client){
   int city_id;
+  int totalDisponibles = 0;
   Aerolinea aerolinea;
   vector<Avion> flota;
   vector<string> cyties;
@@ -831,23 +893,50 @@ void Control::listaDeVuelosDisponibles(int aerolinea_id){
       cin >> city_id;
     } while(city_id < 0 || city_id > cyties.size() );
 
-    aerolinea.showVuelosDisponibles(cyties[city_id-1]);
+    //aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
+    totalDisponibles = aerolinea.showVuelosDisponibles(cyties[city_id-1], client.getGolden() );
   }
-
+  return totalDisponibles;
 }
 
 /**/
 void Control::crearClientes()
 {
-    int cantCli;
+    int cantCli, aerolinea_id, agencia_id;
+    string compania;
     time_t date = time(0);
     Telefono phone;
    	struct tm thisDate = *localtime(&date);
+
+    do {
+      cout << "Crear clientes para agencia o aerolinea? (agencia, aerolinea)" << endl;
+      cin >> compania;
+    } while(compania != "agencia" && compania != "aerolinea");
+
+    if(compania == "agencia"){
+      listAgencias();
+      do {
+        cout << "Ingresa el id de la agencia" << endl;
+        cin >> agencia_id;
+      } while( !existAgencia(agencia_id) );
+    }
+    else{
+      listAerilineas();
+      do {
+        cout << "ingresa el id de la aerolinea" << endl;
+        cin >> aerolinea_id;
+      } while( !existAerolinea(aerolinea_id) );
+    }
+
     cout<<"Cuantos clientes desea crear?"<<endl;
     cin>>cantCli;
     for (int i =0;i<cantCli;i++){
-
         Cliente *client = new Cliente("primerNombre"+to_string(i+1),"segundoNombre"+to_string(i+1),"primerApellido"+to_string(i+1),"segundoApellido"+to_string(i+1),"direccion"+to_string(i+1),"CC",10000+i,phone,thisDate, false);
-        clientes.push_back(*client);
+        if(compania == "agencia"){
+          this->agencias[getPositionAgency(agencia_id)].addClient(*client);
+        }
+        else{
+          this->aerolineas[getPositionAeroline(aerolinea_id)].addClient(*client);
+        }
     }
 }

@@ -50,11 +50,12 @@ class Avion
         Aeropuerto getAeropuertoDestino();
         int getCantidadGasolina();
         int getTiempoMaximo();
-        int getPrecioNormal();
+        int getPrecioNormal(); //retorna el precio de la silla normal
         // Retorna la cantidad de sillas disponibles, sin tener en cuenta el tipo de silla
         int getSillasDisponibles();
         // Retorna la cantidad de sillas disponibles por categoria
         void getSillasDisponiblesPorCategoria();
+        void getSillasDisponiblesPorCategoria(bool clientGolden);
         //retorna el total de sillas disponiblrs de un tipo en particular
         int getTotalBy(string tipoSilla);
 

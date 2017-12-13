@@ -20,6 +20,7 @@ class CompaniaAerea
         /* Setters */
         void addTransacion(int id); //agrega un id de tiquete a las transaciones
         void addClient(Cliente client);
+        void tiketToClient(int tiket_id, int pos_client); //le pone el tiquete a un cliente
 
         /* Getters*/
         int getId();
@@ -27,6 +28,9 @@ class CompaniaAerea
         string getRazonSocial();
         string getDireccion();
         string getPaginaWeb();
+        vector<Cliente> getClients();
+        void listClients(); //lsita los clientes;
+        bool clientExist(int pos);
 
 
     protected:

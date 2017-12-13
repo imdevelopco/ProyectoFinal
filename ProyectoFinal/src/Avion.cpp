@@ -286,10 +286,40 @@ void Avion::getSillasDisponiblesPorCategoria()
         cout<<"Sillas de bajo costo: "<<barata<<"\n";
 }
 
+// Entrada: void
+// Salida:  texto en pantalla.
+// Funcion: Retorna la cantidad de sillas disponibles dependiendo del tipo de cliente.
+// Autor: Camilo Arias.
+void Avion::getSillasDisponiblesPorCategoria(bool clientGolden)
+{
+    int costosa = 0,normalita = 0, barata = 0;
+     for(int i =0;i<preferencial.size();i++){
+        if( preferencial[i].getStatus() == 0)
+        costosa++;
+        }
+        for(int i =0;i<normal.size();i++){
+        if( normal[i].getStatus() == 0)
+        normalita++;
+        }
+        for(int i =0;i<bajoCosto.size();i++){
+        if( bajoCosto[i].getStatus() == 0)
+        barata++;
+        }
+
+        cout<<"La diponibilidad es la siguiente:\n" << endl;
+        if(clientGolden){
+          cout<<"Sillas Preferenciales: "<<costosa<<"\n" << endl;
+        }
+        else{
+          cout<<"Sillas Normales: "<<normalita<<"\n" << endl;
+          cout<<"Sillas de bajo costo: "<<barata<<"\n" << endl;
+        }
+}
+
 /*Retorna  la  cantidad  de  sillas  disponibles  de el tipo que se  le pase por
   parametro.
   getTotalBy(tipoSilla) -> int     Total de sillas disponibles de ese tipo
-  tipoSilla             == string  Tipo de sillas ["preferencial","normal","bajo costo"]
+  tipoSilla             == string  Tipo de sillas ["preferencial","normal","bajoCosto"]
 */
 int Avion::getTotalBy(string tipoSilla){
   int totalSillas = 0;

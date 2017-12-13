@@ -46,6 +46,11 @@ void CompaniaAerea::addClient(Cliente client){
   this->clientesTotal.push_back(client);
 }
 
+void CompaniaAerea::tiketToClient(int tiket_id, int pos_client){
+  this->clientesTotal[pos_client].addTiquete(tiket_id);
+}
+
+
 /* Getters*/
 int CompaniaAerea::getId(){
   return id;
@@ -69,4 +74,15 @@ string CompaniaAerea::getDireccion()
 string CompaniaAerea::getPaginaWeb()
 {
     return paginaWeb;
+}
+
+vector<Cliente> CompaniaAerea::getClients(){
+  return this->clientesTotal;
+}
+
+/*Lista los nombres de los clientes*/
+void CompaniaAerea::listClients(){
+  for (int i = 0; i < this->clientesTotal.size() ; i++) {
+    cout << to_string(i+1)+") "+this->clientesTotal[i].getName()+" "+this->clientesTotal[i].getLastName() << endl;
+  }
 }

@@ -60,7 +60,8 @@ class Control
         AgenciaDeViaje getAgencia(int id); //se le pasa un id de una agencia y retorna esa agencia
         vector<Silla> createSilla(string tipo); //retorna un vactor de sillas de el tipo que se le pase
         Avion createPlain(); //crea un avion y lo retorna
-        void listaDeVuelosDisponibles(int aerolinea_id); //muestra la lista de vuelos disponibles
+        int listaDeVuelosDisponibles(int aerolinea_id, Cliente client); //muestra la lista de vuelos disponibles
+        int getVariacionPrecio(int base, string tipo);
         vector<string> getCytiesOrigenFl(vector<Avion> flota);
 
 

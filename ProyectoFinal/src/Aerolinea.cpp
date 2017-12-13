@@ -177,6 +177,53 @@ void Aerolinea::showVuelosDisponibles(string cyti){
 
 }
 
+/*Muestra en pantalla los vuelos disponibles, verifica si el vuelo tiene sillas
+  disponibles para el tipo de cliente que e le pase por parametro,  si es asi lo
+  muestra
+  showVuelosDisponibles(cyti, golden) -> int    total de vuelos disponibles
+  cyti                                == string nombre del aeropuerto
+  golden                              == bool   si es un cliente golden se pasa true
+*/
+int Aerolinea::showVuelosDisponibles(string cyti, bool golden){
+  int TotalDispo = 0;
+
+  for(int i = 0; i < this->flota.size(); ++i){
+    int disponibles;
+
+    if(golden){
+      disponibles = this->flota[i].getTotalBy("preferencial"); //"preferencial","normal","bajoCosto"
+    }
+    else{
+      disponibles = this->flota[i].getTotalBy("normal") + this->flota[i].getTotalBy("bajoCosto");
+    }
+
+    Aeropuerto origen  = this->flota[i].getAeropuertoOrigen();
+    if( disponibles > 0 && origen.getNombre() == cyti){ //si hay sillas disponibles, se muestra el vuelo
+      Aeropuerto destino = this->flota[i].getAeropuertoDestino();
+      cout << to_string(i+1)+")   "+origen.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
+      TotalDispo++;
+      for(int j = 0; j < this->flota.size(); ++j){
+        int disponibles2;
+        Aeropuerto origen2  = this->flota[j].getAeropuertoOrigen();
+        Aeropuerto destino2 = this->flota[j].getAeropuertoDestino();
+
+        if(golden){
+          disponibles2 = this->flota[j].getTotalBy("preferencial"); //"preferencial","normal","bajoCosto"
+        }
+        else{
+          disponibles2 = this->flota[j].getTotalBy("normal") + this->flota[j].getTotalBy("bajoCosto");
+        }
+
+        if( disponibles2 > 0 && (origen2.getNombre() == destino.getNombre() && destino2.getNombre() != origen.getNombre() ) ){
+          cout << to_string(i+1)+"."+to_string(j+1)+") "+origen.getAbreviatura()+" -> "+destino.getAbreviatura()+" -> "+destino2.getAbreviatura() << endl;
+          TotalDispo++;
+        }
+      }
+    }
+  }
+  return TotalDispo;
+}
+
 /*se le pasa la posicion del avion en el vector de la flota y verifica si  tiene
   sillas disponibles, si es asi retorna true.
   verifyDisponiilidad(pos) -> bool     True si hay sillas disponibles, de cualquier Tipo

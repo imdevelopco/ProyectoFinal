@@ -31,6 +31,7 @@ class Aerolinea : public CompaniaAerea
         void administrarAviones();
         vector<string> getCytiesOrigenFl();
         void showVuelosDisponibles(string cyti);
+        int showVuelosDisponibles(string cyti, bool golden);
         bool verifyDisponiilidad(int pos);
         void imprimirTicket(int id_avion, string num_silla);
         string getOrigenPlain(int pos); //retorna el nombre del aeropuerto de origen, del avion que se encuentre en la posicion que s epase por parametro
