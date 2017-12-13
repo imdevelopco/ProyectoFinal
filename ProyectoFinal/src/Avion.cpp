@@ -321,6 +321,7 @@ string Avion::ocuparSilla(string tipo){
          sillaNum = this->preferencial[i].getNumber();
          continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
       }
+      i++;
     } while(continueLoop);
   }
   else if(tipo == "normal"){
@@ -330,6 +331,7 @@ string Avion::ocuparSilla(string tipo){
          sillaNum = this->normal[i].getNumber();
          continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
       }
+      i++;
     } while(continueLoop);
   }
   else if(tipo == "bajoCosto"){
@@ -339,8 +341,8 @@ string Avion::ocuparSilla(string tipo){
          sillaNum = this->bajoCosto[i].getNumber();
          continueLoop = false; //paramos el ciclo, asi solo pone un a silla como ocuapada
       }
+      i++;
     } while(continueLoop);
   }
-
   return sillaNum;
 }

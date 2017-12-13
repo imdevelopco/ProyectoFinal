@@ -113,6 +113,8 @@ int main()
 
   control.venderTiket();
 
+  control.venderTiket();
+
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();
     cout << "Crear una aerolinea" << endl;
