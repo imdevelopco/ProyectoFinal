@@ -111,6 +111,7 @@ int main()
   Control control(todosAeropuertos, agencias, aerolineas);
   control.setFlota();
 
+  control.venderTiket();
 
   /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
     control.listAerilineas();

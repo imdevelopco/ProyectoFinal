@@ -2,6 +2,7 @@
 #define CONTROL_H
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include "Aerolinea.h"
 #include "Aeropuerto.h"

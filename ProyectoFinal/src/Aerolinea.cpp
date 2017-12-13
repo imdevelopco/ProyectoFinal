@@ -213,16 +213,15 @@ void Aerolinea::sellTicket(string tipoSilla, int id_avion){
 
   string sillaNum = this->flota[id_avion].ocuparSilla(tipoSilla); //ocupamos la silla del avion
   imprimirTicket(id_avion, sillaNum); //mostramos el ticket
-  /*
-  #include <cstring>
-  char cad[] ="- Esta, una cadena de prueba.";
-    char * pch;
-    cout<<"Partiendo la cadena \""<<cad<<"\" en tokens:\n\n";
-    pch = strtok( cad, " ,.-" );
-    while( pch != NULL )
-    {
-        cout<< pch <<endl;
-        pch = strtok( NULL, " ,.-" );
-    }
-  */
+}
+
+/*retorna el nombre del aeropuerto de oigen de un avion de la flota*/
+string Aerolinea::getOrigenPlain(int pos){
+  string origen = this->flota[pos].getAeropuertoOrigen().getNombre();
+  return origen;
+}
+
+/*retorna el nombre del aeropuerto de destrino de un avion de la flota*/
+string Aerolinea::getDestinoPlain(int pos){
+  string destino = this->flota[pos].getAeropuertoDestino().getNombre();
 }
