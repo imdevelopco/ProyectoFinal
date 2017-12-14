@@ -5,24 +5,28 @@
 • Permita definir las Aerolíneas que trabajan en un determinado aeropuerto. ✓
 • Permita definir los Aviones disponibles en una determina Aerolínea ✓
 • Permita vender tiquetes dentro de la Agencia o en la Aerolínea asegurando que no
-  se puedan vender más de los disponibles y bajo las condiciones definidas. -> 85%
+  se puedan vender más de los disponibles y bajo las condiciones definidas. ✓
 • Permita armar la flota de aviones de una determinada Aerolínea. ✓
 • Permita conocer las rutas disponibles de una aerolínea. ✓
-• Permita conocer la cantidad de clientes de una Agencia o una Aerolínea.
-• Posibilite la visualización de una ruta total de un cliente, que tiene un origen destino
-  con un intermediario.
 • Permita verificar la cantidad de sillas totales disponibles, de sillas preferenciales
   disponibles y de bajo costo disponible, tanto para una Aerolínea como para todas
   las que laboran en un Aeropuerto.✓
 • Controle la cantidad de aviones existentes. ✓
-• Muestre el valor total generado por venta de tiquetes.
 • Pueda crear un viaje largo asegurando todos los tiquetes que requiera el cliente para
   ir de un destino a un origen. ✓
 • Quitar aviones de la flota, asegurando que no haya tiquetes vendidos para las sillas
   de determinada aerolínea.✓
-• Poder convertir un cliente normal en presencial.
 • Cambiar la razón social de una Aerolínea.✓
-• Asegurar la impresión del tiquete comprado por un cliente -> 95%
+• Asegurar la impresión del tiquete comprado por un cliente ✓
+
+╔═╗╔═╗╦ ╔╦╗╔═╗
+╠╣ ╠═╣║  ║ ╠═╣
+╚  ╩ ╩╩═╝╩ ╩ ╩
+• Poder convertir un cliente normal en presencial.
+• Permita conocer la cantidad de clientes de una Agencia o una Aerolínea.
+• Posibilite la visualización de una ruta total de un cliente, que tiene un origen destino
+  con un intermediario.
+• Muestre el valor total generado por venta de tiquetes.
 
 
 ╔═╗╔═╗╔╗╔╔═╗╦╔╦╗╔═╗╦═╗╔═╗╔═╗╦╔═╗╔╗╔╔═╗╔═╗
