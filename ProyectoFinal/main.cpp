@@ -62,73 +62,52 @@ int main()
   aeropuertos.push_back(2);// aeropuertos a los que puede viajar la aerolinea
   aeropuertos.push_back(3);// aeropuertos a los que puede viajar la aerolinea
 
+  // ┌─┐┬  ┬┌─┐┌┐┌┌┬┐┌─┐┌─┐
+  // │  │  │├┤ │││ │ ├┤ └─┐
+  // └─┘┴─┘┴└─┘┘└┘ ┴ └─┘└─┘
+  Cliente cliente1("Carlos", "Andres", "Cordoba", "Ramos", "calle34", "CC", 1143856542, telefono, birthday, true);
+  Cliente cliente2("Andres", "Camilo", "Arias", "Martinez", "calle5ta", "CC", 1143856254, telefono, birthday, true);
+  Cliente cliente3("Sanya", "Samy", "Perez", "Cardona", "calle585", "CC", 1143856, telefono, birthday, false);
+  Cliente cliente4("Leidy", "Laura", "Arias", "Martinez", "calle5ta", "CC", 1143856241, telefono, birthday, true);
+  Cliente cliente5("Maria", "Fernanda", "Torres", "Aguirre", "calle15", "CC", 114385642, telefono, birthday, true);
+  Cliente cliente6("Pablo", "Emilio", "Gutierrez", "Madronero", "cakle4", "CC", 114856245, telefono, birthday, false);
+
+  vector<Cliente> clientes1, clientes2;
+  clientes1.push_back(cliente1);
+  clientes1.push_back(cliente2);
+  clientes1.push_back(cliente3);
+
+  clientes2.push_back(cliente4);
+  clientes2.push_back(cliente5);
+  clientes2.push_back(cliente6);
+
   //  ╔═╗┌─┐┬─┐┌─┐┬  ┬┌┐┌┌─┐┌─┐┌─┐
   //  ╠═╣├┤ ├┬┘│ ││  ││││├┤ ├─┤└─┐
   //  ╩ ╩└─┘┴└─└─┘┴─┘┴┘└┘└─┘┴ ┴└─┘
   Aerolinea *aerolinea = new Aerolinea(1, "1212", "airf", "calle13", "www.airf.com", agenda, representante, "7852-m", 20,  aeropuertos);
   aerolineas_id.push_back(1);
+  aerolinea->setClientes(clientes1);
   aerolineas.push_back(*aerolinea);
+
+
   //   ╔═╗┌─┐┌─┐┌┐┌┌─┐┬┌─┐┌─┐
   //   ╠═╣│ ┬├┤ ││││  │├─┤└─┐
   //   ╩ ╩└─┘└─┘┘└┘└─┘┴┴ ┴└─┘
 
   AgenciaDeViaje *agencia = new AgenciaDeViaje(1,"8589","passVu","calle45","www.passVu.com", agenda, representante, aerolineas);
+  agencia->setClientes(clientes2);
   agencias.push_back(*agencia);
 
 
-  //Sillas
-/*
-   vector<Silla> preferencial(0);
-   vector<Silla> normal(0);
-   vector<Silla> bajoCosto(0);
-  for(int i = 0;i<30;i++)
-  {
-      Silla *sillaCostosa= new Silla("p-"+to_string(i+1),"preferencial",0);
-      preferencial.push_back(*sillaCostosa);
-  }
-  for(int i = 0;i<30;i++)
-  {
-      Silla *sillaNormal= new Silla("p-"+to_string(i+1),"normal",1);
-      normal.push_back(*sillaNormal);
-  }
-  for(int i = 0;i<30;i++)
-  {
-      Silla *sillita= new Silla("p-"+to_string(i+1),"bajoCosto",0);
-      bajoCosto.push_back(*sillita);
-  }
- // Avion
-  Avion JayJayElAvioncito (preferencial,normal,bajoCosto,"ABC-123",aeropuerto1,aeropuerto2,30000,2);
-  cout<<"Puesto Disponibls: "<<JayJayElAvioncito.getSillasDisponibles()<<endl;
-  JayJayElAvioncito.getSillasDisponiblesPorCategoria();
-  // Se crea flota para agregarla al puntero aerolinea
-  vector<Avion> flotas;
-  // se inserta el avion creado en el vector nuevo
-  flotas.push_back(JayJayElAvioncito);
-
-  aerolinea->setFlota(flotas);
-  aerolinea->administrarAviones();
-*/
-
- Control control(todosAeropuertos, agencias, aerolineas);
-
- //┌─┐┬  ┬┌─┐┌┐┌┌┬┐┌─┐┌─┐
- //│  │  │├┤ │││ │ ├┤ └─┐
- //└─┘┴─┘┴└─┘┘└┘ ┴ └─┘└─┘
-
-  control.crearClientes();
-
-  control.setFlota();
-
-  control.venderTiket();
-
-  control.venderTiket();
-  control.venderTiket();
 
 
-  /*  cout << "Aerolineas al comienzo de la ejecucion" << endl;
-    control.listAerilineas();
-    cout << "Crear una aerolinea" << endl;
-    control.crearAerolinea();
-    cout << "Aerolineas depues de la creacon" << endl;
-    control.listAerilineas(); */
+  //╦ ╔╗╔ ╦ ╔═╗ ╦ ╔═╗
+  //║ ║║║ ║ ║   ║ ║ ║
+  //╩ ╝╚╝ ╩ ╚═╝ ╩ ╚═╝
+  Control control(todosAeropuertos, agencias, aerolineas);
+
+
+
+
+
 }

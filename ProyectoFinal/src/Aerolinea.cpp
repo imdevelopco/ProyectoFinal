@@ -237,7 +237,7 @@ bool Aerolinea::verifyDisponiilidad(int pos){
 }
 
 /*muestra en pantalla el tikete vendido*/
-void Aerolinea::imprimirTicket(int id_avion, string num_silla){
+void Aerolinea::imprimirTicket(int id_avion, string num_silla, int precio){
 
   Aeropuerto origen  = this->flota[id_avion].getAeropuertoOrigen();
   Aeropuerto destino = this->flota[id_avion].getAeropuertoDestino();
@@ -248,17 +248,19 @@ void Aerolinea::imprimirTicket(int id_avion, string num_silla){
   cout << "| Origen  : "+ origen.getNombre() << endl;
   cout << "| Destino : "+ destino.getNombre() << endl;
   cout << "| Silla   : "+ num_silla << endl;
+  cout << "| Precio  : $"+ to_string(precio) << endl;
   cout << "+------------------------------------+\n" << endl;
 }
 
 /*Vende ticketes de avion
-  sellTicket(tipoSilla, id_avion) -> string    numero de silla
-  tipoSilla                       == string    tipo de silla a comprar opciones ["preferencial", "normal", "bajoCosto"]
-  id_avion                        == int       posicion del avion en la flota
+  sellTicket(tipoSilla, id_avion, precio) -> string    numero de silla
+  tipoSilla                               == string    tipo de silla a comprar opciones ["preferencial", "normal", "bajoCosto"]
+  id_avion                                == int       posicion del avion en la flota
+  precio                                  == int       precio del tikete
 */
-string Aerolinea::sellTicket(string tipoSilla, int id_avion){
+string Aerolinea::sellTicket(string tipoSilla, int id_avion, int precio){
   string sillaNum = this->flota[id_avion].ocuparSilla(tipoSilla); //ocupamos la silla del avion
-  imprimirTicket(id_avion, sillaNum); //mostramos el ticket
+  imprimirTicket(id_avion, sillaNum, precio); //mostramos el ticket
   return sillaNum;
 }
 

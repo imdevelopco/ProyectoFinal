@@ -725,7 +725,7 @@ void Control::venderTiket(){
 
         if( flota[vuelos[i]-1].getTotalBy(tipoSilla) >= cantSillas){ //se puede vender las sillas
           for (int j = 0; j < cantSillas; j++) {
-            string silla = this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1); //vender el tiquete (ocupar la silla en el avion) retorna el numero de la silla ocupada
+
             int ticket_id = getLastTiketId();
             int precio;
            //obtener el precio de la silla normal del avion, y dependiendo que tipo de silla elijio poner el aumento del 15 o eldecremento del 15
@@ -739,6 +739,8 @@ void Control::venderTiket(){
             else if( tipoSilla == "bajoCosto" ){
                precio = getVariacionPrecio( flota[vuelos[i]-1].getPrecioNormal(), "bajoCosto" );
             }
+
+            string silla = this->aerolineas[getPositionAeroline(aerolinea_id)].sellTicket(tipoSilla, vuelos[i]-1, precio); //vender el tiquete (ocupar la silla en el avion) retorna el numero de la silla ocupada
 
             Tiquete tiquet(ticket_id, flota[vuelos[i]-1].getAeropuertoOrigen(), flota[vuelos[i]-1].getAeropuertoDestino(), ticket_id, this->aerolineas[getPositionAeroline(aerolinea_id)], flota[vuelos[i]-1], silla, "No check", client, precio);
 

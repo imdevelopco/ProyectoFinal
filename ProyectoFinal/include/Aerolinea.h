@@ -20,7 +20,7 @@ class Aerolinea : public CompaniaAerea
         void setMatricula(string matricula);
         void setTotalPlains(int total);
         void setFlota(vector<Avion> flota);
-        string sellTicket(string tipoSilla, int id_avion);
+        string sellTicket(string tipoSilla, int id_avion, int precio);
 
         /*---------------------------------------*/
         /*                GETERS                 */
@@ -33,7 +33,7 @@ class Aerolinea : public CompaniaAerea
         void showVuelosDisponibles(string cyti);
         int showVuelosDisponibles(string cyti, bool golden);
         bool verifyDisponiilidad(int pos);
-        void imprimirTicket(int id_avion, string num_silla);
+        void imprimirTicket(int id_avion, string num_silla, int precio);
         string getOrigenPlain(int pos); //retorna el nombre del aeropuerto de origen, del avion que se encuentre en la posicion que s epase por parametro
         string getDestinoPlain(int pos);
     protected:

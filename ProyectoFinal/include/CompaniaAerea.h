@@ -21,6 +21,7 @@ class CompaniaAerea
         void addTransacion(int id); //agrega un id de tiquete a las transaciones
         void addClient(Cliente client);
         void tiketToClient(int tiket_id, int pos_client); //le pone el tiquete a un cliente
+        void setClientes(vector<Cliente> clients);
 
         /* Getters*/
         int getId();

@@ -50,6 +50,10 @@ void CompaniaAerea::tiketToClient(int tiket_id, int pos_client){
   this->clientesTotal[pos_client].addTiquete(tiket_id);
 }
 
+void CompaniaAerea::setClientes(vector<Cliente> clients){
+  this->clientesTotal = clients;
+}
+
 
 /* Getters*/
 int CompaniaAerea::getId(){
