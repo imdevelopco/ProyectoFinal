@@ -907,21 +907,28 @@ void Control::crearClientes()
         }
     }
 }
-
+/*
+Entrada: instancia de la clase Aerolinea
+Salida: void
+Funcion: Dependiendo de la decision que tome el usuario este metodo
+podra crear un objeto tipo Avion y settearle los parametros del constructor
+por defecto, tambien, podra eliminar determinado avion de la flota de una aerolinea.
+Autor: Carlos Andres Cordoba Ramos.
+*/
 void Control::administrarAviones(Aerolinea vivaColombia)
 {
     int decision;
     Avion newAvion;
     do{
             cout<<"Que deseas hacer?"<<endl;
-            cout<<"1.agregar un avion a la flota"<<endl;
+            cout<<"1.agregar nuevo un avion a la flota"<<endl;
             cout<<"2.eliminar un avion de la flota"<<endl;
             cin>>decision;
     }while((decision != 1)&&(decision != 2));
     switch(decision){
 
     case 1:{
-
+            /* Variables a Utilizar*/
             string placaAvion;
             int cantidadTanque,precioNormal,idAeropuertoOrigen,idAeropuertoDestino,tiempoAire;
 
@@ -951,13 +958,16 @@ void Control::administrarAviones(Aerolinea vivaColombia)
             }while(idAeropuertoDestino == idAeropuertoOrigen);
             newAvion.setAeropuertoOrigen(getAirport(idAeropuertoOrigen));
             newAvion.setAeropuertoDestino(getAirport(idAeropuertoDestino));
+            /* se inserta en avion con los atributos setteados a la flota*/
             vivaColombia.addAvionToFlota(newAvion);
     };
     break;
     case 2:{
             string matricula;
             bool noEsta = false;
+
             cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
+            vivaColombia.listAviones();
             cin>>matricula;
             for (int i=0;i<vivaColombia.getFlota().size();i++){
                 if(matricula == (vivaColombia.getFlota())[i].getMatricula()){

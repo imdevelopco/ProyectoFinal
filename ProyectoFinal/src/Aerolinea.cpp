@@ -221,3 +221,12 @@ string Aerolinea::getOrigenPlain(int pos){
 string Aerolinea::getDestinoPlain(int pos){
   string destino = this->flota[pos].getAeropuertoDestino().getNombre();
 }
+/*muestra en pantalla,la lista de las matriculas de los aviones en la flota*/
+void Aerolinea::listAviones()
+{
+    cout<<"Aviones de la flota:"<<endl;
+    for (int i= 0;i<flota.size();i++)
+    {
+        cout<<"Avion # "<<to_string(i+1)<<" "<<flota[i].getMatricula()<<endl;
+    }
+}

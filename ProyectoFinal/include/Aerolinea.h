@@ -28,7 +28,7 @@ class Aerolinea : public CompaniaAerea
         string getMatricula();
         int getTotal();
         vector<Avion> getFlota();
-    
+
         vector<string> getCytiesOrigenFl();
         void showVuelosDisponibles(string cyti);
         int showVuelosDisponibles(string cyti, bool golden);
@@ -37,8 +37,10 @@ class Aerolinea : public CompaniaAerea
         string getOrigenPlain(int pos); //retorna el nombre del aeropuerto de origen, del avion que se encuentre en la posicion que s epase por parametro
         string getDestinoPlain(int pos);
 
-        //falta comentar
+        //push_back a la flota con el objeto que se le pase como parametro
        void addAvionToFlota(Avion);
+       //lista en pantalla los aviones de la flota.
+       void listAviones();
     protected:
 
     private:
