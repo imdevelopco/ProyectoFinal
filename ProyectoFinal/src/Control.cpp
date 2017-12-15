@@ -725,7 +725,7 @@ void Control::venderTiket(){
           }
         }
         else{ //no hay esa cantidad de sillas
-          cout << "No hay esa cantidad de sillas disponibles" << endl;
+          cout << "\nNo hay esa cantidad de sillas disponibles\n" << endl;
         }
       }
   }

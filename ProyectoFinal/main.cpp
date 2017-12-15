@@ -114,7 +114,8 @@ int main()
     cout << "2) Crear aerolinea" << endl;
     cout << "3) Crear aeropuerto" << endl;
     cout << "4) Agregar aerolinea a aeropuerto" << endl;
-    cout << "5) vender ticket" << endl;
+    cout << "5) Establecer flota de aviones" << endl;
+    cout << "6) vender ticket" << endl;
     cout << "0) Salir" << endl;
 
     do {
@@ -136,6 +137,9 @@ int main()
         control.addAeroliaToAirport();
       }
       case 5:{
+        control.setFlota();
+      }
+      case 6:{
         control.venderTiket();
       }
     }
