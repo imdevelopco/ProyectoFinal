@@ -32,6 +32,7 @@ int main()
   vector<int> aerolineas_id;
   vector<Aerolinea> aerolineas;
   vector<AgenciaDeViaje> agencias;
+  vector<Representante> representantes;
 
   Telefono telefono("celular", 57, 8828263);
   Telefono telefono2("celular", 57, 856521);
@@ -39,7 +40,7 @@ int main()
   Representante representante("Fernanda", "Maria", "Tovar", "Caicedo", "Calle 34", "CC", 454521, telefono2, birthday);
   Aeropuerto aeropuerto(1,"Alfonzo bonilla Aragon-Cali", "CALI",50, 1500, aerolineas_id);
 
-
+  representantes.push_back(representante);
 
   //  ╔═╗┌─┐┬─┐┌─┐┌─┐┬ ┬┌─┐┬─┐┌┬┐┌─┐┌─┐
   //  ╠═╣├┤ ├┬┘│ │├─┘│ │├┤ ├┬┘ │ │ │└─┐
@@ -84,7 +85,7 @@ int main()
   //  ╔═╗┌─┐┬─┐┌─┐┬  ┬┌┐┌┌─┐┌─┐┌─┐
   //  ╠═╣├┤ ├┬┘│ ││  ││││├┤ ├─┤└─┐
   //  ╩ ╩└─┘┴└─└─┘┴─┘┴┘└┘└─┘┴ ┴└─┘
-  Aerolinea *aerolinea = new Aerolinea(1, "1212", "airf", "calle13", "www.airf.com", agenda, representante, "7852-m", 20,  aeropuertos);
+  Aerolinea *aerolinea = new Aerolinea(1, "1212", "airf", "calle13", "www.airf.com", agenda, representante, "7852-m");
   aerolineas_id.push_back(1);
   aerolinea->setClientes(clientes1);
   aerolineas.push_back(*aerolinea);
@@ -101,13 +102,47 @@ int main()
 
 
 
-  //╦ ╔╗╔ ╦ ╔═╗ ╦ ╔═╗
-  //║ ║║║ ║ ║   ║ ║ ║
-  //╩ ╝╚╝ ╩ ╚═╝ ╩ ╚═╝
-  Control control(todosAeropuertos, agencias, aerolineas);
+  // ╦ ╔╗╔ ╦ ╔═╗ ╦ ╔═╗ //
+  // ║ ║║║ ║ ║   ║ ║ ║ //
+  // ╩ ╝╚╝ ╩ ╚═╝ ╩ ╚═╝ //
+  Control control(todosAeropuertos, agencias, aerolineas, representantes);
+  int seleccion;
+  do {
+    cout << "\n::::::::::::::::::::::::::::::::::::::::::::" << endl;
+    cout << "::::::::::::::::::::::::::::::::::::::::::::" << endl;
+    cout << "1) Crear agencias" << endl;
+    cout << "2) Crear aerolinea" << endl;
+    cout << "3) Crear aeropuerto" << endl;
+    cout << "4) Agregar aerolinea a aeropuerto" << endl;
+    cout << "5) vender ticket" << endl;
+    cout << "0) Salir" << endl;
 
+    do {
+      cout << "Ingresa una opcion:" << endl;
+      cin >> seleccion;
+    } while( seleccion < 0 || seleccion > 5);
 
+    switch (seleccion) {
+      case 1:{
+        control.crearAgencia();
+      }
+      case 2:{
+        control.crearAerolinea();
+      }
+      case 3:{
+        control.createAirport();
+      }
+      case 4:{
+        control.addAeroliaToAirport();
+      }
+      case 5:{
+        control.venderTiket();
+      }
+    }
 
+  } while(seleccion != 0);
+
+  cout << "Adios" << endl;
 
 
 }

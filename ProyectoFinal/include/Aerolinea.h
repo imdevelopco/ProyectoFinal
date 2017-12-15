@@ -11,7 +11,7 @@ class Aerolinea : public CompaniaAerea
 {
     public:
         Aerolinea();
-        Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos);
+        Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, string matriculaAerea);
         virtual ~Aerolinea();
 
         /*---------------------------------------*/
@@ -41,7 +41,6 @@ class Aerolinea : public CompaniaAerea
     private:
       string matriculaAerea;
       int totalAvionesFlota;
-      vector<int> aeropuertos; //ids de los aeropuertos a los que puede viajar la aerolinea
       vector<Avion> flota;
 };
 

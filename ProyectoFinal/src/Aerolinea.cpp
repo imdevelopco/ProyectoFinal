@@ -6,10 +6,8 @@ Aerolinea::Aerolinea()
     //ctor
 }
 
-Aerolinea::Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, string matriculaAerea, int totalAvionesFlota, vector<int> aeropuertos):CompaniaAerea(id, nit, razonSocial, direccion, paginaWeb, agenda, representante){
+Aerolinea::Aerolinea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante, string matriculaAerea):CompaniaAerea(id, nit, razonSocial, direccion, paginaWeb, agenda, representante){
   this->matriculaAerea     = matriculaAerea;
-  this->totalAvionesFlota  = totalAvionesFlota;
-  this->aeropuertos        = aeropuertos;
 }
 
 Aerolinea::~Aerolinea()

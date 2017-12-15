@@ -7,11 +7,12 @@ Control::Control()
     //ctor
 }
 
-Control::Control(vector<Aeropuerto> aeropuertos, vector<AgenciaDeViaje> agencias, vector<Aerolinea> aerolineas)
+Control::Control(vector<Aeropuerto> aeropuertos, vector<AgenciaDeViaje> agencias, vector<Aerolinea> aerolineas, vector<Representante> representantes)
 {
-  this->aeropuertos = aeropuertos;
-  this->agencias    = agencias;
-  this->aerolineas  = aerolineas;
+  this->aeropuertos    = aeropuertos;
+  this->agencias       = agencias;
+  this->aerolineas     = aerolineas;
+  this->representantes = representantes;
 }
 
 Control::~Control()
@@ -182,7 +183,7 @@ Representante Control::createRepesent(){
 */
 void Control::listRepresnts(){
   for(int i = 0; i < this->representantes.size(); ++i){
-    cout << i+1+") "+ this->representantes[i].getName() << endl;
+    cout << to_string(i+1)+") "+ this->representantes[i].getName() << endl;
   }
 }
 
@@ -300,7 +301,7 @@ Aeropuerto Control::createAirport(){
         cin >> chooseAerolinea;
       } while( !existAerolinea(chooseAerolinea) );
 
-      if(aerolineas.size() > 0){
+      if(aerolineas.size() > 0){ //si hay mas aerolineas, pasamos averificar que no agrege una que ya exista
         addAerolinea = true;
         for (int i = 0; i < aerolineas.size(); i++) {
           if(aerolineas[i] == chooseAerolinea){
@@ -317,7 +318,7 @@ Aeropuerto Control::createAirport(){
       }
 
       do {
-        cout << "deseas ingresar otra aerolinea" << endl;
+        cout << "deseas ingresar otra aerolinea (s,n)" << endl;
         cin >> continueAddAerolinea;
       } while(continueAddAerolinea != 's' && continueAddAerolinea != 'n');
 
@@ -336,7 +337,6 @@ void Control::crearAerolinea(){
   int representante_id, totalFlota;
   Representante representante;
   vector<Telefono> telefono;
-  vector<int> aeropuertos;
 
   cout << "::::::::::Crear Aerolinea::::::::::" << endl;
   cout << "Ingresa el NIT:" << endl;
@@ -350,8 +350,6 @@ void Control::crearAerolinea(){
   telefono.push_back( createPhone() );
   cout << "Ingresa la matricula aerea" << endl;
   cin >> matricula;
-  cout << "Total flota de aviones" << endl;
-  cin >> totalFlota;
 
   if(this->representantes.size() > 0){ //si hay representantes preguntamos al usuario si quiere crear uno o elegirlo
     do {
@@ -375,62 +373,8 @@ void Control::crearAerolinea(){
     representante = this->representantes[representante_id-1];
   }
 
-  //aeropuertos a los que puede viajar
-  if(this->aeropuertos.size() > 0){ //si hay aeropuertos, preguntamos a usuario si quiere crear o elegir
-    do{
-      cout << "Crear o elegir un aeropuertos a los que puede viajar la aerolinea (crear,elegir)" << endl;
-      cin >> chooseAirport;
-    }while(chooseAirport != "crear" && chooseAirport != "elegir");
-  }
-  else{ //si no hay aeropuertos, pasamos a crear
-    cout << "Crear aeropuerto al que puede viajar la aerolinea" << endl;
-    chooseAirport = "crear";
-  }
 
-  if(chooseAirport == "crear"){
-    do {
-      aeropuertos.push_back( createAirport().getId() );
-      do{
-        cout << "¿Quieres crear otro aeropuerto al que se puede viajar desde esta aerolinea? (s,n)" << endl;
-        cin >> continueCreate;
-      } while(continueCreate != 's' && continueCreate != 'n'); //validar que ingrese una opción correcta
-    } while(continueCreate == 's');
-  }
-  else{ //si selecciono elegir
-    do {
-      int elegido;
-      listAirports();
-      do {
-        cout << "Selecciona un aeropuerto" << endl;
-        cin >> elegido;
-      } while(!existAirport(elegido)); //verificar que el id que ingreso si pertenece a un aeropuerto
-
-      if(aeropuertos.size() == 0){ //si no hay aeropuertos aún agregamos el aeropuerto seleccionado
-          aeropuertos.push_back( elegido ); //se agrega el aeropuerto elegido al vector de aeropuertos al que puede viajar la aerolinea
-      }
-      else{ //si ya hay aeropuertos entonces verificamos si el aeropuerto ya fue agregado
-        bool exist = false;
-        for(int i = 0; i < aeropuertos.size(); ++i){ //recorremos los aeropuestos que se han agregado
-          if(aeropuertos[i] == elegido){ //si ya existe, seteamos la variable existe como true (si existe)
-            exist = true;
-          }
-        }
-
-        if(!exist){ //si no existe el aeropuerto seleccionado en el vector de aeropuertos lo agregamos
-          aeropuertos.push_back( elegido ); //se agrega el aeropuerto elegido al vector de aeropuertos al que puede viajar la aerolinea
-        }
-      }
-
-      //preguntar al usuario si quiere agregar más aeropuertos
-      do {
-        cout << "¿Quieres agregar otro aeropuerto? (s,n)" << endl;
-        cin >> continueChoose;
-      } while(continueChoose != 's' && continueChoose != 'n'); //validar que ingrese una opcion correcta
-    } while(continueChoose == 's');
-
-  }
-
-  Aerolinea aerolinea(getLastAerolineaId(), nit, razon, direccion, pagina, telefono, representante, matricula, totalFlota, aeropuertos);
+  Aerolinea aerolinea(getLastAerolineaId(), nit, razon, direccion, pagina, telefono, representante, matricula);
   this->aerolineas.push_back(aerolinea);
 }
 
@@ -534,6 +478,15 @@ int Control::getPositionAgency(int id){
   }
 }
 
+/*Se le pasa un id de un aeropuetp y retorna la posicion en la que se encuentra en el array de aeropuertos*/
+int Control::getPositionAirport(int id){
+  for(int i = 0; i < this->aeropuertos.size(); ++i){
+    if (id == this->aeropuertos[i].getId() ){
+      return i;
+    }
+  }
+}
+
 /*Pide infoemación por consola al usuario para qeu establesca una aerolina en un
   aeropuerto. (agregar aerolineas a un aeropuerto)
 */
@@ -541,6 +494,7 @@ void Control::addAeroliaToAirport(){
   int airportChoose, airlaineChoose;
   Aeropuerto airport;
   Aerolinea airline;
+  bool exist;
 
   cout << "::::::::::Agregar aerolinea a aeropuerto::::::::::" << endl;
   cout << "Selecciona un aeropuerto" << endl;
@@ -557,9 +511,20 @@ void Control::addAeroliaToAirport(){
     cin >> airlaineChoose;
   } while(!existAerolinea(airlaineChoose)); //verificar que ingrese un id de una aerolinea
 
-  airport = getAirport(airportChoose); //obtenemos el aeropuerto
-  airline = getAeroline(airlaineChoose); //obtenemos la aerolinea
-  airport.addAerolinea(airlaineChoose); //agregamos la aerolinea a el aeropuerto
+  vector<int> aerolineas = this->aeropuertos[getPositionAirport(airportChoose)].getAerolineas();
+  for (int i = 0; i < aerolineas.size(); i++) {
+    exist = false;
+    if(aerolineas[i] == airlaineChoose){
+      exist = true;
+    }
+  }
+
+  if(!exist){
+    this->aeropuertos[getPositionAirport(airportChoose)].addAerolinea(airlaineChoose);
+  }
+  else{
+    cout << "El aeropuerto ya cuenta con esta aerolinea" << endl;
+  }
 }
 
 /*WEstablece el total de aviones de una aerolinea*/

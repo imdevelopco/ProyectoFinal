@@ -36,3 +36,4 @@
 • Un aeropuerto no define a que otros aeropuertos vuela, esto esta definido por las aerolineas y sus aviones.
 • Una agencia de viaje no puede vender tikets por su cuenta, puesto que no tiene aviones y no conoce la disponibilidad de estos, por lo tanto
   una agencia vende tikets como intermediario.
+• Permita definir los Aviones disponibles en una determina Aerolínea, esto lo hace el método que crea la flota de aviones o cuando se agrega un avion a una flota|
