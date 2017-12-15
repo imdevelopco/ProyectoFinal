@@ -44,7 +44,7 @@ class Control
         int getLastTiketId(); //retorna un numero para ser usado como id de un tiquete
         int getPositionAeroline(int id); //retorna la posicion de una aerolinea en el vector de aerolines, se le pasa el id de la aerolinea
         int getPositionAgency(int id); //retorna la pocision en la que se encuenta una agencia en el vector de agencias
-        int getPositionAirport(int id); //retorna la pocision en la qeu se encuentra un avion 
+        int getPositionAirport(int id); //retorna la pocision en la qeu se encuentra un avion
         Representante createRepesent(); //pide datos al usuario para crear un representante, por ultimo lo retorna
         Telefono createPhone(); //pide información al usuario para crear un numeo de telefono, lo retorna.
         void listRepresnts(); //lista los representantes
@@ -67,6 +67,7 @@ class Control
 
 
         void crearClientes();
+        void administrarAviones(Aerolinea);
 
 
     protected:

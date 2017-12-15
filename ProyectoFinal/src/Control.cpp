@@ -907,3 +907,75 @@ void Control::crearClientes()
         }
     }
 }
+
+void Control::administrarAviones(Aerolinea vivaColombia)
+{
+    int decision;
+    Avion newAvion;
+    do{
+            cout<<"Que deseas hacer?"<<endl;
+            cout<<"1.agregar un avion a la flota"<<endl;
+            cout<<"2.eliminar un avion de la flota"<<endl;
+            cin>>decision;
+    }while((decision != 1)&&(decision != 2));
+    switch(decision){
+
+    case 1:{
+
+            string placaAvion;
+            int cantidadTanque,precioNormal,idAeropuertoOrigen,idAeropuertoDestino,tiempoAire;
+
+            cout<<"Digite la matricula del avion"<<endl;
+            cin>>placaAvion;
+            newAvion.setMatricula(placaAvion);
+            cout<<"Digite la capacidad del tanque de gasolina del avion"<<endl;
+            cin>>cantidadTanque;
+            newAvion.setCantidadGasolina(cantidadTanque);
+            cout<<"Digite el precio las sillas categoria normal"<<endl;
+            cin>>precioNormal;
+            newAvion.setPrecioSillNormal(precioNormal);
+            cout<<"Digite el tiempo de vuelo"<<endl;
+            cin>>tiempoAire;
+            newAvion.setTiempoMaximo(tiempoAire);
+            do{
+                    do{
+                            cout<<"Digite el id del aeropuerto de origen"<<endl;
+                            listAirports();
+                            cin>>idAeropuertoOrigen;
+                    }while(existAirport(idAeropuertoOrigen) == false);
+                    do{
+                            cout<<"Digite el id del aeropuerto de Destino"<<endl;
+                            listAirports();
+                            cin>>idAeropuertoDestino;
+                    }while(existAirport(idAeropuertoDestino) == false);
+            }while(idAeropuertoDestino == idAeropuertoOrigen);
+            newAvion.setAeropuertoOrigen(getAirport(idAeropuertoOrigen));
+            newAvion.setAeropuertoDestino(getAirport(idAeropuertoDestino));
+            vivaColombia.addAvionToFlota(newAvion);
+    };
+    break;
+    case 2:{
+            string matricula;
+            bool noEsta = false;
+            cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
+            cin>>matricula;
+            for (int i=0;i<vivaColombia.getFlota().size();i++){
+                if(matricula == (vivaColombia.getFlota())[i].getMatricula()){
+                        if(vivaColombia.getFlota()[i].getSillasDisponibles() > 0){
+                            cout<<"No se puede eliminar el avion por que tiene tiquetes vendidos"<<endl;
+                        }else if (vivaColombia.getFlota()[i].getSillasDisponibles() > 0){
+                    vivaColombia.getFlota().erase(vivaColombia.getFlota().begin()+i);
+                    cout<<"Se ha eliminado el avion de la flota"<<endl;
+                    }
+                }else{
+                    noEsta=true;
+                }
+            }
+            if(noEsta == true){
+                cout<<"No se ha encontrado el avion en la flota"<<endl;
+            }
+        };
+    break;
+
+    }
+}
