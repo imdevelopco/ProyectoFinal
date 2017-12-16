@@ -487,6 +487,15 @@ int Control::getPositionAirport(int id){
   }
 }
 
+/*se le pasa un id y retorna la pocision en el que se encuantra el tikete*/
+int Control::getPositionTicket(int id){
+  for(int i = 0; i < this->tiquetes.size(); ++i){
+    if (id == this->tiquetes[i].getId() ){
+      return i;
+    }
+  }
+}
+
 /*Pide infoemación por consola al usuario para qeu establesca una aerolina en un
   aeropuerto. (agregar aerolineas a un aeropuerto)
 */
@@ -1169,4 +1178,50 @@ void Control::clientsOfCompania() {
     } while( !existAerolinea(aerolinea_id) );
     cout << "Total de clientes: "+to_string( this->aerolineas[getPositionAeroline(aerolinea_id)].getClients().size() ) << endl;
   }
+}
+
+
+/*Muestra el total de ventas por tiquetes*/
+void Control::getTotalVentas(){
+    string compania;
+    int agencia_id, aerolinea_id;
+    vector<int> idTransaciones;
+    int total = 0;
+
+    cout << "\n :::::::::Total ventas en tiquetes:::::::" << endl;
+    do {
+      cout << "Agencia o aerolinea? (agencia, aerolinea)" << endl;
+      cin >> compania;
+    } while(compania != "agencia" && compania != "aerolinea");
+
+    if(compania == "agencia"){
+      listAgencias();
+      do {
+        cout << "Selecciona una agencia" << endl;
+        cin >> agencia_id;
+      } while( !existAgencia(agencia_id) );
+
+      idTransaciones = this->agencias[getPositionAgency(agencia_id)].getTransaciones();
+      if(idTransaciones.size() > 0){
+        for (int i = 0; i < idTransaciones.size(); i++) {
+          total += this->tiquetes[getPositionTicket(idTransaciones[i])].getPrecio();
+        }
+      }
+    }
+    else{ //si selecciono aerolinea
+      listAerilineas();
+      do {
+        cout << "Selecciona una aerolinea" << endl;
+        cin >> aerolinea_id;
+      } while( !existAerolinea(aerolinea_id) );
+
+      idTransaciones = this->agencias[getPositionAeroline(agencia_id)].getTransaciones();
+      if(idTransaciones.size() > 0){
+        for (int i = 0; i < idTransaciones.size(); i++) {
+          total += this->tiquetes[getPositionTicket(idTransaciones[i])].getPrecio();
+        }
+      }
+    }
+
+    cout << "Total en ventas: "+to_string(total) << endl;
 }

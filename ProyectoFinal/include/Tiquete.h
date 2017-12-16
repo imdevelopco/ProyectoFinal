@@ -41,6 +41,7 @@ class Tiquete
         string getChair();
         string getStatus();
         Cliente getCliente();
+        int getPrecio(); 
 
 
     protected:

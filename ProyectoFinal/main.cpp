@@ -123,7 +123,7 @@ int main()
     cout << "9) ver rutas de clientes (falta)" << endl;
     cout << "10) ver sillas disponibles" << endl;
     cout << "11) Control aviones" << endl;
-    cout << "12) Total venta por tiquetes (falta)" << endl;
+    cout << "12) Total venta por tiquetes" << endl;
     cout << "13) Convertir cliente normal en preferencial (falta)" << endl;
     cout << "14) Cambiar razon social aerolinea (falta)" << endl;
     cout << "0) Salir" << endl;
@@ -179,7 +179,7 @@ int main()
       }
       break;
       case 12:{
-        cout << "falta" << endl;
+        control.getTotalVentas();
       }
       break;
       case 13:{

@@ -32,6 +32,7 @@ class CompaniaAerea
         vector<Cliente> getClients();
         void listClients(); //lsita los clientes;
         bool clientExist(int pos);
+        vector<int> getTransaciones(); 
 
 
     protected:

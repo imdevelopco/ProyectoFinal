@@ -148,3 +148,7 @@ string Tiquete::getStatus(){
 Cliente Tiquete::getCliente(){
   return this->cliente;
 }
+
+int Tiquete::getPrecio(){
+  return this->precio;
+}

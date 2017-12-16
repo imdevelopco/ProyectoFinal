@@ -12,7 +12,6 @@ CompaniaAerea::CompaniaAerea()
   this->paginaWeb      = "www.unamed.com";
   this->agenda.push_back(telfono);
   this->representante  = representante;
-  this->transaciones.push_back(0);
 }
 
 CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string direccion, string paginaWeb,  vector<Telefono> agenda, Representante representante){
@@ -24,7 +23,6 @@ CompaniaAerea::CompaniaAerea(int id, string nit, string razonSocial, string dire
   this->agenda         = agenda;
   this->representante  = representante;
   //this->clientesGolden no se inisializa
-  this->transaciones.push_back(0);
 }
 
 
@@ -89,4 +87,9 @@ void CompaniaAerea::listClients(){
   for (int i = 0; i < this->clientesTotal.size() ; i++) {
     cout << to_string(i+1)+") "+this->clientesTotal[i].getName()+" "+this->clientesTotal[i].getLastName() << endl;
   }
+}
+
+/*Retorna el array de tiquetes, transaciones*/
+vector<int> CompaniaAerea::getTransaciones(){
+  return this->transaciones;
 }
