@@ -31,7 +31,7 @@ class Control
         void crearAerolinea(); //pide información al usuario por consola para crear una aerolinea
         void addAeroliaToAirport(); //muestra y pide infoemación al usuario para agregar aerolineas a un aeropuerto
         void setAvionesDeAerolinea();
-        void venderTiket(); // SIN TERMINAR, SE NECESITAN OTROS METODOS
+        void venderTiket(); // metodo para vender tiketes
         void setFlota(); //pide información al usuario para establecer la flota de aviones de una aerolinea
 
 
@@ -44,7 +44,7 @@ class Control
         int getLastTiketId(); //retorna un numero para ser usado como id de un tiquete
         int getPositionAeroline(int id); //retorna la posicion de una aerolinea en el vector de aerolines, se le pasa el id de la aerolinea
         int getPositionAgency(int id); //retorna la pocision en la que se encuenta una agencia en el vector de agencias
-        int getPositionAirport(int id); //retorna la pocision en la qeu se encuentra un avion 
+        int getPositionAirport(int id); //retorna la pocision en la qeu se encuentra un avion
         Representante createRepesent(); //pide datos al usuario para crear un representante, por ultimo lo retorna
         Telefono createPhone(); //pide información al usuario para crear un numeo de telefono, lo retorna.
         void listRepresnts(); //lista los representantes
@@ -62,11 +62,15 @@ class Control
         vector<Silla> createSilla(string tipo); //retorna un vactor de sillas de el tipo que se le pase
         Avion createPlain(); //crea un avion y lo retorna
         int listaDeVuelosDisponibles(int aerolinea_id, Cliente client); //muestra la lista de vuelos disponibles
+        int listaDeVuelosDisponibles(int aerolinea_id); //lista vuelos disponibles, pide la aeroli9nea y la ciudad
+        int listaDeVuelosDisponibles();
         int getVariacionPrecio(int base, string tipo);
+        void sillasDisponibles();
         vector<string> getCytiesOrigenFl(vector<Avion> flota);
-
+        void clientsOfCompania();
 
         void crearClientes();
+        void administrarAviones();
 
 
     protected:
