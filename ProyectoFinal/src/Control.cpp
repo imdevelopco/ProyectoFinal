@@ -1215,7 +1215,7 @@ void Control::getTotalVentas(){
         cin >> aerolinea_id;
       } while( !existAerolinea(aerolinea_id) );
 
-      idTransaciones = this->agencias[getPositionAeroline(agencia_id)].getTransaciones();
+      idTransaciones = this->aerolineas[getPositionAeroline(agencia_id)].getTransaciones();
       if(idTransaciones.size() > 0){
         for (int i = 0; i < idTransaciones.size(); i++) {
           total += this->tiquetes[getPositionTicket(idTransaciones[i])].getPrecio();
@@ -1224,4 +1224,31 @@ void Control::getTotalVentas(){
     }
 
     cout << "Total en ventas: "+to_string(total) << endl;
+}
+
+/*Cambiar un cliente normal a preferencial*/
+void Control::setClientToPreferencial(){
+  string compania;
+  int client_id, agencia_id, aerolinea_id;
+
+  cout << "\n :::::::::Cambiar cliente normal a preferencial:::::::" << endl;
+  do {
+    cout << "Agencia o aerolinea? (agencia, aerolinea)" << endl;
+    cin >> compania;
+  } while(compania != "agencia" && compania != "aerolinea");
+
+  if(compania == "agencia"){
+    this->agencias[getPositionAgency(agencia_id)].listClients();
+    do {
+      cout << "Selecciona un cliente" << endl;
+      cin >> client_id;
+    } while(client_id < 1 || client_id > this->agencias[getPositionAgency(agencia_id)].getClients().size() );
+  }
+  else{
+    this->aerolineas[getPositionAeroline(agencia_id)].listClients();
+    do {
+      cout << "Selecciona un cliente" << endl;
+      cin >> client_id;
+    } while(client_id < 1 || client_id > this->aerolineas[getPositionAeroline(agencia_id)].getClients().size() );
+  }
 }

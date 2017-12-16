@@ -70,6 +70,7 @@ class Control
         vector<string> getCytiesOrigenFl(vector<Avion> flota);
         void clientsOfCompania();
         void getTotalVentas(); //retorna el total de ventas de una agencia o un aerolinea
+        void setClientToPreferencial(); //cambia un cliente normal a preferencial
 
         void crearClientes();
         void administrarAviones();
