@@ -272,3 +272,16 @@ string Aerolinea::getOrigenPlain(int pos){
 string Aerolinea::getDestinoPlain(int pos){
   string destino = this->flota[pos].getAeropuertoDestino().getNombre();
 }
+
+void Aerolinea::addAvionToFlota(Avion avion){
+  this->flota.push_back(avion);
+}
+
+void Aerolinea::listAviones()
+{
+    cout<<"Aviones de la flota:"<<endl;
+    for (int i= 0;i<flota.size();i++)
+    {
+        cout<<"Avion # "<<to_string(i+1)<<" "<<flota[i].getMatricula()<<endl;
+    }
+}
