@@ -114,30 +114,80 @@ int main()
     cout << "2) Crear aerolinea" << endl;
     cout << "3) Crear aeropuerto" << endl;
     cout << "4) Agregar aerolinea a aeropuerto" << endl;
-    cout << "5) vender ticket" << endl;
+    cout << "5) Establecer flota de aviones" << endl;
+    cout << "6) vender ticket" << endl;
+    cout << "7) ver ruta de aviones" << endl;
+    cout << "8) ver clientes de aerolinea o aegencia (falta)" << endl;
+    cout << "9) ver rutas de clientes (falta)" << endl;
+    cout << "10) ver sillas disponibles" << endl;
+    cout << "11) Control aviones" << endl;
+    cout << "12) Total venta por tiquetes (falta)" << endl;
+    cout << "13) Convertir cliente normal en preferencial (falta)" << endl;
+    cout << "14) Cambiar razon social aerolinea (falta)" << endl;
     cout << "0) Salir" << endl;
 
     do {
       cout << "Ingresa una opcion:" << endl;
       cin >> seleccion;
-    } while( seleccion < 0 || seleccion > 5);
+    } while( seleccion < 0 || seleccion > 14);
 
     switch (seleccion) {
       case 1:{
         control.crearAgencia();
       }
+      break;
       case 2:{
         control.crearAerolinea();
       }
+      break;
       case 3:{
         control.createAirport();
       }
+      break;
       case 4:{
         control.addAeroliaToAirport();
       }
+      break;
       case 5:{
+        control.setFlota();
+      }
+      break;
+      case 6:{
         control.venderTiket();
       }
+      break;
+      case 7:{
+        control.listaDeVuelosDisponibles();
+      }
+      break;
+      case 8:{
+        cout << "hacerlo falta" << endl;
+      }
+      break;
+      case 9:{
+        cout << "falta" << endl;
+      }
+      break;
+      case 10:{
+        control.sillasDisponibles();
+      }
+      break;
+      case 11:{
+        control.administrarAviones();
+      }
+      break;
+      case 12:{
+        cout << "falta" << endl;
+      }
+      break;
+      case 13:{
+        cout << "falta" << endl;
+      }
+      break;
+      case 14:{
+        cout << "falta" << endl;
+      }
+      break;
     }
 
   } while(seleccion != 0);

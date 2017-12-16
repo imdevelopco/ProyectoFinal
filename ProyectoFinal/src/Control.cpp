@@ -732,9 +732,72 @@ void Control::venderTiket(){
   else{
     cout << "No hay vuelos disponibles";
   }
-
-
   //cout << "Imprimir ticketes" << endl;
+}
+
+
+/*Lista las sillas disponibles de un avion de una agencia*/
+void Control::sillasDisponibles(){
+  int aerolinea_id;
+  string haveEscalas;
+  vector<int> vuelos;
+
+  cout << "\n:::::::::Sillas disponibles::::::::::" << endl;
+
+  cout << "Aerolineas" << endl;
+  listAerilineas();
+  do {
+    cout << "ingresa el id de la aerolinea" << endl;
+    cin >> aerolinea_id;
+  } while( !existAerolinea(aerolinea_id) );
+
+  int disponibles = listaDeVuelosDisponibles(aerolinea_id);
+  if(disponibles > 0){
+        do {
+          cout << "el vuelo tiene escalas? (si,no)" << endl;
+          cin >> haveEscalas;
+        } while(haveEscalas != "si" && haveEscalas != "no");
+
+        if(haveEscalas == "si"){
+          string vuelo;
+          char * split;
+          cout << "ingresa el numero del vuelo, recuerda poner el punto (numero_vuelo.numero_segundo_vuelo ej 1.3)" << endl;
+          cin >> vuelo;
+          int pos = vuelo.find(".");
+          string vuelo1 = vuelo.substr(0,pos);
+          string vuelo2 = vuelo.substr(pos+1);
+          int fly1 = stoi( vuelo1 );
+          int fly2 = stoi( vuelo2 );
+
+          if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly1-1) && this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly2-1)  ){ //verificar que el vuelo tenga sillas disponibles
+            if( this->aerolineas[getPositionAeroline(aerolinea_id)].getDestinoPlain(fly1-1) == this->aerolineas[getPositionAeroline(aerolinea_id)].getOrigenPlain(fly2-1) ){
+              vuelos.push_back(fly1);
+              vuelos.push_back(fly2);
+            }
+          }
+        }
+        else{ //si no tiene escalas
+          int vuelo;
+          cout << "ingresar el número del vuelo" << endl;
+          cin >> vuelo;
+
+          if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(vuelo-1) ){ //verificar que el vuelo tenga sillas disponibles
+            vuelos.push_back(vuelo);
+          }
+          else{
+            cout << "Este vuelo no tiene sillas disponibles (aca nunca va a entrar porque siempre se muestran los vuelos disponibles)" << endl;
+          }
+        }
+
+        for (int i = 0; i < vuelos.size(); i++) {
+          vector<Avion> flota = this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota();
+          flota[vuelos[i]-1].getSillasDisponiblesPorCategoria(); //-> mostrar las sillas disponibles, todas no diferencia tipo de cliente
+        }
+
+  }
+  else{
+        cout << "No hay vuelos con sillas disponibles" << endl;
+  }
 
 }
 
@@ -866,6 +929,84 @@ int Control::listaDeVuelosDisponibles(int aerolinea_id, Cliente client){
   return totalDisponibles;
 }
 
+
+/*Lista las rutas de una aerolinea
+  primero  pide  la  aerolinea  de la que se quiere conocer los vuelos y luego la
+  ciudad de origen
+*/
+int Control::listaDeVuelosDisponibles(int aerolinea_id){
+  int city_id;
+  int totalDisponibles = 0;
+  Aerolinea aerolinea;
+  vector<Avion> flota;
+  vector<string> cyties;
+
+  cout << "Vuelos disponibles " << endl;
+
+  aerolinea = getAeroline(aerolinea_id);
+  flota     = aerolinea.getFlota();
+
+  cyties = aerolinea.getCytiesOrigenFl();
+
+  if (flota.size() > 0) {
+    cout << "Elige la ciudad de origen" << endl;
+    for(int i = 0; i < cyties.size(); ++i){
+      cout << to_string(i+1)+") "+cyties[i] << endl;
+    }
+    do {
+      cout << "Ingresa el id se la ciudad" << endl;
+      cin >> city_id;
+    } while(city_id < 0 || city_id > cyties.size() );
+
+    aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
+
+  }
+  return totalDisponibles;
+}
+
+/*Lista las rutas de una aerolinea
+  primero  pide  la  aerolinea  de la que se quiere conocer los vuelos y luego la
+  ciudad de origen
+*/
+int Control::listaDeVuelosDisponibles(){
+  int city_id, aerolinea_id;
+  int totalDisponibles = 0;
+  Aerolinea aerolinea;
+  vector<Avion> flota;
+  vector<string> cyties;
+
+  cout << "Vuelos disponibles " << endl;
+
+  cout << "Aerolineas" << endl;
+  listAerilineas();
+  do {
+    cout << "ingresa el id de la aerolinea" << endl;
+    cin >> aerolinea_id;
+  } while( !existAerolinea(aerolinea_id) );
+
+  aerolinea = getAeroline(aerolinea_id);
+  flota     = aerolinea.getFlota();
+
+  cyties = aerolinea.getCytiesOrigenFl();
+
+  if (flota.size() > 0) {
+    cout << "Elige la ciudad de origen" << endl;
+    for(int i = 0; i < cyties.size(); ++i){
+      cout << to_string(i+1)+") "+cyties[i] << endl;
+    }
+    do {
+      cout << "Ingresa el id se la ciudad" << endl;
+      cin >> city_id;
+    } while(city_id < 0 || city_id > cyties.size() );
+
+    aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
+
+  }
+  return totalDisponibles;
+}
+
+
+
 /**/
 void Control::crearClientes()
 {
@@ -907,6 +1048,8 @@ void Control::crearClientes()
         }
     }
 }
+
+
 /*
 Entrada: instancia de la clase Aerolinea
 Salida: void
@@ -915,10 +1058,18 @@ podra crear un objeto tipo Avion y settearle los parametros del constructor
 por defecto, tambien, podra eliminar determinado avion de la flota de una aerolinea.
 Autor: Carlos Andres Cordoba Ramos.
 */
-void Control::administrarAviones(Aerolinea vivaColombia)
+void Control::administrarAviones()
 {
-    int decision;
+    int decision, aerolinea_id;
     Avion newAvion;
+
+    cout << "\n:::::::::Administrar aviones:::::::::" << endl;
+    listAerilineas();
+    do {
+      cout << "Ingresa el id de la aerolinea" << endl;
+      cin >> aerolinea_id;
+    } while( !existAerolinea(aerolinea_id) );
+
     do{
             cout<<"Que deseas hacer?"<<endl;
             cout<<"1.agregar nuevo un avion a la flota"<<endl;
@@ -959,7 +1110,8 @@ void Control::administrarAviones(Aerolinea vivaColombia)
             newAvion.setAeropuertoOrigen(getAirport(idAeropuertoOrigen));
             newAvion.setAeropuertoDestino(getAirport(idAeropuertoDestino));
             /* se inserta en avion con los atributos setteados a la flota*/
-            vivaColombia.addAvionToFlota(newAvion);
+            //vivaColombia.addAvionToFlota(newAvion);
+            this->aerolineas[getPositionAeroline(aerolinea_id)].addAvionToFlota(newAvion);
     };
     break;
     case 2:{
@@ -967,14 +1119,14 @@ void Control::administrarAviones(Aerolinea vivaColombia)
             bool noEsta = false;
 
             cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
-            vivaColombia.listAviones();
+            this->aerolineas[getPositionAeroline(aerolinea_id)].listAviones();
             cin>>matricula;
-            for (int i=0;i<vivaColombia.getFlota().size();i++){
-                if(matricula == (vivaColombia.getFlota())[i].getMatricula()){
-                        if(vivaColombia.getFlota()[i].getSillasDisponibles() > 0){
+            for (int i=0;i<this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().size();i++){
+                if(matricula == (this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota())[i].getMatricula()){
+                        if(this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasDisponibles() > 0){
                             cout<<"No se puede eliminar el avion por que tiene tiquetes vendidos"<<endl;
-                        }else if (vivaColombia.getFlota()[i].getSillasDisponibles() > 0){
-                    vivaColombia.getFlota().erase(vivaColombia.getFlota().begin()+i);
+                        }else if (this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasDisponibles() > 0){
+                    this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().erase(this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().begin()+i);
                     cout<<"Se ha eliminado el avion de la flota"<<endl;
                     }
                 }else{
