@@ -124,7 +124,7 @@ int main()
     cout << "10) ver sillas disponibles" << endl;
     cout << "11) Control aviones" << endl;
     cout << "12) Total venta por tiquetes" << endl;
-    cout << "13) Convertir cliente normal en preferencial (falta)" << endl;
+    cout << "13) Convertir cliente normal en preferencial" << endl;
     cout << "14) Cambiar razon social aerolinea (falta)" << endl;
     cout << "0) Salir" << endl;
 
@@ -183,7 +183,7 @@ int main()
       }
       break;
       case 13:{
-        cout << "falta" << endl;
+        control.setClientToPreferencial();
       }
       break;
       case 14:{

@@ -1243,6 +1243,7 @@ void Control::setClientToPreferencial(){
       cout << "Selecciona un cliente" << endl;
       cin >> client_id;
     } while(client_id < 1 || client_id > this->agencias[getPositionAgency(agencia_id)].getClients().size() );
+    this->agencias[getPositionAgency(agencia_id)].getClients()[client_id].setGolden(true);
   }
   else{
     this->aerolineas[getPositionAeroline(agencia_id)].listClients();
@@ -1250,5 +1251,7 @@ void Control::setClientToPreferencial(){
       cout << "Selecciona un cliente" << endl;
       cin >> client_id;
     } while(client_id < 1 || client_id > this->aerolineas[getPositionAeroline(agencia_id)].getClients().size() );
+    this->aerolineas[getPositionAeroline(agencia_id)].getClients()[client_id].setGolden(true);
   }
+  cout << "Cliente ahora es preferencial" << endl;
 }
