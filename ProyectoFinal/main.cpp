@@ -117,7 +117,7 @@ int main()
     cout << "3) Crear aeropuerto" << endl;
     cout << "4) Agregar aerolinea a aeropuerto" << endl;
     cout << "5) Establecer flota de aviones" << endl;
-    cout << "6) vender ticket (fallo con vuelos con escalas)" << endl;
+    cout << "6) vender ticket" << endl;
     cout << "7) ver ruta de aviones" << endl;
     cout << "8) ver clientes de aerolinea o aegencia" << endl;
     cout << "9) ver rutas de clientes (falta)" << endl;
