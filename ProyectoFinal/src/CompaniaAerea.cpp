@@ -113,3 +113,8 @@ bool CompaniaAerea::thisIndexIsOfANormalClient(int index){
   }
   return is;
 }
+
+/*Establece un cliente normal como cliente preferencial*/
+void CompaniaAerea::changeToGolden(int index){
+  this->clientesTotal[index].setGolden(true);
+}

@@ -35,6 +35,7 @@ class CompaniaAerea
         bool thisIndexIsOfANormalClient(int index);
         bool clientExist(int pos);
         vector<int> getTransaciones();
+        void changeToGolden(int index);
 
 
     protected:

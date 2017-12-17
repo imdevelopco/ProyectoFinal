@@ -1237,20 +1237,33 @@ void Control::setClientToPreferencial(){
   } while(compania != "agencia" && compania != "aerolinea");
 
   if(compania == "agencia"){
+    listAgencias();
+    do {
+      cout << "Ingresa el id de la agencia" << endl;
+      cin >> agencia_id;
+    } while( !existAgencia(agencia_id) );
+
     this->agencias[getPositionAgency(agencia_id)].listClientsPreferenciales();
     do {
       cout << "Selecciona un cliente" << endl;
       cin >> client_id;
     } while( !this->agencias[getPositionAgency(agencia_id)].thisIndexIsOfANormalClient( client_id) );
-    this->agencias[getPositionAgency(agencia_id)].getClients()[client_id].setGolden(true);
+    this->agencias[getPositionAgency(agencia_id)].changeToGolden( client_id-1);
   }
   else{
-    this->aerolineas[getPositionAeroline(agencia_id)].listClientsPreferenciales();
+    cout << "Aerolineas" << endl;
+    listAerilineas();
+    do {
+      cout << "ingresa el id de la aerolinea" << endl;
+      cin >> aerolinea_id;
+    } while( !existAerolinea(aerolinea_id) );
+
+    this->aerolineas[getPositionAeroline(aerolinea_id)].listClientsPreferenciales();
     do {
       cout << "Selecciona un cliente" << endl;
       cin >> client_id;
-    } while( !this->aerolineas[getPositionAeroline(agencia_id)].thisIndexIsOfANormalClient( client_id) );
-    this->aerolineas[getPositionAeroline(agencia_id)].getClients()[client_id].setGolden(true);
+    } while( !this->aerolineas[getPositionAeroline(aerolinea_id)].thisIndexIsOfANormalClient( client_id) );
+    this->aerolineas[getPositionAeroline(aerolinea_id)].changeToGolden( client_id-1);
   }
   cout << "Cliente ahora es preferencial" << endl;
 }
