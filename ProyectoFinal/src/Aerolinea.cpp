@@ -220,6 +220,7 @@ string Aerolinea::getOrigenPlain(int pos){
 /*retorna el nombre del aeropuerto de destrino de un avion de la flota*/
 string Aerolinea::getDestinoPlain(int pos){
   string destino = this->flota[pos].getAeropuertoDestino().getNombre();
+  return destino;
 }
 /*muestra en pantalla,la lista de las matriculas de los aviones en la flota*/
 void Aerolinea::listAviones()

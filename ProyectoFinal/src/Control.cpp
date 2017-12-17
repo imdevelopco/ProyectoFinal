@@ -650,7 +650,6 @@ void Control::venderTiket(){
         string vuelo2 = vuelo.substr(pos+1);
         int fly1 = stoi( vuelo1 );
         int fly2 = stoi( vuelo2 );
-
         if( this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly1-1) && this->aerolineas[getPositionAeroline(aerolinea_id)].verifyDisponiilidad(fly2-1)  ){ //verificar que el vuelo tenga sillas disponibles
           if( this->aerolineas[getPositionAeroline(aerolinea_id)].getDestinoPlain(fly1-1) == this->aerolineas[getPositionAeroline(aerolinea_id)].getOrigenPlain(fly2-1) ){
             vuelos.push_back(fly1);
