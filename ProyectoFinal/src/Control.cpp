@@ -1343,3 +1343,38 @@ void Control::showLongFlysByClient(){
 
 
 }
+
+/*Cambia la razon social de una aerolinea*/
+void Control::changeRazonSocial(){
+  string compania, razonSocial;
+  int agencia_id, aerolinea_id;
+
+  cout << "\n :::::::::Cambiar razon social:::::::" << endl;
+  do {
+    cout << "Agencia o aerolinea? (agencia, aerolinea)" << endl;
+    cin >> compania;
+  } while(compania != "agencia" && compania != "aerolinea");
+
+  if(compania == "agencia"){
+    listAgencias();
+    do {
+      cout << "Ingresa el id de la agencia" << endl;
+      cin >> agencia_id;
+    } while( !existAgencia(agencia_id) );
+    cout << "Ingrese en nuevo nombre (razon social)" << endl;
+    cin >> razonSocial;
+    this->agencias[getPositionAgency(agencia_id)].setRazonSocial(razonSocial);
+  }
+  else{
+    cout << "Aerolineas" << endl;
+    listAerilineas();
+    do {
+      cout << "ingresa el id de la aerolinea" << endl;
+      cin >> aerolinea_id;
+    } while( !existAerolinea(aerolinea_id) );
+    cout << "Ingrese en nuevo nombre (razon social)" << endl;
+    cin >> razonSocial;
+    this->aerolineas[getPositionAeroline(aerolinea_id)].setRazonSocial(razonSocial);
+  }
+  cout << "La razon social ha cambiado" << endl;
+}

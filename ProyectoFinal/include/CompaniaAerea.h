@@ -23,6 +23,7 @@ class CompaniaAerea
         void tiketToClient(int tiket_id, int pos_client); //le pone el tiquete a un cliente
         void tiketsToClient(vector<int> tikets, int pos_client); //le agrega un vuyelo largo a el cliente
         void setClientes(vector<Cliente> clients);
+        void setRazonSocial(string razonSocial); //establece la razon social, el nombre
 
         /* Getters*/
         int getId();

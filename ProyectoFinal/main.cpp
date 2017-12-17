@@ -125,7 +125,7 @@ int main()
     cout << "11) Control aviones" << endl;
     cout << "12) Total venta por tiquetes" << endl;
     cout << "13) Convertir cliente normal en preferencial" << endl;
-    cout << "14) Cambiar razon social aerolinea (falta)" << endl;
+    cout << "14) Cambiar razon social aerolinea" << endl;
     cout << "0) Salir" << endl;
 
     do {
@@ -187,7 +187,7 @@ int main()
       }
       break;
       case 14:{
-        cout << "falta" << endl;
+        control.changeRazonSocial();
       }
       break;
     }

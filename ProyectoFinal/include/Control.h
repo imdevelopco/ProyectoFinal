@@ -33,6 +33,7 @@ class Control
         void setAvionesDeAerolinea();
         void venderTiket(); // metodo para vender tiketes
         void setFlota(); //pide información al usuario para establecer la flota de aviones de una aerolinea
+        void changeRazonSocial();
 
 
         /*---------------------------------------*/

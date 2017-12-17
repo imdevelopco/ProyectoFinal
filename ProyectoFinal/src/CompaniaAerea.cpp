@@ -57,6 +57,10 @@ void CompaniaAerea::setClientes(vector<Cliente> clients){
   this->clientesTotal = clients;
 }
 
+void CompaniaAerea::setRazonSocial(string razonSocial){
+  this->razonSocial = razonSocial;
+}
+
 
 /* Getters*/
 int CompaniaAerea::getId(){
