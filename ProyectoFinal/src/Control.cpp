@@ -721,12 +721,28 @@ void Control::venderTiket(){
             if(compania == "agencia"){
               this->agencias[getPositionAgency(agencia_id)].addTransacion(ticket_id);
               //darle el tiquete al cliente
-              this->agencias[getPositionAgency(agencia_id)].tiketToClient(ticket_id, client_id-1);
+              if(haveEscalas == "no"){
+                this->agencias[getPositionAgency(agencia_id)].tiketToClient(ticket_id, client_id-1);
+              }
+              else{ //si tiene escalas
+                if( vuelos.size() == i+1){
+                  this->agencias[getPositionAgency(agencia_id)].tiketsToClient(vuelos, client_id-1);
+                }
+              }
+
             }
             else{
               this->aerolineas[getPositionAeroline(aerolinea_id)].addTransacion(ticket_id);
               //darle el tiquete al cliente
-              this->aerolineas[getPositionAeroline(aerolinea_id)].tiketToClient(ticket_id, client_id-1);
+
+              if(haveEscalas == "no"){
+                this->aerolineas[getPositionAeroline(aerolinea_id)].tiketToClient(ticket_id, client_id-1);
+              }
+              else{ //si tiene escalas
+                if( vuelos.size() == i+1){
+                  this->aerolineas[getPositionAeroline(aerolinea_id)].tiketsToClient(vuelos, client_id-1);
+                }
+              }
             }
 
             this->tiquetes.push_back(tiquet);
@@ -884,7 +900,7 @@ void Control::setFlota(){
   int aerolinea_id, totalPlains;
   vector<Avion> flota;
 
-  cout << "Establecer flota de aviones de una aerolinea" << endl;
+  cout << "\n::::::::::Establecer flota de aviones de una aerolinea::::::::::" << endl;
   cout << "Selecciona la aerolinea" << endl;
   listAerilineas();
   do{
@@ -1266,4 +1282,64 @@ void Control::setClientToPreferencial(){
     this->aerolineas[getPositionAeroline(aerolinea_id)].changeToGolden( client_id-1);
   }
   cout << "Cliente ahora es preferencial" << endl;
+}
+
+/*Muestra los vuelos largos de un cliente*/
+void Control::showLongFlysByClient(){
+  string compania;
+  int client_id, agencia_id, aerolinea_id;
+  Cliente client;
+  vector<vector<int>> longFlys;
+
+  cout << "\n :::::::::Ver viajes largos de un cliente:::::::" << endl;
+  do {
+    cout << "Agencia o aerolinea? (agencia, aerolinea)" << endl;
+    cin >> compania;
+  } while(compania != "agencia" && compania != "aerolinea");
+
+  if(compania == "agencia"){
+    listAgencias();
+    do {
+      cout << "Ingresa el id de la agencia" << endl;
+      cin >> agencia_id;
+    } while( !existAgencia(agencia_id) );
+
+    this->agencias[getPositionAgency(agencia_id)].listClients();
+    do {
+      cout << "Selecciona un cliente" << endl;
+      cin >> client_id;
+    } while( client_id < 1 || client_id > this->agencias[getPositionAgency(agencia_id)].getClients().size() );
+    client = this->agencias[getPositionAgency(agencia_id)].getClients()[client_id-1];
+    longFlys = client.getLongFlys();
+  }
+  else{
+    cout << "Aerolineas" << endl;
+    listAerilineas();
+    do {
+      cout << "ingresa el id de la aerolinea" << endl;
+      cin >> aerolinea_id;
+    } while( !existAerolinea(aerolinea_id) );
+
+    this->aerolineas[getPositionAeroline(aerolinea_id)].listClients();
+    do {
+      cout << "Selecciona un cliente" << endl;
+      cin >> client_id;
+    } while( client_id < 1 || client_id > this->aerolineas[getPositionAeroline(aerolinea_id)].getClients().size()  );
+    client = this->aerolineas[getPositionAeroline(aerolinea_id)].getClients()[client_id-1];
+    longFlys = client.getLongFlys();
+  }
+
+  if(longFlys.size() > 0){
+    for (int i = 0; i < longFlys.size(); i++) {
+        Aeropuerto origen = this->tiquetes[getPositionTicket(longFlys[i][0])].getOrigen();
+        Aeropuerto escala = this->tiquetes[getPositionTicket(longFlys[i][0])].getDestinity();
+        Aeropuerto destino = this->tiquetes[getPositionTicket(longFlys[i][1])].getDestinity();
+        cout << origen.getAbreviatura()+" -> "+escala.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
+    }
+  }
+  else{
+    cout << "El cliente no tiene viajes con escalas" << endl;
+  }
+
+
 }

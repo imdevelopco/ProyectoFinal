@@ -48,6 +48,11 @@ void CompaniaAerea::tiketToClient(int tiket_id, int pos_client){
   this->clientesTotal[pos_client].addTiquete(tiket_id);
 }
 
+/*le agrega un vuelo largo al cliente*/
+void CompaniaAerea::tiketsToClient(vector<int> tikets, int pos_client){
+  this->clientesTotal[pos_client].addLongFly(tikets);
+}
+
 void CompaniaAerea::setClientes(vector<Cliente> clients){
   this->clientesTotal = clients;
 }

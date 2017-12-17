@@ -120,7 +120,7 @@ int main()
     cout << "6) vender ticket" << endl;
     cout << "7) ver ruta de aviones" << endl;
     cout << "8) ver clientes de aerolinea o aegencia" << endl;
-    cout << "9) ver rutas de clientes (falta)" << endl;
+    cout << "9) ver rutas de clientes" << endl;
     cout << "10) ver sillas disponibles" << endl;
     cout << "11) Control aviones" << endl;
     cout << "12) Total venta por tiquetes" << endl;
@@ -167,7 +167,7 @@ int main()
       }
       break;
       case 9:{
-        cout << "falta" << endl;
+        control.showLongFlysByClient();
       }
       break;
       case 10:{

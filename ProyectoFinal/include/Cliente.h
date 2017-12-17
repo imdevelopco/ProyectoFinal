@@ -26,6 +26,7 @@ class Cliente:public Persona
         void setBirthday(tm nacimiento);
         void addTiquete(int id);
         void setGolden(bool gold);
+        void addLongFly(vector<int> vuelo);
 
         /* Getters */
 
@@ -37,6 +38,7 @@ class Cliente:public Persona
         Telefono getPhone();
         tm getBirthday();
         bool getGolden();
+        vector<vector<int>> getLongFlys();
 
 
 
@@ -49,6 +51,7 @@ class Cliente:public Persona
       Telefono numero;
       tm fechaNacimiento;
       vector<int> tiquetes;
+      vector<vector<int>> viajesLargos;
       bool golden;
 
 };

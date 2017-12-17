@@ -131,6 +131,12 @@ void Cliente::addTiquete(int id){
 void Cliente::setGolden(bool gold){
   this->golden = gold;
 }
+
+/*Agrega un vuelo largo*/
+void Cliente::addLongFly(vector<int> vuelo){
+  this->viajesLargos.push_back(vuelo);
+}
+
 ////////////////////////////
 //  ┌─┐┌─┐┌┬┐┌┬┐┌─┐┬─┐┌─┐ //
 //  │ ┬├┤  │  │ ├┤ ├┬┘└─┐ //
@@ -212,4 +218,8 @@ tm Cliente::getBirthday()
 /**/
 bool Cliente::getGolden(){
   return this->golden;
+}
+
+vector<vector<int>> Cliente::getLongFlys(){
+  return this->viajesLargos;
 }
