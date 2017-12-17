@@ -121,7 +121,7 @@ int main()
     cout << "7) ver ruta de aviones" << endl;
     cout << "8) ver clientes de aerolinea o aegencia" << endl;
     cout << "9) ver rutas de clientes (falta)" << endl;
-    cout << "10) ver sillas disponibles (esta fallando)" << endl;
+    cout << "10) ver sillas disponibles" << endl;
     cout << "11) Control aviones" << endl;
     cout << "12) Total venta por tiquetes" << endl;
     cout << "13) Convertir cliente normal en preferencial" << endl;

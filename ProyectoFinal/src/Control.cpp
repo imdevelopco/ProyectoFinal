@@ -966,7 +966,7 @@ int Control::listaDeVuelosDisponibles(int aerolinea_id){
       cin >> city_id;
     } while(city_id < 0 || city_id > cyties.size() );
 
-    aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
+    totalDisponibles = aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
 
   }
   return totalDisponibles;
@@ -1007,7 +1007,7 @@ int Control::listaDeVuelosDisponibles(){
       cin >> city_id;
     } while(city_id < 0 || city_id > cyties.size() );
 
-    aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
+    totalDisponibles = aerolinea.showVuelosDisponibles(cyties[city_id-1]); //con este metodo muestra todos los asientos disponibles, no importa el tipo de cliente que sea
 
   }
   return totalDisponibles;

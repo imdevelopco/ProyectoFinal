@@ -102,26 +102,28 @@ vector<string> Aerolinea::getCytiesOrigenFl(){
 
 /*Muestra en pantalla los vuelos disponibles, verifica si el vuelo tiene sillas
   disponibles, si es asi lo muestra
-  showVuelosDisponibles(cyti) -> void    Salia en pantalla
+  showVuelosDisponibles(cyti) -> int    total vuelos disponibles
   cyti                        == string nombre del aeropuerto
 */
-void Aerolinea::showVuelosDisponibles(string cyti){
-
+int Aerolinea::showVuelosDisponibles(string cyti){
+  int TotalDispo = 0;
   for(int i = 0; i < this->flota.size(); ++i){
     Aeropuerto origen  = this->flota[i].getAeropuertoOrigen();
     if( this->flota[i].getSillasDisponibles() > 0 && origen.getNombre() == cyti){ //si hay sillas disponibles, se muestra el vuelo
       Aeropuerto destino = this->flota[i].getAeropuertoDestino();
       cout << to_string(i+1)+")   "+origen.getAbreviatura()+" -> "+destino.getAbreviatura() << endl;
+      TotalDispo++;
       for(int j = 0; j < this->flota.size(); ++j){
         Aeropuerto origen2  = this->flota[j].getAeropuertoOrigen();
         Aeropuerto destino2 = this->flota[j].getAeropuertoDestino();
         if( this->flota[j].getSillasDisponibles() > 0 && (origen2.getNombre() == destino.getNombre() && destino2.getNombre() != origen.getNombre() ) ){
           cout << to_string(i+1)+"."+to_string(j+1)+") "+origen.getAbreviatura()+" -> "+destino.getAbreviatura()+" -> "+destino2.getAbreviatura() << endl;
+          TotalDispo++;
         }
       }
     }
   }
-
+  return TotalDispo;
 }
 
 /*Muestra en pantalla los vuelos disponibles, verifica si el vuelo tiene sillas

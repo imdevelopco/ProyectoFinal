@@ -30,7 +30,7 @@ class Aerolinea : public CompaniaAerea
         vector<Avion> getFlota();
         void administrarAviones();
         vector<string> getCytiesOrigenFl();
-        void showVuelosDisponibles(string cyti);
+        int showVuelosDisponibles(string cyti);
         int showVuelosDisponibles(string cyti, bool golden);
         bool verifyDisponiilidad(int pos);
         void imprimirTicket(int id_avion, string num_silla, int precio);
