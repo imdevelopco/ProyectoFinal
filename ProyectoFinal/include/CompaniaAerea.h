@@ -31,8 +31,10 @@ class CompaniaAerea
         string getPaginaWeb();
         vector<Cliente> getClients();
         void listClients(); //lsita los clientes;
+        void listClientsPreferenciales();
+        bool thisIndexIsOfANormalClient(int index);
         bool clientExist(int pos);
-        vector<int> getTransaciones(); 
+        vector<int> getTransaciones();
 
 
     protected:

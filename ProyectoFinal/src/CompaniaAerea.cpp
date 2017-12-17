@@ -93,3 +93,23 @@ void CompaniaAerea::listClients(){
 vector<int> CompaniaAerea::getTransaciones(){
   return this->transaciones;
 }
+
+/*Muestra en pantalla los clientes preferenciales*/
+void CompaniaAerea::listClientsPreferenciales(){
+  for (int i = 0; i < this->clientesTotal.size() ; i++) {
+    if( !this->clientesTotal[i].getGolden() ){
+      cout << to_string(i+1)+") "+this->clientesTotal[i].getName()+" "+this->clientesTotal[i].getLastName() << endl;
+    }
+  }
+}
+
+/*Retorna true si el indice que se pase por parametro pertenece a un cliente normal*/
+bool CompaniaAerea::thisIndexIsOfANormalClient(int index){
+  int is = false;
+  for (int i = 0; i < this->clientesTotal.size(); i++) {
+    if( !this->clientesTotal[i].getGolden() && (i+1) == index ){
+      is = true;
+    }
+  }
+  return is;
+}
