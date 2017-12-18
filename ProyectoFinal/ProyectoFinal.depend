@@ -184,17 +184,17 @@
 1513183166 source:c:\users\david\github\proyectofinal\proyectofinal\src\tiquete.cpp
 	"Tiquete.h"
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aeropuerto.cpp
 	"Aeropuerto.h"
 
-1512961993 c:\users\robot\github\proyectofinal\proyectofinal\include\aeropuerto.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\aeropuerto.h
 	<iostream>
 	<vector>
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\agenciadeviaje.cpp
 	"AgenciaDeViaje.h"
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\agenciadeviaje.h
 	<vector>
 	<iostream>
 	"Representante.h"
@@ -203,72 +203,72 @@
 	"Cliente.h"
 	"Aerolinea.h"
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\representante.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\representante.h
 	<iostream>
 	<ctime>
 	"Persona.h"
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\persona.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\persona.h
 	<iostream>
 	<ctime>
 	"Telefono.h"
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\telefono.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\telefono.h
 	<iostream>
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\companiaaerea.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\companiaaerea.h
 	<iostream>
 	<vector>
 	"Telefono.h"
 	"Representante.h"
 	"Cliente.h"
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\cliente.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\cliente.h
 	"Persona.h"
 	<iostream>
+	<vector>
 
-1512970814 c:\users\robot\github\proyectofinal\proyectofinal\include\aerolinea.h
+1513575389 c:\users\robot\github\proyectofinal\proyectofinal\include\aerolinea.h
 	<iostream>
 	<vector>
 	<CompaniaAerea.h>
 	"Avion.h"
 
-1513026117 c:\users\robot\github\proyectofinal\proyectofinal\include\avion.h
+1513572771 c:\users\robot\github\proyectofinal\proyectofinal\include\avion.h
 	<iostream>
 	<vector>
 	"Silla.h"
 	"Aeropuerto.h"
 
-1512961994 c:\users\robot\github\proyectofinal\proyectofinal\include\silla.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\silla.h
 	<iostream>
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\cliente.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\cliente.cpp
 	"Cliente.h"
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\companiaaerea.cpp
 	"CompaniaAerea.h"
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\persona.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\persona.cpp
 	"Persona.h"
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\representante.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\representante.cpp
 	"Representante.h"
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\telefono.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\telefono.cpp
 	"Telefono.h"
 
-1512942547 source:c:\users\robot\github\proyectofinal\proyectofinal\src\tiquete.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\tiquete.cpp
 	"Tiquete.h"
 
-1512942547 c:\users\robot\github\proyectofinal\proyectofinal\include\tiquete.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\tiquete.h
 	<iostream>
 	"Aeropuerto.h"
 	"Aerolinea.h"
 	"Avion.h"
-	"Silla.h"
 	"Cliente.h"
 
-1512970938 source:c:\users\robot\github\proyectofinal\proyectofinal\main.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\main.cpp
 	<iostream>
 	"Cliente.h"
 	"Persona.h"
@@ -282,10 +282,12 @@
 	"Telefono.h"
 	"Tiquete.h"
 	"Control.h"
+	"Persona.h"
 
-1512961994 c:\users\robot\github\proyectofinal\proyectofinal\include\control.h
+1513569385 c:\users\robot\github\proyectofinal\proyectofinal\include\control.h
 	<iostream>
 	<string>
+	<cstring>
 	<vector>
 	"Aerolinea.h"
 	"Aeropuerto.h"
@@ -297,18 +299,19 @@
 	"Telefono.h"
 	"Tiquete.h"
 
-1513032439 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aerolinea.cpp
+1513575348 source:c:\users\robot\github\proyectofinal\proyectofinal\src\aerolinea.cpp
 	"Aerolinea.h"
+	<vector>
 
-1513032283 source:c:\users\robot\github\proyectofinal\proyectofinal\src\avion.cpp
+1513572810 source:c:\users\robot\github\proyectofinal\proyectofinal\src\avion.cpp
 	"Avion.h"
 
-1512961994 source:c:\users\robot\github\proyectofinal\proyectofinal\src\control.cpp
+1513574789 source:c:\users\robot\github\proyectofinal\proyectofinal\src\control.cpp
 	"Control.h"
 	<iostream>
 	<string>
 
-1512942834 source:c:\users\robot\github\proyectofinal\proyectofinal\src\silla.cpp
+1513569385 source:c:\users\robot\github\proyectofinal\proyectofinal\src\silla.cpp
 	"Silla.h"
 
 1513187638 c:\users\david\github\proyectofinal\proyectofinal\include\control.h

@@ -12,9 +12,8 @@ Aerolinea::Aerolinea(int id, string nit, string razonSocial, string direccion, s
 
 Aerolinea::~Aerolinea()
 {
-    //dtor
-}
 
+}
 /* +───────────────────────────────────────────────────────────────────────+ */
 /*       /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$   /$$$$$$         */
 /*		 /$$__  $$| $$_____/|__  $$__/| $$_____/| $$__  $$ /$$__  $$         */
@@ -72,6 +71,11 @@ vector<Avion> Aerolinea::getFlota(){
 void Aerolinea::addAvionToFlota(Avion avioneta)
 {
     flota.push_back(avioneta);
+    cout<<"Se ha insertado el avion a la flota!!"<<endl;
+}
+void Aerolinea::addAvionToFlota(Avion *avioneta)
+{
+    flota.push_back(*avioneta);
     cout<<"Se ha insertado el avion a la flota!!"<<endl;
 }
 /*retorna los aeropuertos de origen de una flota de aviones*/
@@ -230,6 +234,11 @@ void Aerolinea::listAviones()
     cout<<"Aviones de la flota:"<<endl;
     for (int i= 0;i<flota.size();i++)
     {
-        cout<<"Avion # "<<to_string(i+1)<<" "<<flota[i].getMatricula()<<endl;
+        cout<<"Avion # "<<i+1<<" "<<flota[i].getMatricula()<<endl;
     }
+}
+
+int Aerolinea::getCantidadAvionesFlota()
+{
+    return flota.size();
 }

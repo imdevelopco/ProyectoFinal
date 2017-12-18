@@ -36,9 +36,13 @@ class Aerolinea : public CompaniaAerea
         void imprimirTicket(int id_avion, string num_silla, int precio);
         string getOrigenPlain(int pos); //retorna el nombre del aeropuerto de origen, del avion que se encuentre en la posicion que s epase por parametro
         string getDestinoPlain(int pos);
+        //Devuelve la el tamano de la flota
+        int getCantidadAvionesFlota();
 
         //falta comentar
-        void addAvionToFlota(Avion avion);
+        void addAvionToFlota(Avion avioneta);
+        void addAvionToFlota(Avion *avioneta);
+
         void listAviones();
     protected:
 

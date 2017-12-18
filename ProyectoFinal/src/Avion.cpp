@@ -395,3 +395,8 @@ string Avion::ocuparSilla(string tipo){
 int Avion::getPrecioNormal(){
   return this->precioSillaNormal;
 }
+// total de sillas del avion
+int Avion::getSillasTotal()
+{
+    return preferencial.size()+normal.size()+bajoCosto.size();
+}

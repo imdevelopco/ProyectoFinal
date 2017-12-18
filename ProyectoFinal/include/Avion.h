@@ -35,6 +35,8 @@ class Avion
         //establece un silla como vendida (ocupada)
         string ocuparSilla(string tipo);
 
+
+
         /*---------------------------------------*/
         /*                GETERS                 */
         /*---------------------------------------*/
@@ -58,6 +60,8 @@ class Avion
         void getSillasDisponiblesPorCategoria(bool clientGolden);
         //retorna el total de sillas disponiblrs de un tipo en particular
         int getTotalBy(string tipoSilla);
+        // total de sillas del avion
+        int getSillasTotal();
 
 
     protected:

@@ -17,6 +17,7 @@ Control::Control(vector<Aeropuerto> aeropuertos, vector<AgenciaDeViaje> agencias
 
 Control::~Control()
 {
+
     //dtor
 }
 
@@ -1031,7 +1032,6 @@ int Control::listaDeVuelosDisponibles(){
 
 
 
-/**/
 void Control::crearClientes()
 {
     int cantCli, aerolinea_id, agencia_id;
@@ -1071,11 +1071,12 @@ void Control::crearClientes()
           this->aerolineas[getPositionAeroline(aerolinea_id)].addClient(*client);
         }
     }
+
 }
 
 
 /*
-Entrada: instancia de la clase Aerolinea
+Entrada: void
 Salida: void
 Funcion: Dependiendo de la decision que tome el usuario este metodo
 podra crear un objeto tipo Avion y settearle los parametros del constructor
@@ -1135,37 +1136,42 @@ void Control::administrarAviones()
             newAvion.setAeropuertoDestino(getAirport(idAeropuertoDestino));
             /* se inserta en avion con los atributos setteados a la flota*/
             //vivaColombia.addAvionToFlota(newAvion);
-            this->aerolineas[getPositionAeroline(aerolinea_id)].addAvionToFlota(newAvion);
+            this->aerolineas[getPositionAeroline(aerolinea_id)].addAvionToFlota(&newAvion);
     };
     break;
-    case 2:{
+       case 2:{
             string matricula;
             bool noEsta = false;
 
-            cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
-            this->aerolineas[getPositionAeroline(aerolinea_id)].listAviones();
-            cin>>matricula;
-            for (int i=0;i<this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().size();i++){
-                if(matricula == (this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota())[i].getMatricula()){
-                        if(this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasDisponibles() > 0){
+            if (aerolineas[getPositionAeroline(aerolinea_id)].getCantidadAvionesFlota() < 1){
+                cout<<"No hay aviones para eliminar"<<endl;
+            }else{
+                cout<<"Digita la matricula del avion que quieres eliminar"<<endl;
+                this->aerolineas[getPositionAeroline(aerolinea_id)].listAviones();
+                cin>>matricula;
+                for (int i=0;i<this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().size();i++){
+                    if(matricula == (this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota())[i].getMatricula()){
+                        if(this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasDisponibles() == 0){
                             cout<<"No se puede eliminar el avion por que tiene tiquetes vendidos"<<endl;
-                        }else if (this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasDisponibles() > 0){
-                    this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().erase(this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota().begin()+i);
-                    cout<<"Se ha eliminado el avion de la flota"<<endl;
+                        }else if (this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasDisponibles() == this->aerolineas[getPositionAeroline(aerolinea_id)].getFlota()[i].getSillasTotal()){
+                            (aerolineas[getPositionAeroline(aerolinea_id)]).getFlota().erase(aerolineas[getPositionAeroline(aerolinea_id)].getFlota().begin()+i);
+
+                            cout<<"Se ha eliminado el avion de la flota"<<endl;
+                        }
+                    }else{
+                        noEsta=true;
                     }
-                }else{
-                    noEsta=true;
                 }
             }
-            if(noEsta == true){
-                cout<<"No se ha encontrado el avion en la flota"<<endl;
-            }
+        if(noEsta == true){
+            cout<<"No se ha encontrado el avion en la flota"<<endl;
+        }
+
         };
     break;
 
     }
 }
-
 /*Muestra el total de clientes de una aeroilinea o agencia*/
 void Control::clientsOfCompania() {
   string compania;
