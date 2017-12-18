@@ -119,7 +119,7 @@ int main()
     cout << "5) Establecer flota de aviones" << endl;
     cout << "6) vender ticket" << endl;
     cout << "7) ver ruta de aviones" << endl;
-    cout << "8) ver clientes de aerolinea o aegencia" << endl;
+    cout << "8) ver clientes de aerolinea o agencia" << endl;
     cout << "9) ver rutas de clientes" << endl;
     cout << "10) ver sillas disponibles" << endl;
     cout << "11) Control aviones" << endl;

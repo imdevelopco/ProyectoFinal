@@ -236,9 +236,41 @@ void Aerolinea::listAviones()
     {
         cout<<"Avion # "<<i+1<<" "<<flota[i].getMatricula()<<endl;
     }
-}
 
+}
+/*
+Entrada: void
+Salida: numero entero
+Funcion: Devuelve la cantidad de aviones de la flota
+Autor: Carlos Andres Cordoba Ramos
+*/
 int Aerolinea::getCantidadAvionesFlota()
 {
     return flota.size();
+}
+/*
+Entrada: void
+Salida: void
+Funcion: elimina determinado avion de la flota
+Autor: Carlos Andres Cordoba Ramos
+*/
+string Aerolinea::eliminarAvion(string placa)
+{
+    bool existe = false;
+    for (int i=0;i<flota.size();i++){
+        if(placa == flota[i].getMatricula()){
+                if(flota[i].getSillasDisponibles() == 0){
+                        return "No se puede eliminar el avion por que tiene tiquetes vendidos";
+                }else if (flota[i].getSillasDisponibles() == flota[i].getSillasTotal()){
+                        flota.erase(flota.begin()+i);
+                    return "Se ha eliminado el avion de la flota";
+                }
+
+        }else{
+                existe=true;
+        }
+    }
+    if(existe){
+        return "el avion no existe en la flota";
+    }
 }

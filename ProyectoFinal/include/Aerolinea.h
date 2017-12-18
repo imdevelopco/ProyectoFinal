@@ -28,7 +28,7 @@ class Aerolinea : public CompaniaAerea
         string getMatricula();
         int getTotal();
         vector<Avion> getFlota();
-        void administrarAviones();
+        string eliminarAvion(string placa);
         vector<string> getCytiesOrigenFl();
         int showVuelosDisponibles(string cyti);
         int showVuelosDisponibles(string cyti, bool golden);
